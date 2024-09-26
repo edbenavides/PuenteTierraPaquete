@@ -1,0 +1,31 @@
+<h1>Detalle de la Reserva</h1>
+
+<p>Cliente: {{ reserva.cliente.nombres }} {{ reserva.cliente.apellidos }}</p>
+<p>Cédula: {{ reserva.cliente.cedula }}</p>
+<p>Email: {{ reserva.cliente.email }}</p>
+<p>fecha Inicio: {{ reserva.fecha_reserva.fechaInicio }}</p>
+<p>fecha Final: {{ reserva.fecha_reserva.fechaFinal }}</p>
+<p>Teléfono: {{ reserva.cliente.telefono }}</p>
+<p>Paquete: {{ reserva.paquete.nombre }}</p>
+<p>Descripción: {{ reserva.paquete.descripcion }}</p>
+<p>Incluye: {{ reserva.paquete.incluye }}</p>
+<p>No Incluye: {{ reserva.paquete.no_incluye }}</p>
+<p>Fecha de reserva: {{ reserva.fechaReserva|date:"d F Y " }} hora:{{ reserva.horaReserva|time:"H:i:s" }}</p>
+
+
+
+
+<h1>Detalles de tu Reserva</h1>
+<p><strong>Paquete Seleccionado:</strong> {{ paquete.nombre }}</p>
+<p><strong>Descripción:</strong> {{ paquete.descripcion }}</p>
+<p><strong>Fecha de Inicio:</strong> {{ fecha_reserva.fechaInicio }}</p>
+<p><strong>Fecha Final:</strong> {{ fecha_reserva.fechaFinal }}</p>
+
+<h2>Información del Cliente</h2>
+<p><strong>Nombre:</strong> {{ cliente.first_name }} {{ cliente.last_name }}</p>
+<p><strong>Email:</strong> {{ cliente.email }}</p>
+<p><strong>Telefono:</strong> {{ cliente.cliente.telefono }}</p>
+<p>Fecha de reserva: {{ reserva.fechaReserva|date:"d F Y " }} hora:{{ reserva.horaReserva|time:"H:i:s" }}</p>
+
+
+

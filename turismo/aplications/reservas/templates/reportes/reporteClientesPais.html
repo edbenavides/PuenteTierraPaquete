@@ -1,0 +1,33 @@
+{% extends 'Panel/panelPadre.html' %}
+{% block reporteClientePais %}
+ <!-- page content -->
+ <div class="right_col" role="main">
+<h2>Reporte de Clientes por País</h2>
+
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    </div>
+    <div class="col-sm-12 col-md- col-lg-8 col-xl-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Mes </th>
+                    <th>Pais</th>
+                    <th>Cantidad</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    {% for cliente in clientes_por_mes %} 
+
+                    <td>{{ cliente.mes|date:"F Y" }}</td><!-- Formato del mes -->
+                    <td>{{ cliente.nacionalidad}}</td> <!-- Nombre completo del país -->
+                    <td>{{ cliente.total_clientes }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<br>
+{% endblock %}

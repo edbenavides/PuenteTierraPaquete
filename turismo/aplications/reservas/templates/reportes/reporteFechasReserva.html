@@ -1,0 +1,50 @@
+<!-- templates/reporte_reservas.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Reservas</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reporte de Reservas</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Fecha de Reserva</th>
+                <th>Fecha Inicio</th>
+                <th>Fecha Final</th>
+                <th>Nombre Paquete</th>
+                <th>Cantidad Personas por Paquete</th>
+                <th>Total Personas por Día</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fecha, datos in datos_por_fecha %}
+                <tr>
+                    <td>{{ datos.fecha_reserva }}</td>
+                    <td>{{ datos.fecha_inicio }}</td>
+                    <td>{{ datos.fecha_final }}</td>
+                    <td>{{ datos.paquete }}</td>
+                    <td>{{ datos.cantidad_personas }}</td>
+                    <td>{{ datos.cantidad_personas }}</td> <!-- Aquí puedes ajustar si deseas mostrar algo diferente -->
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

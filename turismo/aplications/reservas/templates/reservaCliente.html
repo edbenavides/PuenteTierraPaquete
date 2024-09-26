@@ -1,0 +1,15 @@
+{% extends 'Panel/PanelCliente.html' %}
+
+{% block content %}
+    <h1>Paquete Seleccionado</h1>
+    <p>{{ paquete.nombre }}</p>
+    <p>{{ paquete.descripcion }}</p>
+    <img src="{{ paquete.imagen.url }}" alt="{{ paquete.nombre }}">
+
+    <h2>Reservar</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Reservar</button>
+    </form>
+{% endblock %}

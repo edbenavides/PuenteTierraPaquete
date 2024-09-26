@@ -1,0 +1,12 @@
+<h2>Si ya te has registrado anteriormente, por favor ingresa tu correo electrónico y contraseña en el formulario para terminar la reserva</h2>
+<form method="post">
+  
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Iniciar Sesión</button>
+</form>
+<p>¿No tienes una cuenta? <a href="{% url 'registrar_cliente' paquete.id fecha_reserva.id %}">Registrarse aquí</a></p>
+
+
+
+

@@ -1,0 +1,17 @@
+
+{% extends 'Panel/panelPadre.html' %}
+{% block nuevo %}
+
+<div class="right_col" role="main">
+    <div align='center'>
+        <h1 style="color: hsl(203, 83%, 38%)"> INGRESAR DATOS DE PAQUETE </h1>
+        </div>
+    
+    <form class="formulario-colorido" form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-primary">agregar datos</button>
+    </div>
+        {% endblock %}
+        
+        

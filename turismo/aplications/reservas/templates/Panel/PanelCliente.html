@@ -1,0 +1,37 @@
+{% load static %}
+
+{% block content %}
+    <h1>Panel de Reservas</h1>
+
+    <!-- Mostrar el nombre del cliente una vez, fuera del bucle -->
+    <h2>Bienvenido, {{ reservas.0.cliente.nombre }} {{ reservas.0.cliente.apellidos }}</h2>
+
+    <ul>
+        {% for reserva in reservas %}
+            <!-- Separar cada reserva visualmente -->
+            <div class="reserva">
+                <h3>Reserva #{{ forloop.counter }}</h3> <!-- Para numerar las reservas -->
+
+                <p><strong>Paquete:</strong> {{ reserva.paquete.nombre }}</p>
+                <p><strong>Descripción:</strong> {{ reserva.paquete.descripcion }}</p>
+                <p><strong>Incluye:</strong> {{ reserva.paquete.incluye }}</p>
+                <p><strong>No Incluye:</strong> {{ reserva.paquete.no_incluye }}</p>
+                <p><strong>Fecha de Reserva:</strong> {{ reserva.fecha_reserva.fechaInicio }} al {{ reserva.fecha_reserva.fechaFinal }}</p>
+
+                <p><strong>Email del Cliente:</strong> {{ reserva.cliente.email }}</p>
+                <p><strong>Teléfono del Cliente:</strong> {{ reserva.cliente.telefono }}</p>
+                <p><strong>Fecha de creación de la reserva:</strong> {{ reserva.fechaReserva|date:"d F Y " }} hora: {{ reserva.horaReserva|time:"H:i:s" }}</p>
+                
+                <!-- Separar cada reserva visualmente -->
+                <hr>
+            </div>
+        {% endfor %}
+    </ul>
+
+    <h1>Detalle de la Reserva</h1>
+
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Cerrar Sesión</button>
+    </form>
+{% endblock %}

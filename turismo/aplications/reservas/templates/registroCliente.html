@@ -1,0 +1,14 @@
+<h1>hola bienvenidos</h1>
+<!-- {% load static %} -->
+<onload="resetForm()" <div align='center'>
+    <h1 style="color: hsl(203, 83%, 38%)"> REGISTRO USURARIO </h1>
+    </div>
+
+    <form class="formulario-colorido" id="formulario" form method="post" enctype="multipart/form-data" autocomplete="off">
+        <h1>Usted ha seleccionado el Paquete: {{ paquete.nombre }}</h1>
+        <h2>Fecha de Reserva: Desde {{ fecha_reserva.fechaInicio }} hasta {{ fecha_reserva.fechaFinal }}</h2>
+
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-primary">Completar Reserva</button>
+    </form>

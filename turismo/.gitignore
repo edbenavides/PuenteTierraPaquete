@@ -1,0 +1,19 @@
+# Ignorar archivos de caché de Python
+__pycache__/
+*.pyc
+
+# Ignorar la base de datos SQLite
+db.sqlite3
+
+# Ignorar archivos de configuración de IDEs como PyCharm
+.idea/
+
+# Ignorar archivos de entorno virtual
+env/
+venv/
+
+# Ignorar archivos de logs
+*.log
+
+# Ignorar archivos temporales
+*.bak

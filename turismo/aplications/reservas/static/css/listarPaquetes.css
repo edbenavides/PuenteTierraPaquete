@@ -1,0 +1,21 @@
+/* Personalización para el botón RESERVAR */
+.btn-primary {
+    background-color: hsl(203, 83%, 38%);
+    border-color: hsl(203, 83%, 38%);
+}
+
+.btn-primary:hover {
+    background-color: hsl(203, 83%, 45%);
+    border-color: hsl(203, 83%, 45%);
+}
+
+/* Asegurar que las imágenes del carrusel tengan el mismo tamaño */
+.carousel-item img {
+    height: 300px;
+    object-fit: cover;
+}
+
+/* Card box shadow for a better look */
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

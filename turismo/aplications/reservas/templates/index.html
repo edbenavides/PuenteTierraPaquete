@@ -1,0 +1,14 @@
+{% extends 'Panel/panelPadre.html' %}
+
+{% block index %}
+    <!-- Contenido específico del index -->
+    <div class="right_col" role="main">
+        <h1>Bienvenidos</h1>
+        {% if user.is_authenticated %}
+            <p>Bienvenido, {{ user.username }}!</p>
+            <!-- Agrega aquí más contenido específico para usuarios autenticados -->
+        {% else %}
+            <p>Por favor inicia sesión para acceder al contenido.</p>
+        {% endif %}
+    </div>
+{% endblock %}
