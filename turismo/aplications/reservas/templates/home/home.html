@@ -1,0 +1,519 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="en">
+<head>
+    <title>Inicio</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport"
+    content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fonts.css' %}">
+ 
+</head>
+   
+   
+  <body>  
+    <nav class="navbar">
+    
+      <div class="container-fluid px-0">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">Puente Tierra</a>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav w-100 d-flex justify-content-between">
+                <section id ="Inicio">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                </section>
+                
+                <section id ="Turismo purace"
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#myButton">Turismo purace</a>
+                </li>
+                </section>
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="#Reserva">Reserva</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#box-icon-classic-title">Restaurante</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Nosotros</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">PQRS</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </nav>
+
+    <!--      
+      <iframe src="./rd-navbar.html" frameborder="0"></iframe>
+  -->
+  <div class="preloader">
+        <div class="preloader-body">
+        <div class="cssload-container">
+          <div class="cssload-speeding-wheel"></div>
+        </div>
+        <p>Loading...</p>
+      </div>
+    </div>
+    <div class="page">
+     <!-- Swiper-->
+      <section class="section swiper-container swiper-slider swiper-slider-corporate swiper-pagination-style-2" data-loop="true" data-autoplay="5000" data-simulate-touch="true" data-nav="false" data-direction="vertical">
+        <div class="swiper-wrapper text-left">
+          <div class="swiper-slide context-dark" data-slide-bg="{%static 'img/slider-4-slide-1-1920x678.jpg' %}">
+            <div class="swiper-slide-caption section-md">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-10">
+                    <h6 class="text-uppercase" data-caption-animate="fadeInRight" data-caption-delay="0">Disfruta de un buen lugar para descanzar</h6>
+                    <h2 class="oh font-weight-light" data-caption-animate="slideInUp" data-caption-delay="100"><span>Explora</span><span class="font-weight-bold"> Puente Tierra</span></h2><a class="button button-default-outline button-ujarak" href="#" data-caption-animate="fadeInLeft" data-caption-delay="0">Contactanos</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide context-dark" data-slide-bg="{%static 'img/slider-4-slide-2-1920x678.jpg' %}">
+            <div class="swiper-slide-caption section-md">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-10">
+                    <h6 class="text-uppercase" data-caption-animate="fadeInRight" data-caption-delay="0">Ofrecemos servicio de cabañas</h6>
+                    <h2 class="oh font-weight-light" data-caption-animate="slideInUp" data-caption-delay="100"><span>Confianza</span><span class="font-weight-bold"> en nuestros servicios</span></h2><a class="button button-default-outline button-ujarak" href="#" data-caption-animate="fadeInLeft" data-caption-delay="0">Contactanos</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide context-dark" data-slide-bg="{%static 'img/slider-4-slide-3-1920x678.jpg' %}" width="220" height="378" >
+            <div class="swiper-slide-caption section-md">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-10">
+                    <h6 class="text-uppercase" data-caption-animate="fadeInRight" data-caption-delay="0">Si quieres un sitio tranquilo  </h6>
+                    <h2 class="oh font-weight-light" data-caption-animate="slideInUp" data-caption-delay="100"><span>Ven</span><span class="font-weight-bold"> a Puente Tierra</span></h2><a class="button button-default-outline button-ujarak" href="#" data-caption-animate="fadeInLeft" data-caption-delay="0">Contactanos</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Swiper Pagination-->
+        <div class="swiper-pagination"></div>
+      </section>
+      <!-- Section Box Categories-->
+      <section class="section section-lg section-top-1 bg-gray-4">
+        <div class="container offset-negative-1">
+          <div class="box-categories cta-box-wrap">
+            <div class="box-categories-content">
+              <div class="row justify-content-center">
+                <div class="col-md-4 wow fadeInDown col-9" data-wow-delay=".2s">
+                  <ul class="list-marked-2 box-categories-list"><br><br>
+                    <li><a href="{% static 'img/cta-1-368x420.jpg' %}"><img src="{% static 'img/cta-1-368x420.jpg' %}" alt="" width="368" height="420"/></a>
+                      <h5 class="box-categories-title">Cabaña principal</h5>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-4 wow fadeInDown col-9" data-wow-delay=".2s">
+                  <ul class="list-marked-2 box-categories-list"><br><br>
+                    <li><a href="{% static 'img/cta-2-368x420.jpg' %}"><img src="{% static 'img/cta-2-368x420.jpg' %}" alt="" width="368" height="420"/></a>
+                      <h5 class="box-categories-title">Cabañas</h5>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-4 wow fadeInDown col-9" data-wow-delay=".2s">
+                  <ul class="list-marked-2 box-categories-list"> <br><br>
+                    <li><a href="{% static 'img/cta-3-368x420.jpg' %}"><img src="{% static 'img/cta-3-368x420.jpg' %}" alt="" width="368" height="420"/></a>
+                      <h5 class="box-categories-title">Zona de camping</h5>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div><a class="link-classic wow fadeInUp" href="#">Otros servicios<span></span></a>
+          <!-- Owl Carousel-->
+        </div>
+      </section>
+      <!-- Discover New Horizons-->
+      <section class="section section-sm section-first bg-default text-md-left">
+        <div class="container">
+          <div class="row row-50 align-items-center justify-content-center justify-content-xl-between">
+            <div class="col-lg-6 text-center wow fadeInUp"><img src="{% static 'img/index-3-556x382.jpg' %}" alt="" width="570" height="382"/>
+            </div>
+            <div class="col-lg-6 wow fadeInRight" data-wow-delay=".1s">
+              <div class="box-width-lg-470">
+                <h3>Descubre nuevos lugares para recorrer</h3>
+                <!-- Bootstrap tabs-->
+                <div class="tabs-custom tabs-horizontal tabs-line tabs-line-big tabs-line-style-2 text-center text-md-left" id="tabs-7">
+                  <!-- Nav tabs-->
+                  <ul class="nav nav-tabs">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#tabs-7-1" data-toggle="tab">Conocenos</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-7-2" data-toggle="tab">Visitanos </a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-7-3" data-toggle="tab">Nuestra mision</a></li>
+                  </ul>
+                  <!-- Tab panes-->
+                  <div class="tab-content">
+                    <div class="tab-pane fade show active" id="tabs-7-1">
+                      <p>Puente Tierra se compromete a ofrecer a nuestros clientes el mejor pasa dia, a buenos precios y excelente atencion. Atendemos con pasion a todos nuestros visitantes </p>
+                      <div class="group-md group-middle"><a class="button button-secondary button-pipaluk" href="contact-us.html">Contactanos</a><a class="button button-black-outline button-md" href="about.html">Más información</a></div>
+                    </div>
+                    <div class="tab-pane fade" id="tabs-7-2">
+                      <p>Estamos orgullosos que nos hayas seleccionado como tu sitio turistico. nos encontramos ubicados en el parque nacional natural purace a solo una hora y media de Popayán por la via al Huila</p>
+                      <div class="group-md group-middle"><a class="button button-secondary button-pipaluk" href="contact-us.html">Contactanos</a><a class="button button-black-outline button-md" href="about.html">Más información</a></div>
+                    </div>
+                    <div class="tab-pane fade" id="tabs-7-3">
+                      <p>Nuestra misión es brindar la mejor experiencia a nuestros visitantes garantizando la satisfaccion de nuetros servicios para convertirnos en su ruta preferida de paseo.  </p>
+                      <div class="group-md group-middle"><a class="button button-secondary button-pipaluk" href="contact-us.html">Contactanos</a><a class="button button-black-outline button-md" href="about.html">Más Información</a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--	Our Services-->
+      <section class="section section-sm">
+        <div class="container">
+          <h3>Otros Servicios</h3>
+          <div class="row row-30">
+            <div class="col-sm-6 col-lg-4">
+              <article class="box-icon-classic">
+                <div class="unit box-icon-classic-body flex-column flex-md-row text-md-left flex-lg-column text-lg-center flex-xl-row text-xl-left">
+                  <div class="unit-left">
+                    <div class="box-icon-classic-icon fl-bigmug-line-equalization3"></div>
+                  </div>
+                  <div class="unit-body">
+                    <h5 class id="box-icon-classic-title"><a href="{% static 'home/Restaurante.html' %}">Servicio de Restaurante</a></h5>
+                    <p class="box-icon-classic-text">Ofrecemos a nuestros visitantes diferentes platos a la carta a buenos precios.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <article class="box-icon-classic">
+                <div class="unit box-icon-classic-body flex-column flex-md-row text-md-left flex-lg-column text-lg-center flex-xl-row text-xl-left">
+                  <div class="unit-left">
+                    <div class="box-icon-classic-icon fl-bigmug-line-circular220"></div>
+                  </div>
+                  <div class="unit-body">
+                    <h5 class="box-icon-classic-title"><a href="#">Variedad de Actividades</a></h5>
+                    <p class="box-icon-classic-text">Tenemos para usted, servicio de piscinas, avistamiento de aves, recorido por el sendero de las orquideas, mirador de Popayan y el volcan entre otras.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <article class="box-icon-classic">
+                <div class="unit box-icon-classic-body flex-column flex-md-row text-md-left flex-lg-column text-lg-center flex-xl-row text-xl-left">
+                  <div class="unit-left">
+                    <div class="box-icon-classic-icon fl-bigmug-line-favourites5"></div>
+                  </div>
+                  <div class="unit-body">
+                    <h5 class="box-icon-classic-title"><a href="#">Servicio de guia turistico </a></h5>
+                    <p class="box-icon-classic-text">Para los recorridos te ofrecemos acompañamiento por parte de los guias quienes te mostraran las bellezas naturales que puedes encontrar mientras realizas tu recorrido.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <article class="box-icon-classic">
+                <div class="unit box-icon-classic-body flex-column flex-md-row text-md-left flex-lg-column text-lg-center flex-xl-row text-xl-left">
+                  <div class="unit-left">
+                    <div class="box-icon-classic-icon fl-bigmug-line-headphones32"></div>
+                  </div>
+                  <div class="unit-body">
+                    <h5 class="box-icon-classic-title"><a href="#">24/7 Servicio</a></h5>
+                    <p class="box-icon-classic-text">Tenemos servicio las 24 horas los 7 dias de la semana durante todo el año, algunos servicios dependen del clima y de la ocupación.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <article class="box-icon-classic">
+                <div class="unit box-icon-classic-body flex-column flex-md-row text-md-left flex-lg-column text-lg-center flex-xl-row text-xl-left">
+                  <div class="unit-left">
+                    <div class="box-icon-classic-icon fl-bigmug-line-hot67"></div>
+                  </div>
+                  <div class="unit-body">
+                    <h5 class="box-icon-classic-title"><a href="#">Servicio de Hospedaje</a></h5>
+                    <p class="box-icon-classic-text">Ofrecemos a nuestros visitantes un lugar tranquilo para descanzar y disfrutar de la naturaleza, gozando de buena atencion y cabañas muy comodas y acogedoras.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <article class="box-icon-classic">
+                <div class="unit box-icon-classic-body flex-column flex-md-row text-md-left flex-lg-column text-lg-center flex-xl-row text-xl-left">
+                  <div class="unit-left">
+                    <div class="box-icon-classic-icon fl-bigmug-line-wallet26"></div>
+                  </div>
+                  <div class="unit-body">
+                    <h5 class="box-icon-classic-title"><a href="#">Te ofrecemos excelente atención a precios muy economicos</a></h5>
+                    <p class="box-icon-classic-text">En Puente Tierra nos interesa tu tranquididad, comodidad y economia por eso te ofrecemos los mejores precios en cabañas, restaurante y piscinas.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Hot tours-->
+      <section class="section section-sm bg-default">
+        <div class="container">
+          <h3 class="oh-desktop"><span class="d-inline-block wow slideInDown">Piscinas de Agua caliente</span></h3>
+          <div class="row row-sm row-40 row-md-50">
+            <div class="col-sm-6 col-md-12 wow fadeInRight">
+              <!-- Product Big-->
+              <article class="product-big">
+                <div class="unit flex-column flex-md-row align-items-md-stretch">  
+                  <div class="unit-left"><a class="product-big-figure" href="{% static 'img/product-big-1-600x366.jpg' %}"><img src="{% static 'img/product-big-1-600x366.jpg' %}" alt="" width="600" height="366"/></a></div>
+                  <div class="unit-body">
+                    <div class="product-big-body">
+                      <h5 class="product-big-title"><a href="#">Agua, Termal</a></h5>
+                      <div class="group-sm group-middle justify-content-start">
+                        <div class="product-big-rating"><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star_half"></span></div><a class="product-big-reviews" href="#"></a>
+                      </div>
+                      <p class="product-big-text">El baño en aguas termales a  menudo ayudan a curar lesiones en la piel, debido a los minerales que contiene. Támbien puede ayudar a aliviar los dolores musculares, de las articulaciones, mejora la circulacion sanguinea y reduce la inflamación </p><a class="button button-black-outline button-ujarak" href="#">Reserva aquí</a>
+                      <div class="product-big-price-wrap"><span class="product-big-price">$10.000</span></div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>            
+            <div class="col-sm-6 col-md-12 wow fadeInLeft">
+              <h3 class="oh-desktop"><span class="d-inline-block wow slideInDown">Hospedaje en cabañas</span></h3><br><br>
+              <!-- Product Big-->              
+              <article class="product-big">
+                <div class="unit flex-column flex-md-row align-items-md-stretch">
+                  <div class="unit-left"><a class="product-big-figure" href="{% static 'img/cabaña3.jpg' %}"><img src="{% static 'img/cabaña3.jpg' %}" alt="" width="600" height="366"/></a></div>
+                  <div class="unit-body">
+                    <div class="product-big-body">
+                      <h5 class="product-big-title"><a href="#">Servicio de cabañas</a></h5>
+                      <div class="group-sm group-middle justify-content-start">
+                        <div class="product-big-rating"><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star_half"></span></div><a class="product-big-reviews" href="#"></a>
+                      </div>
+                      <p class="product-big-text">Disfruta en familia nuestro servicio de hospedaje en confortables cabañas, con agua caliente, chiminea y el servicio incluye desayuno al gusto para nuestros huespedes   ...</p><a class="button button-black-outline button-ujarak" href="#">Reserva aquí</a>
+                      <div class="product-big-price-wrap"><span class="product-big-price">$60.000</span></div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+          <br>
+          <div class="col-sm-6 col-md-12 wow fadeInLeft">
+            <h3 class="oh-desktop"><span class="d-inline-block wow slideInDown">Servicio de Camping</span></h3><br><br>
+            <!-- Product Big-->              
+            <article class="product-big">
+              <div class="unit flex-column flex-md-row align-items-md-stretch">
+                <div class="unit-left"><a class="product-big-figure" href="{% static 'img/product-big-3-600x366 origin.jpg' %}"><img src="{% static 'img/product-big-3-600x366.jpg' %}" alt="" width="600" height="366"/></a></div>
+                <div class="unit-body">
+                  <div class="product-big-body">
+                    <h5 class="product-big-title"><a href="#">Servicio de Camping</a></h5>
+                    <div class="group-sm group-middle justify-content-start">
+                      <div class="product-big-rating"><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star_half"></span></div><a class="product-big-reviews" href="#"></a>
+                    </div>
+                    <p class="product-big-text">Te ofrecemos total tranquilidad para que interactues con la naturaleza, además tienes derecho a hacer uso de nuestra zona de asados...</p><a class="button button-black-outline button-ujarak" href="#">Reserva aquí</a>
+                    <div class="product-big-price-wrap"><span class="product-big-price">$20.000</span></div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- Different People-->
+      <!-- Section Subscribe-->
+      <section class="section bg-default text-center offset-top-50">
+        <div class="parallax-container" data-parallax-img="{% static 'img/parallax-1-1920x850.jpg' %}">
+          <div class="parallax-content section-xl section-inset-custom-1 context-dark bg-overlay-2-21">
+            <div class="container">
+              <h2 class="heading-2 oh font-weight-normal wow slideInDown"><span class="d-block font-weight-semi-bold">Nuestra Zona de Camping</span><span class="d-block font-weight-light">Ven y Disfruta de algo natural</span></h2>
+              <p class="text-width-medium text-spacing-75 wow fadeInLeft" data-wow-delay=".1s">Danos el placer de atenderte y te aseguramos que siempre vas a querer volver</p><a class="button button-secondary button-pipaluk" href="#">Reserva aquí</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--	Instagrram wondertour-->
+      <section class="section section-sm section-top-0 section-fluid section-relative bg-gray-4">
+        <div class="container-fluid">
+          <h6 class="gallery-title">Gallery</h6>
+          <!-- Owl Carousel-->
+          <div class="owl-carousel owl-classic owl-dots-secondary" data-items="1" data-sm-items="2" data-md-items="3" data-lg-items="4" data-xl-items="5" data-xxl-items="6" data-stage-padding="15" data-xxl-stage-padding="0" data-margin="30" data-autoplay="true" data-nav="true" data-dots="true">
+            <!-- Thumbnail Classic-->
+            <article class="thumbnail thumbnail-mary">
+              <div class="thumbnail-mary-figure"><img src="{% static 'img/gallery-image-1-270x195.jpg' %}" alt="" width="270" height="195"/>
+              </div>
+              <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="{% static 'img/gallery-image-1-1200x800-original.jpg' %}" data-lightgallery="item"><img src="images/gallery-image-1-270x195.jpg" alt="" width="270" height="195"/></a>
+              </div>
+            </article>
+            <!-- Thumbnail Classic-->
+            <article class="thumbnail thumbnail-mary">
+              <div class="thumbnail-mary-figure"><img src="{% static 'img/gallery-image-2-270x195.jpg' %}" alt="" width="270" height="195"/>
+              </div>
+              <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="{% static 'img/gallery-image-2-1200x800-original.jpg' %}" data-lightgallery="item"><img src="images/gallery-image-2-270x195.jpg" alt="" width="270" height="195"/></a>
+              </div>
+            </article>
+            <!-- Thumbnail Classic-->
+            <article class="thumbnail thumbnail-mary">
+              <div class="thumbnail-mary-figure"><img src="{% static 'img/gallery-image-3-270x195.jpg' %}" alt="" width="270" height="195"/>
+              </div>
+              <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="{% static 'img/gallery-image-3-1200x800-original.jpg' %}" data-lightgallery="item"><img src="images/gallery-image-3-270x195.jpg" alt="" width="270" height="195"/></a>
+              </div>
+            </article>
+            <!-- Thumbnail Classic-->
+            <article class="thumbnail thumbnail-mary">
+              <div class="thumbnail-mary-figure"><img src="{% static 'img/gallery-image-4-270x195.jpg' %}" alt="" width="270" height="195"/>
+              </div>
+              <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="{% static 'img/gallery-image-4-1200x800-original.jpg' %}" data-lightgallery="item"><img src="images/gallery-image-4-270x195.jpg" alt="" width="270" height="195"/></a>
+              </div>
+            </article>
+            <!-- Thumbnail Classic-->
+            <article class="thumbnail thumbnail-mary">
+              <div class="thumbnail-mary-figure"><img src="{% static 'img/gallery-image-5-270x195.jpg' %}" alt="" width="270" height="195"/>
+              </div>
+              <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="{% static 'img/gallery-image-5-1200x800-original.jpg' %}" data-lightgallery="item"><img src="images/gallery-image-5-270x195.jpg" alt="" width="270" height="195"/></a>
+              </div>
+            </article>
+            <!-- Thumbnail Classic-->
+            <article class="thumbnail thumbnail-mary">
+              <div class="thumbnail-mary-figure"><img src="{% static 'img/gallery-image-6-270x195.jpg'  %}" alt="" width="270" height="195"/>
+
+              </div>
+              <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="{% static 'img/gallery-image-6-1200x800-original.jpg'  %}" data-lightgallery="item"><img src="images/gallery-image-6-270x195.jpg" alt="" width="270" height="195"/></a>
+              </div>
+            </article>
+            <!-- Thumbnail Classic-->
+            <article class="thumbnail thumbnail-mary">
+              <div class="thumbnail-mary-figure"><img src="{% static 'img/gallery-image-7-270x195.jpg' %}" alt="" width="270" height="195"/>
+              </div>
+              <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="{% static 'img/gallery-image-7-1200x800-original.jpg' %}" data-lightgallery="item"><img src="images/gallery-image-7-270x195.jpg" alt="" width="270" height="195"/></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- Page Footer--><a class="banner" href="https://www.templatemonster.com/intense-multipurpose-html-template.html" target="_blank"><img src="" alt=""/></a>
+        <div class="footer-corporate-inset">
+          <div class="container">
+            <div class="row row-40 justify-content-lg-between">
+              <div class="col-sm-6 col-md-12 col-lg-3 col-xl-4">
+                <div class="oh-desktop">
+                  <div class="wow slideInRight" data-wow-delay="0s">
+                    <h6 class="text-spacing-100 text-uppercase">Contactos</h6>
+                    <ul class="footer-contacts d-inline-block d-sm-block">
+                      <li>
+                        <div class="unit">
+                          <div class="unit-left"><span class="icon fa fa-phone"></span></div>
+                          <div class="unit-body"><a class="link-phone" href="tel:#">+57 310-642-0196</a></div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="unit">
+                          <div class="unit-left"><span class="icon fa fa-envelope"></span></div>
+                          <div class="unit-body"><a class="link-aemail" href="mailto:#">puentetierrapurace@gmail.com</a></div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="unit">
+                          <div class="unit-left"><span class="icon fa fa-location-arrow"></span></div>
+                          <div class="unit-body"><a class="link-location" href="#">Administracion Puente Tierra</a></div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-5 col-lg-3 col-xl-4">
+                <div class="oh-desktop">
+                  <div class="wow slideInDown" data-wow-delay="0s">
+                    <h6 class="text-spacing-100 text-uppercase">Nuevos Eventos</h6>
+                    <!-- Post Minimal 2-->
+                    <article class="post post-minimal-2">
+                      <p class="post-minimal-2-title"><a href="#">Tenemos avistamiento de aves</a></p>
+                      <div class="post-minimal-2-time">                       
+                      </div>
+                    </article>
+                    <!-- Post Minimal 2-->
+                    <article class="post post-minimal-2">
+                      <p class="post-minimal-2-title"><a href="#">Experimenta caminata entre orquideas</a></p>
+                      <div class="post-minimal-2-time">                      
+                      </div>
+                    </article>
+                    <article class="post post-minimal-2">
+                      <p class="post-minimal-2-title"><a href="#">Senderismo para deportistas extremos</a></p>
+                      <div class="post-minimal-2-time">                      
+                      </div>
+                    </article>
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-11 col-md-7 col-lg-5 col-xl-4">
+                <div class="oh-desktop">
+                  <div class="wow slideInLeft" data-wow-delay="0s">
+                    <h6 class="text-spacing-100 text-uppercase">Enlaces Rapidos</h6>
+                    <ul class="row-6 list-0 list-marked list-marked-md list-marked-secondary list-custom-2">
+                      <li><a href="#">Sobre Nosotros</a></li>
+                      <li><a href="#">Rutas para Recorrer</a></li>
+                      <li><a href="#">Nuestro Equipo de Trabajo</a></li>                                          
+                    </ul>
+                    <div class="group-md group-middle justify-content-sm-start"><a id ="Reserva"class="button button-lg button-primary button-ujarak" href="#">Reserva tu Paquete</a></div>   
+                    <div class="group-md group-middle justify-content-sm-start"><a id ="Reserva"class="button button-lg button-primary button-ujarak" href="https://www.facebook.com/profile.php?id=61562723955484&locale=es_LA">facebook</a></div>
+                    <div class="group-md group-middle justify-content-sm-start"><a id="myButton"class ="button button-lg button-primary button-ujarak" href="https://turismopurace.com/">Turismo purace</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!--<script src="/site/js/navbar.js"></script>-->
+        <div class="footer-corporate-bottom-panel">
+          <div class="container">
+            <div class="row justfy-content-xl-space-berween row-10 align-items-md-center2">
+              <div class="col-sm-6 col-md-4 text-sm-right text-md-center">
+                <div>
+                  <ul class="list-inline list-inline-sm footer-social-list-2">
+                    <li><a class="icon fa fa-facebook" href="https://www.facebook.com/profile.php?id=61562723955484&locale=es_LA"></a></li>
+                    <li><a class="icon fa fa-twitter" href="#"></a></li>
+                    <li><a class="icon fa fa-google-plus" href="#"></a></li>
+                    <li><a class="icon fa fa-instagram" href="#"></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-4 order-sm-first">
+                <!-- Rights-->
+                <p class="rights"><span>&copy;&nbsp;</span><span class="copyright-year"></span><span>&nbsp;</span><span>Puente Tierra</span>. Todos los derechos reservados. <a href="https://www.templatemonster.com">TemplateMonster</a></p>
+              </div>
+              <div class="col-sm-6 col-md-4 text-md-right">
+                <p class="rights"><a href="#">Privacy Policy</a></p>
+              </div>
+            </div>
+          </div>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21669.758623473317!2d-76.40982291965231!3d2.3621172844224434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2554e79b5c1b15%3A0xa9adab28577e844d!2sPilimbala!5e1!3m2!1ses-419!2sco!4v1727146927099!5m2!1ses-419!2sco" 
+            width="450" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+             </div>
+        </div>
+      </footer>
+    </div>
+    <!-- Global Mailform Output-->
+    <div class="snackbars" id="form-output-global"></div>
+    <!-- Javascript-->
+    <script src="{%static 'js/core.min.js' %}"></script>
+    <script src="{%static  'js/script.js' %}"></script>
+
+  </body>
+</html>

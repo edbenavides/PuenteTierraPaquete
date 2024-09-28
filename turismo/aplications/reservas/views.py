@@ -181,6 +181,11 @@ def fechas_reserva(request, paquete_id):
          form = FechasForm()
      return render(request, 'fechasReserva.html', {'paquete': paquete, 'fecha': fecha,'form': form})
 
+class HomeView(TemplateView):
+    template_name = "home/home.html"
+
+class RestauranteView(TemplateView):
+    template_name = "home/Restaurante.html"
 
 
 class PanelView(TemplateView):
