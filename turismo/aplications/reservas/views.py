@@ -27,6 +27,10 @@ from django.shortcuts import render
 from django.db.models import Count, Sum
 from datetime import timedelta,datetime
 from django_countries.fields import Country
+import pandas as pd
+from openpyxl import Workbook
+from calendar import month_name
+
 
 
 
@@ -306,3 +310,94 @@ def clientesPaisPorMes(request):
         clientes_por_mes.append(cliente)
     
     return render(request, 'reportes/reporteClientesPais.html', {'clientes_por_mes': clientes_por_mes})
+
+
+
+####-----------FUNCION DESCARGAR EXCEL INFORME PAQUETES RESERVADOS-------#######
+def reporteExcelPaquetes(request):
+    # Crear un libro de trabajo y agregar una hoja de trabajo
+    workbook = Workbook()
+    worksheet = workbook.active
+    worksheet.title = 'Informe de Reservas'
+
+    # Agregar encabezados
+    worksheet.append(['Nro', 'Fecha Reserva', 'Hora Reserva', 'Tipo Documento', 
+                      'Número Documento', 'Nombres', 'Apellidos', 'Teléfono', 
+                      'Fecha Inicio', 'Fecha Final', 'Cantidad Viajeros', 
+                      'Nacionalidad', 'Paquete Seleccionado', 'ID'])
+
+    # Obtener las reservas (ajusta la consulta según tus necesidades)
+    reportes = Reserva.objects.select_related('cliente', 'paquete', 'fecha_reserva').all()
+
+    # Agregar datos a la hoja de trabajo
+    for reporte in reportes:
+        worksheet.append([
+            reporte.id,
+            reporte.fechaReserva,
+            reporte.horaReserva,
+            reporte.cliente.tipo_documento,
+            reporte.cliente.numero_documento,
+            reporte.cliente.nombre,
+            reporte.cliente.apellidos,
+            reporte.cliente.telefono,
+            reporte.fecha_reserva.fechaInicio,
+            reporte.fecha_reserva.fechaFinal,
+            reporte.fecha_reserva.personas,
+            reporte.cliente.get_nacionalidad_display(),
+            reporte.paquete.nombre,
+            reporte.paquete.id,
+        ])
+
+    # Crear el objeto HttpResponse con el encabezado apropiado para Excel
+    response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+    response['Content-Disposition'] = 'attachment; filename=informe_reservas.xlsx'
+
+    # Guardar el libro de trabajo en la respuesta
+    workbook.save(response)
+    return response
+
+
+#----------------------FUNCION DESCARR INFORME CLIENTES POR PAIS----------------######
+def reporteExcel_ClientePais(request):
+    # Crear un libro de trabajo y agregar una hoja de trabajo
+    workbook = Workbook()
+    worksheet = workbook.active
+    worksheet.title = 'Reporte de Clientes por País'
+
+    # Agregar encabezados
+    worksheet.append(['Mes', 'País', 'Cantidad'])
+
+    # Suponiendo que quieres agrupar por mes y nacionalidad
+    clientes_por_mes = (
+        Cliente.objects
+        .values('nacionalidad', 'fecha_registro__month')  # Agrupar por nacionalidad y mes
+        .annotate(total_clientes=Count('id'))  # Contar el total de clientes en cada grupo
+    )
+
+    # Agregar datos a la hoja de trabajo
+    for cliente in clientes_por_mes:
+        month = cliente['fecha_registro__month']  # Extraer el mes
+        month_name_str = get_month_name(month)  # Convertir el número del mes en nombre del mes
+
+        # Obtener el nombre completo de la nacionalidad
+        # Crear un objeto Cliente temporal para obtener la representación de la nacionalidad
+        temp_cliente = Cliente(nacionalidad=cliente['nacionalidad'])
+        nombre_pais = temp_cliente.get_nacionalidad_display()
+
+        worksheet.append([
+            month_name_str,  # Convertir el número del mes en nombre del mes
+            nombre_pais,     # Nombre completo del país
+            cliente['total_clientes'],
+        ])
+
+    # Crear el objeto HttpResponse con el encabezado apropiado para Excel
+    response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+    response['Content-Disposition'] = 'attachment; filename=clientes_por_pais.xlsx'
+
+    # Guardar el libro de trabajo en la respuesta
+    workbook.save(response)
+    return response
+
+def get_month_name(month_number):
+    """Función auxiliar para convertir el número del mes en el nombre del mes."""
+    return month_name[month_number]
