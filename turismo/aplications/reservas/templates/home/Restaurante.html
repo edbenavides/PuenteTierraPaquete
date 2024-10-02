@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,20 +13,9 @@
     <link rel="stylesheet" href="/site/css/style.css">
 </head>
 <body>
+  {% include 'navbar.html' %}
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Restaurante Puente Tierra</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link" href="#menu">Menú</a></li>
-                <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
-                </ul>
-        </div>
-    </nav>
+    
 
     <!-- Banner -->
     <header class="jumbotron jumbotron-fluid text-white text-center" style="background-image: url('banner.jpg'); background-size: cover;">
@@ -41,16 +32,16 @@
       <div class="row">
         <div class="col-md-4">
           <div class="card">
-            <img src="/site/images/plato_ajiaco.jpg" class="card-img-top" alt="Ajiaco">
+            <img src="{% static 'img/plato ajiaco.jpg' %}" class="card-img-top" alt="Ajiaco">
             <div class="card-body">
               <h5 class="card-title">Ajiaco Colombiano</h5>
-              <p class="card-text">Un clásico de Bogotá, preparado con papa criolla, mazorca, y pollo.</p>
+              <p class="card-text">Preparado con papa criolla, mazorca, y pollo.</p>
             </div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="card">
-            <img src="/site/images/plato de costilla.jpg" class="card-img-top" alt="Caldo de Costilla">
+            <img src="{% static 'img/plato de costilla.jpg' %}" class="card-img-top" alt="Caldo de Costilla">
             <div class="card-body">
               <h5 class="card-title">Caldo de Costilla</h5>
               <p class="card-text">Un rico caldo con costilla de res.</p>
@@ -59,7 +50,7 @@
         </div>
         <div class="col-md-4">
           <div class="card">
-            <img src="/site/images/Sopa_miaz_verduras.jpg" class="card-img-top" alt="Sopa tradicional de maiz con verduras">
+            <img src="{% static 'img/Sopa_miaz_verduras.jpg' %}" class="card-img-top" alt="Sopa tradicional de maiz con verduras">
             <div class="card-body">
               <h5 class="card-title">Deliciosos sopa de maiz</h5>
               <p class="card-text">Rica sopa de maiz con verduras.</p>
@@ -69,7 +60,7 @@
         </div>
         <div class="col-md-4">
           <div class="card">
-            <img src="/site/images/Bandeja_carne_asada.jpg" class="card-img-top" alt="Bandeja con carne asada">
+            <img src="{% static 'img/Bandeja_carne_asada.jpg' %}" class="card-img-top" alt="Bandeja con carne asada">
             <div class="card-body">
               <h5 class="card-title">Bandeja con carne asada</h5>
               <p class="card-text">Bandeja con carne asada acompañada de arroz, frijoles, ensalada y plátano maduro.</p>
@@ -79,7 +70,7 @@
         </div>
         <div class="col-md-4">
           <div class="card">
-            <img src="/site/images/Pechuga_plancha.jpg" class="card-img-top" alt="Pechuga a la plancha">
+            <img src="{% static 'img/Pechuga_plancha.jpg' %}" class="card-img-top" alt="Pechuga a la plancha">
             <div class="card-body">
               <h5 class="card-title">Pechuga a la plancha</h5>
               <p class="card-text">bandeja con pechuga a la plancaha, acompañada arroz, papas a la francesa y ensada .</p>
@@ -88,7 +79,7 @@
         </div>
         <div class="col-md-4">
           <div class="card">
-            <img src="/site/images/bandeja_trucha.jpg" class="card-img-top" alt="Bandeja con trucha frita">
+            <img src="{% static 'img/bandeja_trucha.jpg' %}" class="card-img-top" alt="Bandeja con trucha frita">
             <div class="card-body">
               <h5 class="card-title">Trucha frita</h5>
               <p class="card-text">Bandeja con trucha arroz, platano maduro y ensalada.</p>
@@ -99,11 +90,11 @@
     
     <!--bebidas calientes-->
     <section id="menu" class="container my-4"></section>
-      <h2 class="text-center mb-4">Nuestro Menú de bebidas calientes</h2>
+      <h2 class="text-center mb-4">Nuestro oferta de bebidas calientes</h2>
       <div class="row">
         <div class="col-md-4">
           <div class="card">
-            <img src="/site/images/Chocolate_caliente.jpg" class="card-img-top" alt="Chocolate  caliente">
+            <img src="{% static 'img/Chocolate_caliente.jpg' %}" class="card-img-top" alt="Chocolate  caliente">
 
             <div class="card-body">
               <h5 class="card-title">Tasa de chocolate</h5>
@@ -113,55 +104,26 @@
         </div>
         <div class="col-md-4">
           <div class="card">
-            <img src="/site/images/plato de costilla.jpg" class="card-img-top" alt="Caldo de Costilla">
+            <img src="{% static 'img/tasa de agua de panela.jpg' %}" class="card-img-top" alt="Agua de Panel">
             <div class="card-body">
-              <h5 class="card-title">Caldo de Costilla</h5>
-              <p class="card-text">Un rico caldo con costilla de res.</p>
+              <h5 class="card-title">Agua de panela con sabor de plantas aromaticas</h5>
+              <p class="card-text">Deliciosa agua de panela caliente con queso y hojaldras.</p>
             </div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="card">
-            <img src="/site/images/Sopa_miaz_verduras.jpg" class="card-img-top" alt="Sopa tradicional de maiz con verduras">
+            <img src="{% static 'img/Cafe_pasado_14062011.jpg' %}" class="card-img-top" alt="Cafe con leche">
             <div class="card-body">
-              <h5 class="card-title">Deliciosos sopa de maiz</h5>
-              <p class="card-text">Rica sopa de maiz con verduras.</p>
+              <h5 class="card-title">Rico sabor del cafe</h5>
+              <p class="card-text">Que bueno tomarse un vaso de cafe caliente con queso o leche.</p>
     
             </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card">
-            <img src="/site/images/Bandeja_carne_asada.jpg" class="card-img-top" alt="Bandeja con carne asada">
-            <div class="card-body">
-              <h5 class="card-title">Bandeja con carne asada</h5>
-              <p class="card-text">Bandeja con carne asada acompañada de arroz, frijoles, ensalada y plátano maduro.</p>
-    
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card">
-            <img src="/site/images/Pechuga_plancha.jpg" class="card-img-top" alt="Pechuga a la plancha">
-            <div class="card-body">
-              <h5 class="card-title">Pechuga a la plancha</h5>
-              <p class="card-text">bandeja con pechuga a la plancaha, acompañada arroz, papas a la francesa y ensada .</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card">
-            <img src="/site/images/bandeja_trucha.jpg" class="card-img-top" alt="Bandeja con trucha frita">
-            <div class="card-body">
-              <h5 class="card-title">Trucha frita</h5>
-              <p class="card-text">Bandeja con trucha arroz, platano maduro y ensalada.</p>
-            </div>
-          </div>
-        </div>
+           
+       
     </section>
-
-
-
 
 
     <!-- Nosotros -->
@@ -207,8 +169,7 @@
     </footer>
 
     <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   
+    
 </body>
 </html>

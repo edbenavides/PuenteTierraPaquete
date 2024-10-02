@@ -9,60 +9,18 @@
     content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
-    <link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'img/logo.jpg' %}" type="image/x-icon">
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/fonts.css' %}">
  
 </head>
-   
+{% include 'navbar.html' %} 
    
   <body>  
-    <nav class="navbar">
-    
-      <div class="container-fluid px-0">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="#">Puente Tierra</a>
-            
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav w-100 d-flex justify-content-between">
-                <section id ="Inicio">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-                </section>
-                
-                <section id ="Turismo purace"
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#myButton">Turismo purace</a>
-                </li>
-                </section>
-                
-                <li class="nav-item">
-                  <a class="nav-link" href="#Reserva">Reserva</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#box-icon-classic-title">Restaurante</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Nosotros</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">PQRS</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </nav>
-
-    <!--      
-      <iframe src="./rd-navbar.html" frameborder="0"></iframe>
-  -->
-  <div class="preloader">
+       
+    <div class="preloader">
         <div class="preloader-body">
         <div class="cssload-container">
           <div class="cssload-speeding-wheel"></div>
@@ -74,7 +32,7 @@
      <!-- Swiper-->
       <section class="section swiper-container swiper-slider swiper-slider-corporate swiper-pagination-style-2" data-loop="true" data-autoplay="5000" data-simulate-touch="true" data-nav="false" data-direction="vertical">
         <div class="swiper-wrapper text-left">
-          <div class="swiper-slide context-dark" data-slide-bg="{%static 'img/slider-4-slide-1-1920x678.jpg' %}">
+          <div class="swiper-slide context-dark" data-slide-bg="{%static 'img/piscinas de lado.jpg' %}">
             <div class="swiper-slide-caption section-md">
               <div class="container">
                 <div class="row">
@@ -98,7 +56,7 @@
               </div>
             </div>
           </div>
-          <div class="swiper-slide context-dark" data-slide-bg="{%static 'img/slider-4-slide-3-1920x678.jpg' %}" width="220" height="378" >
+          <div class="swiper-slide context-dark" data-slide-bg="{%static 'img/minasubida.jpg' %}" width="220" height="378" >
             <div class="swiper-slide-caption section-md">
               <div class="container">
                 <div class="row">
@@ -197,7 +155,7 @@
                     <div class="box-icon-classic-icon fl-bigmug-line-equalization3"></div>
                   </div>
                   <div class="unit-body">
-                    <h5 class id="box-icon-classic-title"><a href="{% static 'home/Restaurante.html' %}">Servicio de Restaurante</a></h5>
+                    <h5 class id="box-icon-classic-title"><a href="{% url 'homeRestaurante' %}">Servicio de Restaurante</a></h5>
                     <p class="box-icon-classic-text">Ofrecemos a nuestros visitantes diferentes platos a la carta a buenos precios.</p>
                   </div>
                 </div>
@@ -287,7 +245,7 @@
                       <div class="group-sm group-middle justify-content-start">
                         <div class="product-big-rating"><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star_half"></span></div><a class="product-big-reviews" href="#"></a>
                       </div>
-                      <p class="product-big-text">El baño en aguas termales a  menudo ayudan a curar lesiones en la piel, debido a los minerales que contiene. Támbien puede ayudar a aliviar los dolores musculares, de las articulaciones, mejora la circulacion sanguinea y reduce la inflamación </p><a class="button button-black-outline button-ujarak" href="#">Reserva aquí</a>
+                      <p class="product-big-text">El baño en aguas termales a  menudo ayudan a curar lesiones en la piel, debido a los minerales que contiene. Támbien puede ayudar a aliviar los dolores musculares, de las articulaciones, mejora la circulacion sanguinea y reduce la inflamación </p> <!--<a class="button button-black-outline button-ujarak" href="#">Reserva aquí</a>-->
                       <div class="product-big-price-wrap"><span class="product-big-price">$10.000</span></div>
                     </div>
                   </div>
@@ -306,7 +264,7 @@
                       <div class="group-sm group-middle justify-content-start">
                         <div class="product-big-rating"><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star_half"></span></div><a class="product-big-reviews" href="#"></a>
                       </div>
-                      <p class="product-big-text">Disfruta en familia nuestro servicio de hospedaje en confortables cabañas, con agua caliente, chiminea y el servicio incluye desayuno al gusto para nuestros huespedes   ...</p><a class="button button-black-outline button-ujarak" href="#">Reserva aquí</a>
+                      <p class="product-big-text">Disfruta en familia nuestro servicio de hospedaje en confortables cabañas, con agua caliente, chiminea y el servicio incluye desayuno al gusto para nuestros huespedes   ...</p> <!--<a class="button button-black-outline button-ujarak" href="#">Reserva aquí</a>-->
                       <div class="product-big-price-wrap"><span class="product-big-price">$60.000</span></div>
                     </div>
                   </div>
@@ -327,7 +285,7 @@
                     <div class="group-sm group-middle justify-content-start">
                       <div class="product-big-rating"><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star_half"></span></div><a class="product-big-reviews" href="#"></a>
                     </div>
-                    <p class="product-big-text">Te ofrecemos total tranquilidad para que interactues con la naturaleza, además tienes derecho a hacer uso de nuestra zona de asados...</p><a class="button button-black-outline button-ujarak" href="#">Reserva aquí</a>
+                    <p class="product-big-text">Te ofrecemos total tranquilidad para que interactues con la naturaleza, además tienes derecho a hacer uso de nuestra zona de asados...</p> <!--<a class="button button-black-outline button-ujarak" href="#">Reserva aquí</a>-->
                     <div class="product-big-price-wrap"><span class="product-big-price">$20.000</span></div>
                   </div>
                 </div>
@@ -343,7 +301,7 @@
           <div class="parallax-content section-xl section-inset-custom-1 context-dark bg-overlay-2-21">
             <div class="container">
               <h2 class="heading-2 oh font-weight-normal wow slideInDown"><span class="d-block font-weight-semi-bold">Nuestra Zona de Camping</span><span class="d-block font-weight-light">Ven y Disfruta de algo natural</span></h2>
-              <p class="text-width-medium text-spacing-75 wow fadeInLeft" data-wow-delay=".1s">Danos el placer de atenderte y te aseguramos que siempre vas a querer volver</p><a class="button button-secondary button-pipaluk" href="#">Reserva aquí</a>
+              <p class="text-width-medium text-spacing-75 wow fadeInLeft" data-wow-delay=".1s">Danos el placer de atenderte y te aseguramos que siempre vas a querer volver</p> <!--<a class="button button-secondary button-pipaluk" href="#">Reserva aquí</a>-->
             </div>
           </div>
         </div>
@@ -351,7 +309,7 @@
       <!--	Instagrram wondertour-->
       <section class="section section-sm section-top-0 section-fluid section-relative bg-gray-4">
         <div class="container-fluid">
-          <h6 class="gallery-title">Gallery</h6>
+          <h4 class="gallery-title">Galleria</h4>
           <!-- Owl Carousel-->
           <div class="owl-carousel owl-classic owl-dots-secondary" data-items="1" data-sm-items="2" data-md-items="3" data-lg-items="4" data-xl-items="5" data-xxl-items="6" data-stage-padding="15" data-xxl-stage-padding="0" data-margin="30" data-autoplay="true" data-nav="true" data-dots="true">
             <!-- Thumbnail Classic-->
@@ -450,12 +408,12 @@
                     </article>
                     <!-- Post Minimal 2-->
                     <article class="post post-minimal-2">
-                      <p class="post-minimal-2-title"><a href="#">Experimenta caminata entre orquideas</a></p>
+                      <p class="post-minimal-2-title"><a href="{% static 'img/Orquideas.jpg' %}">Experimenta caminata entre orquideas</a></p>
                       <div class="post-minimal-2-time">                      
                       </div>
                     </article>
-                    <article class="post post-minimal-2">
-                      <p class="post-minimal-2-title"><a href="#">Senderismo para deportistas extremos</a></p>
+                    <article class="post post-minimal-2">       
+                      <p class="post-minimal-2-title"><a href="{% static 'img/acensoMina.jpg' %}">Senderismo para deportistas extremos</a></p>
                       <div class="post-minimal-2-time">                      
                       </div>
                     </article>
@@ -469,10 +427,9 @@
                     <h6 class="text-spacing-100 text-uppercase">Enlaces Rapidos</h6>
                     <ul class="row-6 list-0 list-marked list-marked-md list-marked-secondary list-custom-2">
                       <li><a href="#">Sobre Nosotros</a></li>
-                      <li><a href="#">Rutas para Recorrer</a></li>
+                      <li><a href="{% url 'paqueteturistico_list' %}">Rutas para Recorrer</a></li>
                       <li><a href="#">Nuestro Equipo de Trabajo</a></li>                                          
                     </ul>
-                    <div class="group-md group-middle justify-content-sm-start"><a id ="Reserva"class="button button-lg button-primary button-ujarak" href="#">Reserva tu Paquete</a></div>   
                     <div class="group-md group-middle justify-content-sm-start"><a id ="Reserva"class="button button-lg button-primary button-ujarak" href="https://www.facebook.com/profile.php?id=61562723955484&locale=es_LA">facebook</a></div>
                     <div class="group-md group-middle justify-content-sm-start"><a id="myButton"class ="button button-lg button-primary button-ujarak" href="https://turismopurace.com/">Turismo purace</a></div>
                 </div>
@@ -496,7 +453,7 @@
               </div>
               <div class="col-sm-6 col-md-4 order-sm-first">
                 <!-- Rights-->
-                <p class="rights"><span>&copy;&nbsp;</span><span class="copyright-year"></span><span>&nbsp;</span><span>Puente Tierra</span>. Todos los derechos reservados. <a href="https://www.templatemonster.com">TemplateMonster</a></p>
+                <p class="rights"><span>&copy;&nbsp;</span><span class="copyright-year"></span><span>&nbsp;</span><span>Puente Tierra</span>. Todos los derechos reservados. <!--<a href="https://www.templatemonster.com">TemplateMonster</a>--> </p>
               </div>
               <div class="col-sm-6 col-md-4 text-md-right">
                 <p class="rights"><a href="#">Privacy Policy</a></p>

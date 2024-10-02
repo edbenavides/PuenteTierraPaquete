@@ -11,22 +11,7 @@ button:focus {
 button::-moz-focus-inner {
 	border: 0;
 }
-/** estilos del navbar que esta funcionando */
 
-.navbar {
-	background-color: rgb(9, 17, 122);
-  }
-  .navbar-brand {
-	color: #f1f2f3;
-	padding: 0%;
-  }
-  .nav-link {
-	color: #eeece5;
-	font-size:x-large;
-	font-family:sans-serif
-  }
-
- /** hasta aqui son los estilos del navbar*/
 
 
 *:focus {
