@@ -11442,8 +11442,8 @@ html.boxed body {
 
 .navbar{
 	width: 100%;
-	margin: 1%;
-	padding: 0%;
+	margin: 0%;
+	padding: 1%;
   }
   .navbar iframe{
 	width: 100%;
