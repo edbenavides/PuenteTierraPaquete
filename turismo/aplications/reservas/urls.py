@@ -18,9 +18,13 @@ urlpatterns = [
     path('crea/', views.paqueteCreateView.as_view(),name='crearPaquete'),
     path('listar/', views.PaqueteListView.as_view(),name='paquetelistar'), 
 
-
+    # rutas credas para el home inicial y el formulario de las PQRS
     path('homePrincipal/', views.HomeView.as_view(),name='homePrincipal'),
     path('homeRestaurante/', views.RestauranteView.as_view(),name='homeRestaurante'),
+    path('pqrs_form/', views.PQRS,name='pqrs_form'),
+    path('pqrs_success/', views.pqrs_success_view,name='pqrs_success'),
+   
+
 
 
     path('listardos/', views.PaqueteListarUsuarioListView.as_view(), name='paqueteturistico_list'),

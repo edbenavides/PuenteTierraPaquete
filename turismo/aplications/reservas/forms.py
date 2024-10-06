@@ -8,6 +8,7 @@ from django.core.exceptions import ValidationError
 from django_countries.fields import CountryField
 from django_countries.widgets import CountrySelectWidget
 from.models import PaqueteTuristico,FechasReserva,Cliente,Reserva
+from.models import PQRS
 
 
 
@@ -78,6 +79,7 @@ class FechasForm(forms.ModelForm):
             'personas': forms.NumberInput(attrs={'min': 1, 'value': 1}),  # Establecer el valor mínimo y predeterminado en 1
         
         } 
+
         # widgets = {
         #     'fechaInicio': forms.DateInput(attrs={'type': 'date'}),
         #     'fechaFinal': forms.DateInput(attrs={'type': 'date'}),
@@ -113,3 +115,13 @@ class ReservaForm(forms.ModelForm):
         model = Reserva
         fields = ('__all__')  
       
+class PQRSForm(forms.ModelForm):
+    class Meta:
+        model = PQRS
+        fields = ['nombre', 'email', 'tipo', 'mensaje']
+        widgets = {
+            'nombre': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Tu nombre'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Tu email'}),
+            'tipo': forms.Select(attrs={'class': 'form-control'}),
+            'mensaje': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Tu mensaje'}),
+        }
