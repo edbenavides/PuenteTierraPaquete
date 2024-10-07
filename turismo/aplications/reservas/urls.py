@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path,include
 from django.contrib.auth import views as auth_views #cargar todas las vistas de autenticacion desde las urls de mi aplicacion (nueva)
 from.import views 
-from .views import PaqueteListarUsuarioListView,registrar_cliente,fechas_reserva,user_login,verificar_cliente,CLienteRegistradoListView,PaqueteDeleteView,reporteExcelPaquetes,reporteExcel_ClientePais
+from .views import PaqueteListarUsuarioListView,registrar_cliente,fechas_reserva,user_login,verificar_cliente,CLienteRegistradoListView,PaqueteDeleteView,reporteExcelPaquetes,reporteExcel_ClientePais,informe_registro_por_pais
 
 # from django.urls.conf import include
 
@@ -45,6 +45,10 @@ urlpatterns = [
     path('reporteClienteRegistrado/', views.CLienteRegistradoListView.as_view(),name='reporteClienteRegistrado'),
     path('informe-reservas/', views.reservas_informe, name='informeMes'),
     path('reporteClientePais/', views.clientesPaisPorMes, name='reporteClientePais'),
+
+    #URLS DEPORTE GRAFICAS
+    path('informe-clientes/', informe_registro_por_pais, name='grafica_clientes'),
+
 
     #URLS REPORTES EXCEL
     path('descargar_excel/', reporteExcelPaquetes, name='Paquetes_excel'),

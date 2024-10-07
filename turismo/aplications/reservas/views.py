@@ -125,41 +125,9 @@ def panelCliente(request):
     reservas = Reserva.objects.filter(cliente=cliente)
     return render(request, 'Panel/PanelCliente.html', {'reservas': reservas})
 
-
-
-# def reserva_detail(request, paquete_id, fecha_id):
-#     paquete = get_object_or_404(PaqueteTuristico, id=paquete_id)
-#     fecha_reserva = get_object_or_404(FechasReserva, id=fecha_id)
-#     cliente = request.user  # Información del cliente registrado
-
-#     return render(request, 'detalle_reserva.html', {'paquete': paquete,'fecha_reserva': fecha_reserva,'cliente': cliente})    
-
-
-
 def reserva_detail(request, reserva_id):
     reserva = get_object_or_404(Reserva, id=reserva_id)
     return render(request, 'detalle_reserva.html', {'reserva': reserva})    
-
-
-
-
-# def registrar_cliente(request):
-#     if request.method == 'POST':
-#         form = ClienteRegistroForm(request.POST)
-#         if form.is_valid():
-#             user = form.save()
-#             client_group = Group.objects.get(name='Clientes')
-#             user.groups.add(client_group)
-
-#             login(request, user)
-#             return redirect('login')  # Cambia a la URL de tu elección
-#     else:
-#         form = ClienteRegistroForm()
-
-#     return render(request, 'registroCliente.html', {'form': form})    
-
-
-
 
 def logout_view(request):
     logout(request)
@@ -170,20 +138,24 @@ def logout_view(request):
 
 #metodo de Asignar Fechas y cantidad de personas 
 def fechas_reserva(request, paquete_id):
-     paquete = get_object_or_404(PaqueteTuristico, id=paquete_id)
-     fecha = None
+    paquete = get_object_or_404(PaqueteTuristico, id=paquete_id)
+    fecha = None
 
-     if request.method == 'POST':
-         form = FechasForm(request.POST)
-         if form.is_valid():
-             reserva = form.save(commit=False)
-             reserva.paquete = paquete
-             reserva.save()
-             fecha_id = reserva.id  # Corrected this line
-             return redirect('verificar_cliente', paquete_id=paquete.id, fecha_id=fecha_id)
-     else:
-         form = FechasForm()
-     return render(request, 'fechasReserva.html', {'paquete': paquete, 'fecha': fecha,'form': form})
+    if request.method == 'POST':
+        form = FechasForm(request.POST)
+        if form.is_valid():
+            reserva = form.save(commit=False)
+            # Asignar los valores de días y noches seleccionados a la reserva
+            reserva.dias_seleccionados = request.POST.get('dias_seleccionados')
+            reserva.noches_seleccionadas = request.POST.get('noches_seleccionadas')
+            
+            reserva.paquete = paquete
+            reserva.save()
+            fecha_id = reserva.id  # Corrected this line
+            return redirect('verificar_cliente', paquete_id=paquete.id, fecha_id=fecha_id)
+    else:
+        form = FechasForm()
+    return render(request, 'fechasReserva.html', {'paquete': paquete, 'fecha': fecha,'form': form})
 
 
 
@@ -401,3 +373,69 @@ def reporteExcel_ClientePais(request):
 def get_month_name(month_number):
     """Función auxiliar para convertir el número del mes en el nombre del mes."""
     return month_name[month_number]
+
+
+# views.py
+
+from django.db.models.functions import TruncMonth
+
+
+import pycountry  # Para convertir los códigos de país a nombres completos
+
+def informe_registro_por_pais(request):
+    # Agrupar clientes por país y mes
+    clientes_por_pais_y_mes = (
+        Cliente.objects.annotate(mes=TruncMonth('fecha_registro'))
+        .values('nacionalidad', 'mes')
+        .annotate(total=Count('id'))
+        .order_by('nacionalidad', 'mes')
+    )
+
+    # Convertir los códigos de país a nombres completos
+    datos_por_pais = {}
+    for cliente in clientes_por_pais_y_mes:
+        pais_codigo = cliente['nacionalidad']
+        pais_nombre = pycountry.countries.get(alpha_2=pais_codigo).name if pais_codigo else 'Desconocido'
+        mes = cliente['mes'].strftime("%Y-%m")
+        
+        if pais_nombre not in datos_por_pais:
+            datos_por_pais[pais_nombre] = {}
+
+        datos_por_pais[pais_nombre][mes] = cliente['total']
+
+    # Crear listas de países, meses y totales para ECharts
+    paises = list(datos_por_pais.keys())
+    meses = sorted(set(mes for pais_data in datos_por_pais.values() for mes in pais_data.keys()))
+
+    # Datos finales para la gráfica
+    graficos_datos = []
+    for pais in paises:
+        datos = [datos_por_pais[pais].get(mes, 0) for mes in meses]
+        graficos_datos.append({
+            'name': pais,
+            'type': 'bar',
+            'stack': 'total',
+            'data': datos,
+        })
+
+    # Total por país en el mes
+    total_pais_mes = {
+        pais: sum(datos_por_pais[pais].values())
+        for pais in paises
+    }
+    
+    # Total de todos los países en el mes
+    total_todos_paises = {
+        mes: sum(datos_por_pais[pais].get(mes, 0) for pais in paises)
+        for mes in meses
+    }
+
+    context = {
+        'paises': paises,
+        'meses': meses,
+        'graficos_datos': graficos_datos,
+        'total_pais_mes': total_pais_mes,
+        'total_todos_paises': total_todos_paises,
+    }
+
+    return render(request, 'reportes/graficaClientePais.html', context)

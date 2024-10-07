@@ -4,10 +4,6 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django_countries.fields import CountryField # esta libreria me sirve para los PAISES
 
-
-
-
-
 # Create your models here.
 class PaqueteTuristico(models.Model):
     nombre = models.CharField(max_length=255)
@@ -25,6 +21,8 @@ class FechasReserva(models.Model):
     fechaInicio = models.DateField()
     fechaFinal = models.DateField()
     personas = models.IntegerField(default=0)
+    dias_seleccionados = models.IntegerField(default=0)  # Valor por defecto de 0
+    noches_seleccionadas = models.IntegerField(default=0)  # Valor por defecto de 0
 
 def clean(self):
         if self.personas < 1:
@@ -52,12 +50,6 @@ class Cliente(models.Model):
     def __str__(self):
         return f"{self.user.email} - {self.get_nacionalidad_display()}"
    
-
-
-
-
-   
-
 class Reserva(models.Model):
     cliente = models.ForeignKey(Cliente, null=False, blank=False, on_delete=models.CASCADE)
     paquete = models.ForeignKey(PaqueteTuristico, null=False, blank=False, on_delete=models.CASCADE)

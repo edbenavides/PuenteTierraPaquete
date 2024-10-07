@@ -9,8 +9,6 @@ from django_countries.fields import CountryField
 from django_countries.widgets import CountrySelectWidget
 from.models import PaqueteTuristico,FechasReserva,Cliente,Reserva
 
-
-
 class LoginForm(forms.Form):
     username = forms.CharField(label='Correo', max_length=150)
     password = forms.CharField(widget=forms.PasswordInput,label='Contraseña',)
@@ -53,7 +51,6 @@ class ClienteRegistroForm(UserCreationForm):
                 telefono=self.cleaned_data['telefono'],
                 nacionalidad=self.cleaned_data['nacionalidad'],
                 paquete=paquete  # Añadir el paquete aquí
-               
                 
             )
         return user    
@@ -76,37 +73,10 @@ class FechasForm(forms.ModelForm):
             'fechaInicio': DateInput(format='%Y-%m-%d', attrs={'type': 'date'}),
             'fechaFinal': DateInput(format='%Y-%m-%d', attrs={'type': 'date'}),
             'personas': forms.NumberInput(attrs={'min': 1, 'value': 1}),  # Establecer el valor mínimo y predeterminado en 1
+            'dias_seleccionados': forms.HiddenInput(),
+            'noches_seleccionadas': forms.HiddenInput(),
         
         } 
-        # widgets = {
-        #     'fechaInicio': forms.DateInput(attrs={'type': 'date'}),
-        #     'fechaFinal': forms.DateInput(attrs={'type': 'date'}),
-        # }  
-
-
-      
-      
-
-# class ClienteForm(forms.ModelForm):
-#     contrasena = forms.CharField(widget=forms.PasswordInput)
-#     confirmar_contrasena = forms.CharField(widget=forms.PasswordInput)
-
-#     class Meta:
-#         model = Cliente
-#         fields = ['cedula', 'nombres', 'apellidos', 'telefono', 'email', 'contrasena', 'confirmar_contrasena']
-
-#     def clean(self):
-#         cleaned_data = super().clean()
-#         contrasena = cleaned_data.get("contrasena")
-#         confirmar_contrasena = cleaned_data.get("confirmar_contrasena")
-
-#         if contrasena != confirmar_contrasena:
-#             raise forms.ValidationError("Las contraseñas no coinciden")
-    
-
-# class ClienteLoginForm(forms.Form):
-#     email = forms.EmailField()
-#     contrasena = forms.CharField(widget=forms.PasswordInput)        
                     
 class ReservaForm(forms.ModelForm):
     class Meta:

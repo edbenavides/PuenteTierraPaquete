@@ -1,0 +1,50 @@
+<!-- informe_registro_por_pais.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe de Registros por País</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.0.2/dist/echarts.min.js"></script>
+</head>
+<body>
+    <h2>Informe de Clientes Registrados por País y Mes</h2>
+
+    <!-- Gráfico de barras -->
+    <div id="grafico" style="width: 100%; height: 600px;"></div>
+
+    <script type="text/javascript">
+        var chartDom = document.getElementById('grafico');
+        var myChart = echarts.init(chartDom);
+
+        var option = {
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: { type: 'shadow' }
+            },
+            legend: { data: {{ paises|safe }} },
+            grid: { left: '3%', right: '4%', bottom: '3%', containLabel: true },
+            xAxis: { type: 'category', data: {{ meses|safe }} },
+            yAxis: { type: 'value' },
+            series: {{ graficos_datos|safe }}
+        };
+
+        myChart.setOption(option);
+    </script>
+
+    <h3>Total por País y Mes</h3>
+    <ul>
+        {% for pais, total in total_pais_mes.items %}
+        <li>{{ pais }}: {{ total }} clientes registrados</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Total de Todos los Países en el Mes</h3>
+    <ul>
+        {% for mes, total in total_todos_paises.items %}
+        <li>{{ mes }}: {{ total }} clientes registrados</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+

@@ -52,10 +52,7 @@
               </div>
               <div class="profile_info">
                 <span>Bienvenido,</span>
-                
-
-
-                <h2>John Doe</h2>
+                <p>{{ user.username }}!</p>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -77,10 +74,6 @@
                       <!-- <li><a href="form.html">General Form</a></li> -->
                       <li><a href="{% url 'paquetelistar' %}">listar</a></li>
                       <li><a href="{% url 'crearPaquete' %}">Crear Paquete</a></li>
-                      <li><a href="form_validation.html">Form Validation</a></li>
-                      <li><a href="form_wizards.html">Form Wizard</a></li>
-                      <li><a href="form_upload.html">Form Upload</a></li>
-                      <li><a href="form_buttons.html">Form Buttons</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-bar-chart-o"></i> Reportes <span class="fa fa-chevron-down"></span></a>
@@ -89,9 +82,7 @@
                       <li><a href="{% url 'reporteClienteRegistrado' %}">Clientes Registrados</a></li>
                       <li><a href="{% url 'informeMes' %}">Total Paquetes Mes y Año </a></li>
                       <li><a href="{% url 'reporteClientePais' %}">Clientes Pais</a></li>
-                      <li><a href="invoice.html">Invoice</a></li>
-                      <li><a href="inbox.html">Inbox</a></li>
-                      <li><a href="calendar.html">Calendar</a></li>
+                      <li><a href="{% url 'grafica_clientes' %}">Grafica Clientes Pais</a></li>
                     </ul>
                   </li>
                 </ul>
