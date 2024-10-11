@@ -23,6 +23,8 @@ urlpatterns = [
     path('homeRestaurante/', views.RestauranteView.as_view(),name='homeRestaurante'),
     path('pqrs_form/', views.PQRS,name='pqrs_form'),
     path('pqrs_success/', views.pqrs_success_view,name='pqrs_success'),
+    path('footer/', views.FooterView.as_view(), name='footer'),
+    path('nosotros/', views.NosotrosView.as_view(),name='nosotros'),
    
 
 

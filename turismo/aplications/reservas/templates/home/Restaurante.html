@@ -8,22 +8,54 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Restaurante Puente Tierra</title>
     <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/site/css/style.css">
+    <!--link rel="stylesheet" href="/site/css/style.css">-->
 </head>
 <body>
   {% include 'navbar.html' %}
-    <!-- Navbar -->
+    <style>
+      body {
+        background-color:azure;
+      }
+      .jumbotron {
+        padding: 0px;
+        text-align: center;
+        font-size:smaller;
+        background-color: azure;       
+      }
+      .jumbotron p{
+        font-size:small;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-align:center;
+      }
+      .jumbotron{
+        font-size: 40px;
+      }
+      .card img {
+        width: 100%; /* Hace que la imagen ocupe todo el ancho del contenedor */
+        height: 200px; /* Define una altura fija para todas las imágenes */
+        object-fit: cover; /* Hace que la imagen cubra el área manteniendo su proporción */
+    }
+    .card {
+      margin-bottom: 20px; /* Añade un margen inferior para separar las tarjetas */
+  }
+  .col-md-4 {
+    margin-bottom: 20px; /* Añade un margen inferior para más separación entre columnas en pantallas medianas */
+  }
+
+  
+
+      
+    </style>
     
 
     <!-- Banner -->
-    <header class="jumbotron jumbotron-fluid text-white text-center" style="background-image: url('banner.jpg'); background-size: cover;">
-        <div class="container">
-            <h1 class="display-4">Deliciosos platos tipos de la region </h1>
-            <p class="lead">Disfruta de nuestros platos tradicionales en un ambiente acogedor.</p>
-            <a href="#menu" class="btn btn-primary btn-lg">Ver Menú</a>
-        </div>
+    <header class="jumbotron">
+      <div class="container">
+        <h1 class="display-4">Deliciosos platos tipos de la region </h1>
+        <p class="lead">Disfruta de nuestros platos tradicionales en un ambiente acogedor.</p>
+      </div>
     </header>
 
     <!-- Menú -->
@@ -44,7 +76,8 @@
             <img src="{% static 'img/plato de costilla.jpg' %}" class="card-img-top" alt="Caldo de Costilla">
             <div class="card-body">
               <h5 class="card-title">Caldo de Costilla</h5>
-              <p class="card-text">Un rico caldo con costilla de res.</p>
+              <p class="card-text">Un rico caldo con costilla de res papa y  verduras.</p>
+
             </div>
           </div>
         </div>
@@ -53,7 +86,7 @@
             <img src="{% static 'img/Sopa_miaz_verduras.jpg' %}" class="card-img-top" alt="Sopa tradicional de maiz con verduras">
             <div class="card-body">
               <h5 class="card-title">Deliciosos sopa de maiz</h5>
-              <p class="card-text">Rica sopa de maiz con verduras.</p>
+              <p class="card-text">Rica sopa de maiz con verduras  frescas de la region.</p>
     
             </div>
           </div>
@@ -73,7 +106,7 @@
             <img src="{% static 'img/Pechuga_plancha.jpg' %}" class="card-img-top" alt="Pechuga a la plancha">
             <div class="card-body">
               <h5 class="card-title">Pechuga a la plancha</h5>
-              <p class="card-text">bandeja con pechuga a la plancaha, acompañada arroz, papas a la francesa y ensada .</p>
+              <p class="card-text">pechuga a la plancaha, acompañada arroz, papas a la francesa y ensada .</p>
             </div>
           </div>
         </div>
@@ -89,7 +122,7 @@
     </section>
     
     <!--bebidas calientes-->
-    <section id="menu" class="container my-4"></section>
+    <section id="menu" class="container my-5">
       <h2 class="text-center mb-4">Nuestro oferta de bebidas calientes</h2>
       <div class="row">
         <div class="col-md-4">
@@ -120,9 +153,7 @@
     
             </div>
           </div>
-        </div>
-           
-       
+        </div>       
     </section>
 
 
@@ -130,46 +161,16 @@
     <section id="nosotros" class="bg-light py-5">
         <div class="container">
             <h2 class="text-center mb-4">Sobre Nosotros</h2>
-            <p class="text-center">Somos un restaurante que se especializa en ofrecer platos tradicionales del altiplano colombiano. Nuestra misión es brindarte la experiencia más auténtica de la gastronomía local.</p>
-        </div>
+            <p class="text-center">Somos un restaurante que se especializa en ofrecer platos tradicionales de la region. Nuestra misión es brindarte la experiencia más auténtica de la gastronomía local.</p>
+        </div> 
     </section>
-
-    
-
-    <!-- Footer -->
-    <footer>
-      <div class="footer-corporate-bottom-panel">
-        <div class="container">
-          <div class="row justfy-content-xl-space-berween row-10 align-items-md-center2">
-            <div class="col-sm-6 col-md-4 text-sm-right text-md-center">
-              <div>
-                <ul class="list-inline list-inline-sm footer-social-list-2">
-                  <li><a class="icon fa fa-facebook" href="#"></a></li>
-                  <li><a class="icon fa fa-twitter" href="#"></a></li>
-                  <li><a class="icon fa fa-google-plus" href="#"></a></li>
-                  <li><a class="icon fa fa-instagram" href="#"></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-sm-6 col-md-4 order-sm-first">
-              <!-- Rights-->
-              <p class="rights"><span>&copy;&nbsp;</span><span class="copyright-year"></span><span>&nbsp;</span><span>Puente Tierra</span>. All Rights Reserved. <a href="#"></a></p>
-            </div>
-            <div class="col-sm-6 col-md-4 text-md-right">
-              <p class="rights"><a href="#">politica de privacidad</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="map">
-            <!-- Aquí puedes agregar un mapa de Google Maps o similar -->
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21669.758623473317!2d-76.40982291965231!3d2.3621172844224434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2554e79b5c1b15%3A0xa9adab28577e844d!2sPilimbala!5e1!3m2!1ses-419!2sco!4v1727146927099!5m2!1ses-419!2sco" 
-            width="1490" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-             </div>
-      </div>
-    </footer>
-
-    <!-- Bootstrap JS -->
-   
-    
+    <!-- footer -->
+    {% include 'home/footer.html' %}
 </body>
+ 
+ 
+ 
+
+
 </html>
+

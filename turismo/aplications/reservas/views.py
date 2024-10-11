@@ -208,7 +208,11 @@ class HomeView(TemplateView):
 class RestauranteView(TemplateView):
     template_name = "home/Restaurante.html"
 
+class FooterView(TemplateView):
+    template_name = "home/footer.html"
 
+class NosotrosView(TemplateView):
+    template_name = "home/nosotros.html"    
 
 class PanelView(TemplateView):
     template_name = "index.html"
