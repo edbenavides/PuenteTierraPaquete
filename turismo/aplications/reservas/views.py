@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.core.paginator import Paginator
 
 from .forms import LoginForm,ClienteRegistroForm
 from django.contrib.auth.hashers import check_password
@@ -63,7 +64,8 @@ def user_login(request):
 
 @login_required
 def panelPadre(request):
-    return render(request, 'index.html', {'section': 'panelPadre'})
+    return graficaClientePaisMes(request)
+    # return informe_clientes_pais_mes(request, 'reportes/graficaClientePais.html', {'section': 'panelPadre'})
     #return render(request, 'Panel/panelPadre.html', {'section': 'panelPadre'})
     
 
@@ -117,13 +119,24 @@ def registrar_cliente(request, paquete_id, fecha_id):
         form = ClienteRegistroForm()
     return render(request, 'registroCliente.html', {'form': form,'paquete': paquete,'fecha_reserva': fecha_reserva})
 
-
+# @login_required
+# def panelCliente(request):
+#     cliente = get_object_or_404(Cliente, user=request.user)
+#     reservas = Reserva.objects.filter(cliente=cliente)
+#     return render(request, 'Panel/indexCliente.html', {'reservas': reservas})
 
 @login_required
 def panelCliente(request):
     cliente = get_object_or_404(Cliente, user=request.user)
-    reservas = Reserva.objects.filter(cliente=cliente)
-    return render(request, 'Panel/PanelCliente.html', {'reservas': reservas})
+    reservas = Reserva.objects.filter(cliente=cliente).order_by('-fechaReserva') 
+
+    # Agregar paginador para mostrar 5 reservas por página
+    paginator = Paginator(reservas, 1)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'Panel/indexCliente.html', {'page_obj': page_obj})
+
 
 def reserva_detail(request, reserva_id):
     reserva = get_object_or_404(Reserva, id=reserva_id)
@@ -161,6 +174,9 @@ def fechas_reserva(request, paquete_id):
 
 class PanelView(TemplateView):
     template_name = "index.html"
+
+class PanelClienteView(TemplateView):
+    template_name = "Panel/indexCliente.html"    
 
 class PruebaView(TemplateView):
     template_name = "home.html"
@@ -375,67 +391,85 @@ def get_month_name(month_number):
     return month_name[month_number]
 
 
-# views.py
+@login_required
+def graficaClientePaisMes(request):
+    mes_seleccionado = int(request.GET.get('mes', datetime.now().month))  
+    anio_seleccionado = int(request.GET.get('anio', datetime.now().year))  
 
-from django.db.models.functions import TruncMonth
+    # Filtrar y ordenar clientes por mes, año y número total de clientes de mayor a menor
+    clientes_filtrados = Cliente.objects.filter(
+        fecha_registro__month=mes_seleccionado,
+        fecha_registro__year=anio_seleccionado
+    ).values('nacionalidad').annotate(total=Count('nacionalidad')).order_by('-total')
 
-
-import pycountry  # Para convertir los códigos de país a nombres completos
-
-def informe_registro_por_pais(request):
-    # Agrupar clientes por país y mes
-    clientes_por_pais_y_mes = (
-        Cliente.objects.annotate(mes=TruncMonth('fecha_registro'))
-        .values('nacionalidad', 'mes')
-        .annotate(total=Count('id'))
-        .order_by('nacionalidad', 'mes')
-    )
-
-    # Convertir los códigos de país a nombres completos
-    datos_por_pais = {}
-    for cliente in clientes_por_pais_y_mes:
-        pais_codigo = cliente['nacionalidad']
-        pais_nombre = pycountry.countries.get(alpha_2=pais_codigo).name if pais_codigo else 'Desconocido'
-        mes = cliente['mes'].strftime("%Y-%m")
-        
-        if pais_nombre not in datos_por_pais:
-            datos_por_pais[pais_nombre] = {}
-
-        datos_por_pais[pais_nombre][mes] = cliente['total']
-
-    # Crear listas de países, meses y totales para ECharts
-    paises = list(datos_por_pais.keys())
-    meses = sorted(set(mes for pais_data in datos_por_pais.values() for mes in pais_data.keys()))
-
-    # Datos finales para la gráfica
-    graficos_datos = []
-    for pais in paises:
-        datos = [datos_por_pais[pais].get(mes, 0) for mes in meses]
-        graficos_datos.append({
-            'name': pais,
-            'type': 'bar',
-            'stack': 'total',
-            'data': datos,
+    # Datos para la gráfica y la tabla
+    data_grafico = []
+    total_mensual = 0
+    for cliente in clientes_filtrados:
+        nombre_pais = Country(cliente['nacionalidad']).name  # Convertir código ISO a nombre de país
+        data_grafico.append({
+            'name': nombre_pais,
+            'value': cliente['total']
         })
+        total_mensual += cliente['total']
 
-    # Total por país en el mes
-    total_pais_mes = {
-        pais: sum(datos_por_pais[pais].values())
-        for pais in paises
-    }
-    
-    # Total de todos los países en el mes
-    total_todos_paises = {
-        mes: sum(datos_por_pais[pais].get(mes, 0) for pais in paises)
-        for mes in meses
-    }
+    # Crear la lista de meses y años
+    meses = list(range(1, 13))
+    anios = list(range(2024, 2031))
 
-    context = {
-        'paises': paises,
+    contexto = {
+        'data_grafico': data_grafico,
+        'mes_seleccionado': mes_seleccionado,
+        'anio_seleccionado': anio_seleccionado,
+        'total_mensual': total_mensual,
         'meses': meses,
-        'graficos_datos': graficos_datos,
-        'total_pais_mes': total_pais_mes,
-        'total_todos_paises': total_todos_paises,
+        'anios': anios,
     }
+    return render(request, 'reportes/graficaClientePais.html', contexto)
 
-    return render(request, 'reportes/graficaClientePais.html', context)
+
+
+
+from django.utils.timezone import now
+
+@login_required
+def graficaReservasPaquete(request):
+    # Obtener el mes y año actual
+    today = now().date()
+    mes_actual = today.month
+    año_actual = today.year
+
+    # Obtener el mes y año seleccionados por el usuario, si se proporciona
+    mes_seleccionado = int(request.GET.get('mes', mes_actual))
+    año_seleccionado = int(request.GET.get('año', año_actual))
+
+    # Obtener el número de reservas por paquete turístico para el mes y el año seleccionado
+    reservas = (Reserva.objects.filter(fechaReserva__year=año_seleccionado, fechaReserva__month=mes_seleccionado)
+                .values('paquete__nombre')
+                .annotate(reserva_count=Count('id')))
+
+    # Convertir los datos en listas de nombres de paquetes y cantidades de reservas
+    nombres_paquetes = [reserva['paquete__nombre'] for reserva in reservas]
+    cantidad_reservas = [reserva['reserva_count'] for reserva in reservas]
+
+    # Calcular el total de todas las reservas
+    total_reservas = sum(cantidad_reservas)
+
+    # Listas de meses y años para los selects en el formulario
+    meses = list(range(1, 13))
+    años = list(range(2020, 2031))
+
+    # Pasar los datos al template
+    context = {
+        'nombres_paquetes': nombres_paquetes,
+        'cantidad_reservas': cantidad_reservas,
+        'mes_actual': mes_seleccionado,
+        'año_actual': año_seleccionado,
+        'meses': meses,
+        'años': años,
+        'total_reservas': total_reservas,  # Añadimos el total al contexto
+    }
+    return render(request, 'reportes/graficaReservasPaquete.html', context)
+
+
+

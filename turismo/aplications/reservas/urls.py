@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path,include
 from django.contrib.auth import views as auth_views #cargar todas las vistas de autenticacion desde las urls de mi aplicacion (nueva)
 from.import views 
-from .views import PaqueteListarUsuarioListView,registrar_cliente,fechas_reserva,user_login,verificar_cliente,CLienteRegistradoListView,PaqueteDeleteView,reporteExcelPaquetes,reporteExcel_ClientePais,informe_registro_por_pais
+from .views import PaqueteListarUsuarioListView,registrar_cliente,fechas_reserva,user_login,verificar_cliente,CLienteRegistradoListView,PaqueteDeleteView,reporteExcelPaquetes,reporteExcel_ClientePais,graficaClientePaisMes,graficaReservasPaquete
 
 # from django.urls.conf import include
 
@@ -14,6 +14,7 @@ urlpatterns = [
     path('panelPadre/', views.panelPadre, name='panelPadre'),
     path('panelCliente', views.panelCliente, name='panelCliente'),
     path('panel/', views.PanelView.as_view(),name='panelIndex'),
+    path('panelIndexCliente/', views.PanelClienteView.as_view(),name='panelIndexCliente'),
     path('home/', views.PruebaView.as_view()),
     path('crea/', views.paqueteCreateView.as_view(),name='crearPaquete'),
     path('listar/', views.PaqueteListView.as_view(),name='paquetelistar'),
@@ -47,7 +48,9 @@ urlpatterns = [
     path('reporteClientePais/', views.clientesPaisPorMes, name='reporteClientePais'),
 
     #URLS DEPORTE GRAFICAS
-    path('informe-clientes/', informe_registro_por_pais, name='grafica_clientes'),
+    path('informe-clientes/', graficaClientePaisMes, name='grafica_clientes'),
+    path('reservas-grafico/', graficaReservasPaquete, name='graficaReservaPaquetes'),
+
 
 
     #URLS REPORTES EXCEL

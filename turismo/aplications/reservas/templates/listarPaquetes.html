@@ -1,64 +1,58 @@
-
-
 {% extends 'Panel/panelPadre.html' %}
 
 {% block content %}
 
- <!-- page content -->
- <div class="right_col" role="main">
-   
-<!-- <button type="submit" class="btn btn-outline-warning">actualizar</button> -->
-<a href="{% url 'crearPaquete' %}" class="btn btn-outline-primary">Nuevo Paquete</a>
+<!-- page content -->
+<div class="right_col" role="main">
+
+    <!-- <button type="submit" class="btn btn-outline-warning">actualizar</button> -->
+    <a href="{% url 'crearPaquete' %}" class="btn btn-outline-primary">Nuevo Paquete</a>
 
 
-<br><br><br><br>
-<div align='center'>
-<h1 style="color: hsl(203, 83%, 38%)"> Listado de Paquetes Turisticos </h1>
-</div>
-
-
-
-<div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <br><br><br><br>
+    <div align='center'>
+        <h1 style="color: hsl(203, 83%, 38%)"> Listado de Paquetes Turisticos </h1>
     </div>
-    <div class="col-sm-12 col-md- col-lg-8 col-xl-12">
-        <table class="table table-striped">
-            <thead>
-                
-                <tr>
-                    <th scope="col">id</th>
-                    <th scope="col">Nombre Paquete</th>
-                    <th scope="col">Descripcion</th>
-                    <th scope="col">Incluye</th>
-                    <th scope="col">No Incluye </th>
-                    <th scope="col">Imagen</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    {% for dato in datos %}
-                    <td>{{ dato.id}} </td>
-                    <td>{{ dato.nombre}} </td>
-                    <td>{{ dato.descripcion }}</td>
-                    <td>{{ dato.incluye }}</td>
-                    <td>{{ dato.no_incluye }}</td>
-                    <td>{{ dato.imagen }}</td>
-                    <td><a href="{% url 'actualizarPaquete' dato.id %}" class="btn btn-outline-primary">Editar</a></td>
-                    <td><a href="{% url 'eliminarPaquete' dato.id %}" class="btn btn-outline-danger">Eliminar</a></td>
-                    
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+
+
+
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+        </div>
+        <div class="col-sm-12 col-md- col-lg-8 col-xl-12">
+            <table class="table table-striped">
+                <thead>
+
+                    <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Nombre Paquete</th>
+                        <th scope="col">Descripcion</th>
+                        <th scope="col">Incluye</th>
+                        <th scope="col">No Incluye </th>
+                        <th scope="col">Imagen</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        {% for dato in datos %}
+                        <td>{{ dato.id}} </td>
+                        <td>{{ dato.nombre}} </td>
+                        <td>{{ dato.descripcion }}</td>
+                        <td>{{ dato.incluye }}</td>
+                        <td>{{ dato.no_incluye }}</td>
+                        <td>{{ dato.imagen }}</td>
+                        <td><a href="{% url 'actualizarPaquete' dato.id %}" class="btn btn-outline-primary">Editar</a>
+                        </td>
+                        <td><a href="{% url 'eliminarPaquete' dato.id %}" class="btn btn-outline-danger">Eliminar</a>
+                        </td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
+    <br>
 </div>
-
-<br>
-
-
-
-
-
-  </div>
-  <!-- /page content -->
+<!-- /page content -->
 {% endblock %}

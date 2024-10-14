@@ -1,0 +1,77 @@
+{% extends 'Panel/PanelCliente.html' %}
+{% load static %}
+{% block indexCliente %}
+
+<div class="right_col" role="main">
+    <h1>Panel de Reservas</h1>
+
+    <!-- Mostrar el nombre del cliente una vez, fuera del bucle -->
+    <h2>Bienvenido, {{ page_obj.object_list.0.cliente.nombre }} {{ page_obj.object_list.0.cliente.apellidos }}</h2>
+
+    <ul>
+        {% for reserva in page_obj %}
+            <!-- Calcular el número de la reserva en función de la página y el índice del bucle -->
+            <div class="reserva">
+                <h3>Reserva #{{ forloop.counter|add:page_obj.start_index|add:-1 }}</h3> <!-- Numeración correcta de las reservas -->
+
+                <p><strong>Paquete:</strong> {{ reserva.paquete.nombre }}</p>
+                <p><strong>Descripción:</strong> {{ reserva.paquete.descripcion }}</p>
+                <p><strong>Incluye:</strong> {{ reserva.paquete.incluye }}</p>
+                <p><strong>No Incluye:</strong> {{ reserva.paquete.no_incluye }}</p>
+                <p><strong>Fecha de Reserva:</strong> {{ reserva.fecha_reserva.fechaInicio }} al {{ reserva.fecha_reserva.fechaFinal }}</p>
+                <p><strong>Numero Personas:</strong> {{ reserva.fecha_reserva.personas}}</p>
+                <p><strong>Dias Selecionados:</strong> {{ reserva.fecha_reserva.dias_seleccionados }}</p>
+                <p><strong>Noches Hospedaje:</strong> {{ reserva.fecha_reserva.noches_seleccionadas }}</p>
+                <p><strong>Email del Cliente:</strong> {{ reserva.cliente.email }}</p>
+                <p><strong>Teléfono del Cliente:</strong> {{ reserva.cliente.telefono }}</p>
+                <Br></Br>
+                <p class="text-right">
+                  <strong>Fecha y hora de creación de la reserva</strong> <br>
+                  {{ reserva.fechaReserva|date:"d F Y " }} hora: {{ reserva.horaReserva|time:"H:i:s" }}
+                </p>
+                
+                
+                <!-- Separar cada reserva visualmente -->
+                <hr>
+            </div>
+        {% endfor %}
+    </ul>
+
+    <!-- Paginación -->
+    <!-- Paginación -->
+<nav aria-label="Paginación de reservas" style="margin-bottom: 0;">
+  <ul class="pagination" style="margin-bottom: 0;">
+    {% if page_obj.has_previous %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.previous_page_number }}" tabindex="-1">Anterior</a>
+      </li>
+    {% else %}
+      <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1">Anterior</a>
+      </li>
+    {% endif %}
+
+    {% for num in page_obj.paginator.page_range %}
+      {% if page_obj.number == num %}
+        <li class="page-item active"><a class="page-link" href="#">{{ num }}</a></li>
+      {% else %}
+        <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+      {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+      </li>
+    {% else %}
+      <li class="page-item disabled">
+        <a class="page-link" href="#">Siguiente</a>
+      </li>
+    {% endif %}
+  </ul>
+</nav>
+
+
+</div>
+{% endblock %}
+

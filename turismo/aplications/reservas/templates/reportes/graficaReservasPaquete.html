@@ -1,0 +1,101 @@
+{% extends 'Panel/panelPadre.html' %}
+{% block graficaReservaPaquete %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico de Reservas por Paquete</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.0.2/dist/echarts.min.js"></script>
+</head>
+<body>
+    <div class="right_col" role="main">
+    <h1>Reservas por Paquete Turístico - {{ mes_actual }}/{{ año_actual }}</h1>
+
+    <!-- Formulario para seleccionar mes y año -->
+    <form method="get" action=".">
+        <label for="mes">Mes:</label>
+        <select id="mes" name="mes">
+            {% for mes in meses %}
+                <option value="{{ mes }}" {% if mes == mes_actual %}selected{% endif %}>{{ mes }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="año">Año:</label>
+        <select id="año" name="año">
+            {% for año in años %}
+                <option value="{{ año }}" {% if año == año_actual %}selected{% endif %}>{{ año }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Filtrar</button>
+    </form>
+
+    <!-- Mostrar el total de reservas de todos los paquetes -->
+    <h2>Total de Reservas: {{ total_reservas }}</h2>
+
+    <!-- Contenedor para el gráfico -->
+    <div id="reservasGrafico" style="width: 700px; height: 500px;"></div>
+
+    <script type="text/javascript">
+        // Obtener los datos del contexto de Django
+        var nombresPaquetes = {{ nombres_paquetes|safe }};
+        var cantidadReservas = {{ cantidad_reservas|safe }};
+
+        // Inicializar el gráfico
+        var chart = echarts.init(document.getElementById('reservasGrafico'));
+
+        // Opciones de configuración para el gráfico de barras
+        var options = {
+            title: {
+                text: 'Número de Reservas por Paquete Turístico'
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            grid: {
+                bottom: 260  // Aumentar el margen inferior para que los nombres tengan más espacio
+            },
+            xAxis: {
+                type: 'category',
+                data: nombresPaquetes,
+                name: 'Paquetes Turísticos',
+                axisLabel: {
+                    rotate: 44, // Rotar para mostrar mejor los nombres largos
+                    fontSize: 12,  // Ajustar tamaño de la fuente para nombres largos
+                    interval: 0,  // Mostrar todos los nombres
+                    formatter: function (value) {
+                        return value;
+                    }  // Acortar los nombres largos
+                }
+            },
+            yAxis: {
+                type: 'value',
+                name: 'Número de Reservas'
+            },
+            series: [{
+                data: cantidadReservas,
+                type: 'bar',
+                barWidth: '50%',
+                itemStyle: {
+                    color: '#5470C6'
+                },
+                label: {
+                    show: true,  // Mostrar los números sobre las barras
+                    position: 'top',
+                    formatter: '{c}'
+                }
+            }]
+        };
+
+        // Renderizar el gráfico con las opciones configuradas
+        chart.setOption(options);
+    </script>
+</body>
+</html>
+</div>
+{% endblock %}

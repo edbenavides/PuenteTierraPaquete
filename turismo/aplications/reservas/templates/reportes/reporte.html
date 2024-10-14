@@ -1,73 +1,60 @@
 {% extends 'Panel/panelPadre.html' %}
 {% block reportes %}
 
-
- <!-- page content -->
- <div class="right_col" role="main">
-
-
-<br><br><br><br>
-<div align='center'>
-<h1 style="color: hsl(203, 83%, 38%)"> Informe Paquetes Reservados </h1>
-</div>
-
-
-
-<div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
-        <!-- Botón de descarga -->
-        <a href="{% url 'Paquetes_excel' %}" class="btn btn-success" style="margin-bottom: 20px;">
-            Descargar Excel
-        </a>
+<!-- page content -->
+<div class="right_col" role="main">
+    <br><br>
+    <div align='center'>
+        <h1 style="color: hsl(203, 83%, 38%)"> Informe Paquetes Reservados </h1>
     </div>
-    <div class="col-sm-12 col-md- col-lg-8 col-xl-12">
-        <table class="table table-striped">
-            <thead>
-                
-                <tr>
-                    <th scope="col">Nro</th>
-                    <th scope="col">Fecha Reserva</th>
-                    <th scope="col">Hora Reserva</th>
-                    <th scope="col">Tipo Documento</th>
-                    <th scope="col">Numero Documento</th>
-                    <th scope="col">Nombres</th>
-                    <th scope="col">Apellidos</th>
-                    <th scope="col">Telefono </th>
-                    <th scope="col">Fecha Inicio</th>
-                    <th scope="col">Fecha Final</th>
-                    <th scope="col">Cantidad Viajeros </th>
-                    <th scope="col">Nacionalidad</th>
-                    <th scope="col">Paquete Seleccionado</th>
-                    <th scope="col">Id</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    {% for reporte in reportes %}
-                    <td>{{ reporte.id}} </td>
-                    <td>{{ reporte.fechaReserva|date:"d F Y "}} </td>
-                    <td>{{ reporte.horaReserva}} </td>
-                    <td>{{ reporte.cliente.tipo_documento}} </td>
-                    <td>{{ reporte.cliente.numero_documento}} </td>
-                    <td>{{ reporte.cliente.nombre}} </td>
-                    <td>{{ reporte.cliente.apellidos}} </td>
-                    <td>{{ reporte.cliente.telefono}} </td>
-                    <td>{{ reporte.fecha_reserva.fechaInicio}} </td>
-                    <td>{{ reporte.fecha_reserva.fechaFinal}} </td>
-                    <td>{{ reporte.fecha_reserva.personas}} </td>
-                    <td>{{ reporte.cliente.get_nacionalidad_display}} </td>
-                    <td>{{ reporte.paquete.nombre}} </td>
-                    <td>{{ reporte.paquete.id}} </td>
-                    
-                   
-                    <!-- <td><a href="" class="btn btn-outline-primary">Eliminar</a></td> -->
-                    
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+            <!-- Botón de descarga -->
+            <a href="{% url 'Paquetes_excel' %}" class="btn btn-success" style="margin-bottom: 20px;">Descargar Excel</a>
+        </div>
+        <div class="col-sm-12 col-md- col-lg-8 col-xl-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Nro</th>
+                        <th scope="col">Fecha Reserva</th>
+                        <th scope="col">Hora Reserva</th>
+                        <th scope="col">Tipo Documento</th>
+                        <th scope="col">Numero Documento</th>
+                        <th scope="col">Nombres</th>
+                        <th scope="col">Apellidos</th>
+                        <th scope="col">Telefono </th>
+                        <th scope="col">Fecha Inicio</th>
+                        <th scope="col">Fecha Final</th>
+                        <th scope="col">Cantidad Viajeros </th>
+                        <th scope="col">Nacionalidad</th>
+                        <th scope="col">Paquete Seleccionado</th>
+                        <th scope="col">Id</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        {% for reporte in reportes %}
+                        <td>{{ reporte.id}} </td>
+                        <td>{{ reporte.fechaReserva|date:"d F Y "}} </td>
+                        <td>{{ reporte.horaReserva}} </td>
+                        <td>{{ reporte.cliente.tipo_documento}} </td>
+                        <td>{{ reporte.cliente.numero_documento}} </td>
+                        <td>{{ reporte.cliente.nombre}} </td>
+                        <td>{{ reporte.cliente.apellidos}} </td>
+                        <td>{{ reporte.cliente.telefono}} </td>
+                        <td>{{ reporte.fecha_reserva.fechaInicio}} </td>
+                        <td>{{ reporte.fecha_reserva.fechaFinal}} </td>
+                        <td>{{ reporte.fecha_reserva.personas}} </td>
+                        <td>{{ reporte.cliente.get_nacionalidad_display}} </td>
+                        <td>{{ reporte.paquete.nombre}} </td>
+                        <td>{{ reporte.paquete.id}} </td>
+                        <!-- <td><a href="" class="btn btn-outline-primary">Eliminar</a></td> -->
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
-
-<br>
-{% endblock %}
+</div>    
+    {% endblock %}

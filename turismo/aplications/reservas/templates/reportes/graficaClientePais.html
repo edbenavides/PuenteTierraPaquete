@@ -1,50 +1,63 @@
-<!-- informe_registro_por_pais.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Informe de Registros por País</title>
-    <script src="https://cdn.jsdelivr.net/npm/echarts@5.0.2/dist/echarts.min.js"></script>
-</head>
-<body>
-    <h2>Informe de Clientes Registrados por País y Mes</h2>
+{% extends 'Panel/panelPadre.html' %}
+{% load static %}
+{% block indexPrincipalGrafica %}
 
-    <!-- Gráfico de barras -->
-    <div id="grafico" style="width: 100%; height: 600px;"></div>
+<div class="right_col" role="main">
+    <h1>Informe de Clientes Registrados por País - {{ mes_seleccionado }}/{{ anio_seleccionado }}</h1>
 
-    <script type="text/javascript">
-        var chartDom = document.getElementById('grafico');
-        var myChart = echarts.init(chartDom);
-
-        var option = {
-            tooltip: {
-                trigger: 'axis',
-                axisPointer: { type: 'shadow' }
-            },
-            legend: { data: {{ paises|safe }} },
-            grid: { left: '3%', right: '4%', bottom: '3%', containLabel: true },
-            xAxis: { type: 'category', data: {{ meses|safe }} },
-            yAxis: { type: 'value' },
-            series: {{ graficos_datos|safe }}
-        };
-
-        myChart.setOption(option);
-    </script>
-
-    <h3>Total por País y Mes</h3>
-    <ul>
-        {% for pais, total in total_pais_mes.items %}
-        <li>{{ pais }}: {{ total }} clientes registrados</li>
+    <form method="get">
+      <label for="mes">Seleccionar Mes:</label>
+      <select name="mes" id="mes">
+        {% for mes in meses %}
+        <option value="{{ mes }}" {% if mes == mes_seleccionado %}selected{% endif %}>{{ mes }}</option>
         {% endfor %}
-    </ul>
+      </select>
 
-    <h3>Total de Todos los Países en el Mes</h3>
-    <ul>
-        {% for mes, total in total_todos_paises.items %}
-        <li>{{ mes }}: {{ total }} clientes registrados</li>
+      <label for="anio">Seleccionar Año:</label>
+      <select name="anio" id="anio">
+        {% for anio in anios %}
+        <option value="{{ anio }}" {% if anio == anio_seleccionado %}selected{% endif %}>{{ anio }}</option>
         {% endfor %}
-    </ul>
-</body>
-</html>
+      </select>
 
+      <button type="submit">Filtrar</button>
+    </form>
+
+    <!-- Gráfico de clientes por país -->
+    <div id="graficoClientesPaisMes" style="width: 700px; height: 500px;  margin: 0 auto;"></div>
+
+    <!-- Tabla con totales por país -->
+    <h3>Total de Clientes por País</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>País</th>
+                <th>Total de Clientes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in data_grafico %}
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.value }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Total de clientes en el mes: {{ total_mensual }}</h2>
+    <br>
+</div>
+
+<!-- Cargar el archivo de eCharts -->
+<script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+
+<!-- Pasar los datos de la gráfica a una variable JavaScript -->
+<script type="text/javascript">
+    var chartData = {{ data_grafico|safe }};
+</script>
+
+<!-- Cargar el archivo JavaScript externo -->
+<script src="{% static 'js/graficaClientePais.js' %}"></script>
+
+{% endblock %}

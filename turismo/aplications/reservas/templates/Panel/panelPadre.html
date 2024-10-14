@@ -40,7 +40,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="{% url 'panelIndex' %}" class="site_title"><i class="fa fa-paw"></i> <span>Puente Tierra!</span></a>
+              <a href="{% url 'grafica_clientes' %}" class="site_title"><i class="fa fa-paw"></i> <span>Puente Tierra!</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -66,7 +66,7 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{% url 'panelIndex' %}">Dashboard</a></li>
+                      <li><a href="{% url 'grafica_clientes' %}">Dashboard</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-edit"></i> Paquetes <span class="fa fa-chevron-down"></span></a>
@@ -82,12 +82,11 @@
                       <li><a href="{% url 'reporteClienteRegistrado' %}">Clientes Registrados</a></li>
                       <li><a href="{% url 'informeMes' %}">Total Paquetes Mes y Año </a></li>
                       <li><a href="{% url 'reporteClientePais' %}">Clientes Pais</a></li>
-                      <li><a href="{% url 'grafica_clientes' %}">Grafica Clientes Pais</a></li>
+                      <li><a href="{% url 'graficaReservaPaquetes' %}">Grafica Reservas Paquete</a></li>
                     </ul>
                   </li>
                 </ul>
               </div>
-             
             </div>
             <!-- /sidebar menu -->
 
@@ -211,7 +210,7 @@
           </div>
         </div>
         <!-- /top navigation -->
-        {% block index %}
+        {% block indexPrincipalGrafica %}
         {% endblock %}
 
 
@@ -228,6 +227,9 @@
         {% endblock %}
 
         {% block reporteClientePais %}
+        {% endblock %}
+        
+        {% block graficaReservaPaquete %}
         {% endblock %}
 
         
