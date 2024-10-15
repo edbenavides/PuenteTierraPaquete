@@ -17,7 +17,7 @@ urlpatterns = [
     path('panelIndexCliente/', views.PanelClienteView.as_view(),name='panelIndexCliente'),
     path('home/', views.PruebaView.as_view()),
     path('crea/', views.paqueteCreateView.as_view(),name='crearPaquete'),
-    path('listar/', views.PaqueteListView.as_view(),name='paquetelistar'),
+    path('listar/', views.PaqueteListView.as_view(),name='paquetelistar'), 
 
 
 
@@ -32,7 +32,17 @@ urlpatterns = [
 
 
 
-    
+    # rutas credas para el home inicial y el formulario de las PQRS
+    path('homePrincipal/', views.HomeView.as_view(),name='homePrincipal'),
+    path('homeRestaurante/', views.RestauranteView.as_view(),name='homeRestaurante'),
+    path('pqrs_form/', views.PQRS,name='pqrs_form'),
+    path('pqrs_success/', views.pqrs_success_view,name='pqrs_success'),
+    path('footer/', views.FooterView.as_view(), name='footer'),
+    path('nosotros/', views.NosotrosView.as_view(),name='nosotros'),
+   
+
+
+
     path('listardos/', views.PaqueteListarUsuarioListView.as_view(), name='paqueteturistico_list'),
     # path('reservar/<int:paquete_id>/', views.fechas_reserva, name='fechas_reserva'),
     path('paquete/<int:paquete_id>/fechas/', fechas_reserva, name='fechas_reserva'),

@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    *{
+        margin: 0%;
+        padding: 0%;
+        box-sizing: border-box;
+        list-style:none ;
+    }
+
+    body{
+        font-family: sans-serif;
+        text-transform: capitalize;
+    }
+    .container{
+        max-width: 1200px;
+        margin:0 auto;
+    }
+    .footer{
+        background-color: #24262b;
+        padding: 15px 0;
+    }
+
+    .footer-row{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .footer-links{
+        width: 20%;
+        padding: 0 15%;
+    }
+
+    
+    .footer-links h4 {
+        font-size: 20px;
+        color:#ffffff;
+        margin-bottom: 25px;
+        font-weight: 500;
+        border-bottom:2px solid #00c3ff;    
+        padding-bottom: 10px;   
+        display: inline-block; 
+    }
+
+   .footer-links ul li a{
+    font-size: 18px;
+    text-decoration: none;
+    color: #bbbbbb;
+    display: block;
+    margin-bottom: 15px;
+    transition: all .3s ease;
+
+   } 
+
+  .footer-links ul li a:hover{
+    color: #ffffff;
+    padding-left: 6px;
+  }
+
+  .social-link a{
+    min-height: 40px;
+    width: 40px;
+    background-color: rgab(255,255,255,0);
+    margin: 0 10px 10px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition:  all .5s ease;
+  }
+
+  .social-link a:hover{
+    background-color: #00c3ff;
+  }
+
+ .map iframe{
+    display: flex;
+    width: 100%;
+    
+ }
+
+
+  @media(max-width:991px) {
+    .footer-row{
+        text-align: center;
+  }
+    .footer-links{
+    width: 100%;
+    margin-bottom: 30px;
+    }
+
+  }
+
+</style>
+
+<body>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-row">
+                <div class="footer-links">
+                    <h4>Puente Tierra</h4>
+                    <ul>
+                        <li><a href="#">Nosotros</a></li>
+                        <li><a href="#">Nuestros servicios</a></li>
+                        <li><a href="#">Cuidamos la naturaleza</a></li>
+                        <li><a href="#">Visitanos</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Algunos recorridos</h4>
+                    <ul>
+                        <li><a href="#">Mensajero del sol</a></li>
+                        <li><a href="">Lagunillas</a></li>
+                        <li><a href="#">sender de orquideas</a></li>
+
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="#">Piscinas</a></li>
+                        <li><a href="">Restaurante</a></li>
+                        <li><a href="#">Cabañas</a></li>
+                        <li><a href="#">Camping</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer links">
+                    <h4>Siguenos</h4>
+                    <div class="social-link">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21669.758623473317!2d-76.40982291965231!3d2.3621172844224434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2554e79b5c1b15%3A0xa9adab28577e844d!2sPilimbala!5e1!3m2!1ses-419!2sco!4v1727146927099!5m2!1ses-419!2sco"
+                width="450" height="150" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+    </footer>
+
+</body>
+</html>
+

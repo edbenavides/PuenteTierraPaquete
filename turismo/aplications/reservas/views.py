@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.core.paginator import Paginator
 
-from .forms import LoginForm,ClienteRegistroForm
+from .forms import LoginForm,ClienteRegistroForm, PQRSForm
 from django.contrib.auth.hashers import check_password
 
 from django.urls import reverse_lazy, reverse
@@ -28,13 +28,12 @@ from django.shortcuts import render
 from django.db.models import Count, Sum
 from datetime import timedelta,datetime
 from django_countries.fields import Country
+
+#Formulario para las PQRS
+from.forms import PQRSForm
 import pandas as pd
 from openpyxl import Workbook
 from calendar import month_name
-
-
-
-
 
 def user_login(request):
     if request.method == 'POST':
@@ -119,11 +118,7 @@ def registrar_cliente(request, paquete_id, fecha_id):
         form = ClienteRegistroForm()
     return render(request, 'registroCliente.html', {'form': form,'paquete': paquete,'fecha_reserva': fecha_reserva})
 
-# @login_required
-# def panelCliente(request):
-#     cliente = get_object_or_404(Cliente, user=request.user)
-#     reservas = Reserva.objects.filter(cliente=cliente)
-#     return render(request, 'Panel/indexCliente.html', {'reservas': reservas})
+
 
 @login_required
 def panelCliente(request):
@@ -170,7 +165,35 @@ def fechas_reserva(request, paquete_id):
         form = FechasForm()
     return render(request, 'fechasReserva.html', {'paquete': paquete, 'fecha': fecha,'form': form})
 
+#Se crea la vista para el formulario de PQRS
+def PQRS(request):
+    if request.method == 'POST':
+        form = PQRSForm(request.POST)
+        if form.is_valid():
+            form.save()  # Guarda los datos en la base de datos
+            return redirect('pqrs_success')  # Redirige a una página de éxito
+    else:
+        form = PQRSForm()
+    
+    return render(request, 'home/pqrs_form.html', {'form': form})
 
+
+def pqrs_success_view(request):
+    return render(request, 'home/pqrs_success.html')
+
+
+
+class HomeView(TemplateView):
+    template_name = "home/home.html"
+
+class RestauranteView(TemplateView):
+    template_name = "home/Restaurante.html"
+
+class FooterView(TemplateView):
+    template_name = "home/footer.html"
+
+class NosotrosView(TemplateView):
+    template_name = "home/nosotros.html"    
 
 class PanelView(TemplateView):
     template_name = "index.html"
@@ -180,6 +203,7 @@ class PanelClienteView(TemplateView):
 
 class PruebaView(TemplateView):
     template_name = "home.html"
+
 
 
 @method_decorator(login_required, name='dispatch')
@@ -205,6 +229,7 @@ class PaqueteListarUsuarioListView(ListView):
     model = PaqueteTuristico
     template_name = "listarPaquetesUsuarios.html"
     context_object_name ="paquetes"    
+
 
 
 @method_decorator(login_required, name='dispatch')

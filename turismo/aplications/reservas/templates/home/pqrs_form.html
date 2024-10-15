@@ -1,0 +1,64 @@
+<!-- pqrs_form.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PQRS</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+
+<style>
+    body {
+        background-color: azure; /* Fondo gris claro */
+    }
+
+    .container {
+        border: 1px solid #918c8c; /* Borde gris claro */
+        border-radius: 10px; /* Bordes redondeados */
+        padding: 30px; /* Espaciado interno */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+        background-color: #3254a9; /* Fondo blanco para el formulario */
+    }
+
+    h2 {
+        color: #eaedf0; /* Color del título (azul) */
+        text-align: center; /* Alineación centrada */
+        margin-bottom: 30px; /* Margen inferior */
+    }
+
+    .btn-primary {
+        background-color: #28a745; /* Color verde para el botón */
+        border-color: #28a745; /* Borde verde */
+    }
+
+    .btn-primary:hover {
+        background-color: #218838; /* Color verde más oscuro al pasar el ratón */
+        border-color: #1e7e34; /* Borde más oscuro */
+    }
+
+    /* Estilo para los campos de formulario */
+    .form-control {
+        border-radius: 5px; /* Bordes redondeados para los campos */
+    }
+
+    /* Estilo para las etiquetas del formulario */
+    label {
+        font-weight: bold; /* Etiquetas en negrita */
+        color: #f5e7e7; /* Color del texto de las etiquetas */
+    }
+</style>
+<body>
+<div class="container mt-5">
+    <h2>Nos interesa tu opinión</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>
+
+</body>
+
+</html>

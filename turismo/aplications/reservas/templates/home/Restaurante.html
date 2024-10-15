@@ -1,0 +1,176 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Restaurante Puente Tierra</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> 
+    <!-- Custom CSS -->
+    <!--link rel="stylesheet" href="/site/css/style.css">-->
+</head>
+<body>
+  {% include 'navbar.html' %}
+    <style>
+      body {
+        background-color:azure;
+      }
+      .jumbotron {
+        padding: 0px;
+        text-align: center;
+        font-size:smaller;
+        background-color: azure;       
+      }
+      .jumbotron p{
+        font-size:small;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-align:center;
+      }
+      .jumbotron{
+        font-size: 40px;
+      }
+      .card img {
+        width: 100%; /* Hace que la imagen ocupe todo el ancho del contenedor */
+        height: 200px; /* Define una altura fija para todas las imágenes */
+        object-fit: cover; /* Hace que la imagen cubra el área manteniendo su proporción */
+    }
+    .card {
+      margin-bottom: 20px; /* Añade un margen inferior para separar las tarjetas */
+  }
+  .col-md-4 {
+    margin-bottom: 20px; /* Añade un margen inferior para más separación entre columnas en pantallas medianas */
+  }
+
+  
+
+      
+    </style>
+    
+
+    <!-- Banner -->
+    <header class="jumbotron">
+      <div class="container">
+        <h1 class="display-4">Deliciosos platos tipos de la region </h1>
+        <p class="lead">Disfruta de nuestros platos tradicionales en un ambiente acogedor.</p>
+      </div>
+    </header>
+
+    <!-- Menú -->
+    <section id="menu" class="container my-5">
+      <h2 class="text-center mb-4">Nuestro Menú</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <img src="{% static 'img/plato ajiaco.jpg' %}" class="card-img-top" alt="Ajiaco">
+            <div class="card-body">
+              <h5 class="card-title">Ajiaco Colombiano</h5>
+              <p class="card-text">Preparado con papa criolla, mazorca, y pollo.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="{% static 'img/plato de costilla.jpg' %}" class="card-img-top" alt="Caldo de Costilla">
+            <div class="card-body">
+              <h5 class="card-title">Caldo de Costilla</h5>
+              <p class="card-text">Un rico caldo con costilla de res papa y  verduras.</p>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="{% static 'img/Sopa_miaz_verduras.jpg' %}" class="card-img-top" alt="Sopa tradicional de maiz con verduras">
+            <div class="card-body">
+              <h5 class="card-title">Deliciosos sopa de maiz</h5>
+              <p class="card-text">Rica sopa de maiz con verduras  frescas de la region.</p>
+    
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="{% static 'img/Bandeja_carne_asada.jpg' %}" class="card-img-top" alt="Bandeja con carne asada">
+            <div class="card-body">
+              <h5 class="card-title">Bandeja con carne asada</h5>
+              <p class="card-text">Bandeja con carne asada acompañada de arroz, frijoles, ensalada y plátano maduro.</p>
+    
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="{% static 'img/Pechuga_plancha.jpg' %}" class="card-img-top" alt="Pechuga a la plancha">
+            <div class="card-body">
+              <h5 class="card-title">Pechuga a la plancha</h5>
+              <p class="card-text">pechuga a la plancaha, acompañada arroz, papas a la francesa y ensada .</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="{% static 'img/bandeja_trucha.jpg' %}" class="card-img-top" alt="Bandeja con trucha frita">
+            <div class="card-body">
+              <h5 class="card-title">Trucha frita</h5>
+              <p class="card-text">Bandeja con trucha arroz, platano maduro y ensalada.</p>
+            </div>
+          </div>
+        </div>
+    </section>
+    
+    <!--bebidas calientes-->
+    <section id="menu" class="container my-5">
+      <h2 class="text-center mb-4">Nuestro oferta de bebidas calientes</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <img src="{% static 'img/Chocolate_caliente.jpg' %}" class="card-img-top" alt="Chocolate  caliente">
+
+            <div class="card-body">
+              <h5 class="card-title">Tasa de chocolate</h5>
+              <p class="card-text">Apenas para acompañar el clima frio.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="{% static 'img/tasa de agua de panela.jpg' %}" class="card-img-top" alt="Agua de Panel">
+            <div class="card-body">
+              <h5 class="card-title">Agua de panela con sabor de plantas aromaticas</h5>
+              <p class="card-text">Deliciosa agua de panela caliente con queso y hojaldras.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="{% static 'img/Cafe_pasado_14062011.jpg' %}" class="card-img-top" alt="Cafe con leche">
+            <div class="card-body">
+              <h5 class="card-title">Rico sabor del cafe</h5>
+              <p class="card-text">Que bueno tomarse un vaso de cafe caliente con queso o leche.</p>
+    
+            </div>
+          </div>
+        </div>       
+    </section>
+
+
+    <!-- Nosotros -->
+    <section id="nosotros" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Sobre Nosotros</h2>
+            <p class="text-center">Somos un restaurante que se especializa en ofrecer platos tradicionales de la region. Nuestra misión es brindarte la experiencia más auténtica de la gastronomía local.</p>
+        </div> 
+    </section>
+    <!-- footer -->
+    {% include 'home/footer.html' %}
+</body>
+ 
+ 
+ 
+
+
+</html>
+

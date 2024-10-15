@@ -1,0 +1,5 @@
+-- database: e:\PuenteTierra\PuenteTierraPaquete\turismo\db.sqlite3
+
+-- Presione el botón ▷ en la esquina superior derecha de la ventana para ejecutar todo el archivo.
+
+SELECT * FROM auth_group;

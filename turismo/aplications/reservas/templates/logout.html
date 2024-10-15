@@ -1,11 +1,23 @@
 
-{% extends 'base.html' %}
-{% block title %} Inicio de sesion  {% endblock %}
+
+ 
+    {% extends 'base.html' %}
+    {% block title %} Inicio de sesion {% endblock %}
+    
+    {% block content %}
+    
+    
+    <h1> haz cerrdado sesion</h1>
+    <p>Puedes iniciar sesion de nuevo desde a qui <a href="{% url 'login'%}"> aqui.</a></p>
+    
+    
+    {% endblock %}
+  
 
 
-{% block content %}
-<h1> haz cerrdado sesion</h1>
-<p>Puedes iniciar sesion de nuevo desde a qui <a href="{% url 'login'%}"> aqui.</a></p>
-{% endblock %}
+
+
+
+
 
 

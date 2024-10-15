@@ -50,6 +50,26 @@ class Cliente(models.Model):
     def __str__(self):
         return f"{self.user.email} - {self.get_nacionalidad_display()}"
    
+   
+class PQRS(models.Model):
+    TIPO_CHOICES = [
+        ('peticion', 'Petición'),
+        ('queja', 'Queja'),
+        ('reclamo', 'Reclamo'),
+        ('sugerencia', 'Sugerencia'),
+        ('felicitaciones', 'Felicitacines'),
+    ]
+
+    nombre = models.CharField(max_length=30)
+    email = models.EmailField()
+    tipo = models.CharField(max_length=20, choices=TIPO_CHOICES)
+    mensaje = models.TextField()
+    fecha = models.DateTimeField(auto_now_add=True)
+    #felicitacion = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return f'{self.nombre} - {self.tipo}'
+
 class Reserva(models.Model):
     cliente = models.ForeignKey(Cliente, null=False, blank=False, on_delete=models.CASCADE)
     paquete = models.ForeignKey(PaqueteTuristico, null=False, blank=False, on_delete=models.CASCADE)
@@ -60,6 +80,10 @@ class Reserva(models.Model):
         fecha_formateada = self.fechaReserva.strftime("%d %B %Y")
         hora_formateada = self.horaReserva.strftime("%H:%M:%S")
         return f'{self.cliente} {self.paquete} {fecha_formateada} {hora_formateada}'
+
+
+
+
    
 
    

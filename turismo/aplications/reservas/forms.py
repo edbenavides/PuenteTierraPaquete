@@ -7,7 +7,9 @@ from django.core.exceptions import ValidationError
 
 from django_countries.fields import CountryField
 from django_countries.widgets import CountrySelectWidget
-from.models import PaqueteTuristico,FechasReserva,Cliente,Reserva
+from.models import PaqueteTuristico,FechasReserva,Cliente,Reserva,PQRS
+
+
 
 class LoginForm(forms.Form):
     username = forms.CharField(label='Correo', max_length=150)
@@ -83,3 +85,13 @@ class ReservaForm(forms.ModelForm):
         model = Reserva
         fields = ('__all__')  
       
+class PQRSForm(forms.ModelForm):
+    class Meta:
+        model = PQRS
+        fields = ['nombre', 'email', 'tipo', 'mensaje']
+        widgets = {
+            'nombre': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Tu nombre'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Tu email'}),
+            'tipo': forms.Select(attrs={'class': 'form-control'}),
+            'mensaje': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Tu mensaje'}),
+        }
