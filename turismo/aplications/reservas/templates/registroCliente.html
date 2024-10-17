@@ -1,14 +1,58 @@
-<h1>hola bienvenidos</h1>
-<!-- {% load static %} -->
-<onload="resetForm()" <div align='center'>
-    <h1 style="color: hsl(203, 83%, 38%)"> REGISTRO USURARIO </h1>
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    
+    <style>
+        body {
+            background-color: #f0f8ff; /* Color de fondo (azure) */
+        }
+        .form-container {
+            max-width: 600px; /* Ancho máximo del formulario */
+            margin: 50px auto; /* Centrar el formulario */
+            padding: 20px;
+            background-color: white; /* Fondo blanco para el formulario */
+            border-radius: 8px; /* Bordes redondeados */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+        }
+        h1, h2 {
+            text-align: center; /* Centrar los títulos */
+        }
+        .btn-primary {
+            display: block;
+            width: 100%;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    {% include 'navbar.html' %}
+
+    <div class="container">
+        <div class="form-container">
+            <h1 style="color: hsl(203, 83%, 38%)">Registro de Usuario</h1>
+            <h2>Usted ha seleccionado el Paquete: {{ paquete.nombre }}</h2>
+            <h3>Fecha de Reserva: Desde {{ fecha_reserva.fechaInicio }} hasta {{ fecha_reserva.fechaFinal }}</h3>
+
+            <form id="formulario" method="post" enctype="multipart/form-data" autocomplete="off">
+                {% csrf_token %}
+                {{ form.as_p }} <!-- Renderiza el formulario con campos bien alineados -->
+                <button type="submit" class="btn btn-primary">Completar Reserva</button>
+            </form>
+        </div>
     </div>
 
-    <form class="formulario-colorido" id="formulario" form method="post" enctype="multipart/form-data" autocomplete="off">
-        <h1>Usted ha seleccionado el Paquete: {{ paquete.nombre }}</h1>
-        <h2>Fecha de Reserva: Desde {{ fecha_reserva.fechaInicio }} hasta {{ fecha_reserva.fechaFinal }}</h2>
+    {% include 'home/footer.html' %}
 
-        {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit" class="btn btn-primary">Completar Reserva</button>
-    </form>
+    <script src="{% static 'js/fechasReserva.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+</html>

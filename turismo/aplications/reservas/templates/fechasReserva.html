@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 
 </head>
-
+{% include 'navbar.html' %}
 <body>
+    
     <div class="container mt-5">
         <h2 class="mb-4">Reservar Paquete: {{ paquete.nombre }}</h2>
         <form method="post" onsubmit="return validateForm();">
@@ -31,6 +32,7 @@
             </div>
         </form>
     </div>
+    {% include 'home/footer.html' %} 
     <script src="{% static 'js/fechasReserva.js' %}"></script>
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 </body>

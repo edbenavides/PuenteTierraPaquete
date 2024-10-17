@@ -1,11 +1,67 @@
-<h2>Si ya te has registrado anteriormente, por favor ingresa tu correo electrónico y contraseña en el formulario para terminar la reserva</h2>
-<form method="post">
-  
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Iniciar Sesión</button>
-</form>
-<p>¿No tienes una cuenta? <a href="{% url 'registrar_cliente' paquete.id fecha_reserva.id %}">Registrarse aquí</a></p>
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <style>
+        body {
+            background-color: #f8f9fa; /* Color de fondo claro */
+        }
+        .form-container {
+            max-width: 400px; /* Limitar el ancho del formulario */
+            margin: 50px auto; /* Centrar vertical y horizontalmente */
+            padding: 20px;
+            background-color: white; /* Fondo blanco para el formulario */
+            border-radius: 8px; /* Bordes redondeados */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        }
+        .form-container h2 {
+            text-align: center; /* Centrar el título */
+            margin-bottom: 20px; /* Espacio debajo del título */
+        }
+        .btn-submit {
+            display: block;
+            width: 100%;
+        }
+        .form-text {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    {% include 'navbar.html' %}
+
+    <div class="form-container">
+        <h2>Iniciar Sesión</h2>
+        <p class="form-text">Si ya te has registrado anteriormente, por favor ingresa tu correo electrónico y contraseña en el formulario para
+            terminar la reserva.</p>
+        
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }} <!-- Renderiza el formulario de Django con clases predeterminadas de Bootstrap -->
+            <button type="submit" class="btn btn-primary btn-submit">Iniciar Sesión</button>
+        </form>
+
+        <p class="form-text mt-3">¿No tienes una cuenta? <a href="{% url 'registrar_cliente' paquete.id fecha_reserva.id %}">Registrarse aquí</a></p>
+    </div>
+
+    {% include 'home/footer.html' %}
+
+    <script src="{% static 'js/fechasReserva.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+</html>
+
+
+
 
 
 
