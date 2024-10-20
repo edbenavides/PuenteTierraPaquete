@@ -1,5 +1,6 @@
 <!-- pqrs_form.html -->
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +11,7 @@
 </head>
 
 <style>
-    body {
-        background-color: azure; /* Fondo gris claro */
-    }
+    
 
     .container {
         border: 1px solid #918c8c; /* Borde gris claro */
@@ -49,6 +48,8 @@
         color: #f5e7e7; /* Color del texto de las etiquetas */
     }
 </style>
+
+{% include 'navbar.html' %}
 <body>
 <div class="container mt-5">
     <h2>Nos interesa tu opinión</h2>
@@ -59,6 +60,7 @@
     </form>
 </div>
 
+   
 </body>
 
 </html>

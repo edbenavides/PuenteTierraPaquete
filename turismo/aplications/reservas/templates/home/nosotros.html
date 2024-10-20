@@ -6,6 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <title>Puente Tierra - Turismo</title>
     <style>
         body {
@@ -18,11 +19,11 @@
 
         .container {
             background-color: #ffffff; /* Fondo blanco para el contenido */
-            padding: 20px;
+            padding: 10px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             max-width: 800px;
-            margin: auto;
+            margin:auto;
         }
 
         h2 {
@@ -36,13 +37,13 @@
             text-align: justify;
         }
 
-        .highlight {
+        .description {
             background-color: #eaf7ff; /* Fondo para resaltar */
             padding: 10px;
             border-radius: 5px;
-            margin-bottom: 20px;
+            margin-bottom: 5px;
         }
-        .highlight img{
+        .description img{
             width: 30%;
             height: 20%;
             display: block;
@@ -53,8 +54,10 @@
     </style>
 </head> 
 <body>
+    {% include 'navbar.html' %}
+    <br><br>
     <div class="container">
-        <div class="highlight">
+        <div class="description">
             <h2>Puente Tierra, Puracé, Cauca</h2>
             <p>
                 Puente Tierra es un encantador destino turístico ubicado en el municipio de Puracé, Cauca, 
@@ -66,18 +69,18 @@
 
         </div>
 
-        <div class="highlight">
+        <div class="description">
             <h2>Paisajes Majestuosos</h2>
             <p>
                 Este sitio se destaca por sus paisajes majestuosos, ubicados en el corazón de la cordillera 
-                Central de los Andes colombianos. Rodeado de exuberante vegetación, ríos cristalinos y montañas, 
+                Central de los Andes Colombianos. Rodeado de exuberante vegetación, ríos cristalinos y montañas, 
                 Puente Tierra ofrece un entorno ideal para los amantes de la naturaleza y quienes buscan desconectarse 
                 del bullicio de la vida urbana.
             </p>
             <img src="{%static 'img/Image PM.jpg' %}"  alt="Puente Tierra">
         </div>
 
-        <div class="highlight">
+        <div class="description">
             <h2>Ecoturismo y Comunidad</h2>
             <p>
                 Además de su belleza natural, Puente Tierra es un sitio importante para el ecoturismo y 
@@ -88,7 +91,7 @@
             <img src="{%static 'img/Image 2024-09-28 at 9.19.12 PM.jpg' %}"  alt="Puente Tierra">
         </div>
 
-        <div class="highlight">
+        <div class="description">
             <h2>Experiencia Única</h2>
             <p>
                 Puente Tierra es más que un destino turístico; es un espacio donde la naturaleza y la 
@@ -98,5 +101,11 @@
             <img src="{%static 'img/index-3-556x382.jpg' %}"  alt="Puente Tierra">
         </div>
     </div>
+    
+    {% include 'home/footer.html' %}
+    <script src="{% static 'js/fechasReserva.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
 </body>
+
 </html>

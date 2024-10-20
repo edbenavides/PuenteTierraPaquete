@@ -1,101 +1,102 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de Sesión</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Vincular el archivo CSS -->
-</head>
-<body>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <style>
         /* Estilo para todo el body con fondo color azure */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: azure; /* Color de fondo */
-    height: 100vh; /* Altura total de la ventana */
-    display: flex;
-    justify-content: center; /* Centrar el contenido horizontalmente */
-    align-items: center; /* Centrar el contenido verticalmente */
-}
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: azure;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
-/* Contenedor para centrar el formulario */
-.login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%; /* Ocupa el ancho total */
-    height: 100%; /* Ocupa la altura total */
-}
+        /* Navbar fijo en la parte superior */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
 
-/* Estilo del formulario */
-.login-form {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    max-width: 400px; /* Ancho máximo del formulario */
-    width: 100%;
-    text-align: center; /* Centrar el contenido del formulario */
-}
+        /* El contenido ocupa todo el espacio entre el navbar y el footer */
+        .content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 80px; /* Espacio para el navbar */
+            padding-bottom: 80px; /* Espacio para el footer */
+        }
 
-/* Estilo para el título */
-.login-form h2 {
-    margin-bottom: 20px;
-    color: #333;
-}
+        /* Estilo del formulario */
+        .login-form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
 
-/* Estilo para los campos del formulario */
-.login-form label {
-    display: block;
-    margin-bottom: 8px;
-    color: #333;
-    text-align: left;
-}
+        /* Footer fijo en la parte inferior */
+      
 
-.login-form input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
+        /* Botón del formulario */
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
 
-/* Estilo del botón */
-.login-form button {
-    width: 100%;
-    padding: 10px;
-    background-color: #008CBA; /* Color del botón */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
-</style>
+<body>
 
-<div class="login-container">
-      <div class="login-form">
-{% if form.errors %}
-  <p>El nombre del usuario y contraseña son incorrectos </p>
-{%else%}
-<p>Por favor llena el formulario para iniciar session</p>
-{% endif%}
+    <!-- Navbar se incluye en la parte superior -->
+    {% include 'navbar.html' %}
 
-<form action="{% url 'login' %}" method="post">
-  {% csrf_token %}
-  {{ form.as_p}}
-  <input type="hidden" name="next", value="{{next}}">
+    <!-- Contenido centrado entre el navbar y el footer -->
+    <div class="content">
+        <div class="login-form">
+            {% if form.errors %}
+            <p>El nombre del usuario y contraseña son incorrectos </p>
+            {% else %}
+            <p>Por favor llena el formulario para iniciar sesión</p>
+            {% endif %}
 
-  <button type="submit">iniciar</button>
-  <!-- Agregar enlace para restablecer contraseña -->
-<p><a href="{% url 'password_reset' %}">¿Olvidaste tu contraseña?</a></p>
-</form>
-  </div>
-  </div>
+            <form action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="hidden" name="next" value="{{ next }}">
+                <button type="submit">Iniciar sesión</button>
+                <!-- Agregar enlace para restablecer contraseña -->
+                <p><a href="{% url 'password_reset' %}">¿Olvidaste tu contraseña?</a></p>
+            </form>
+        </div>
+    </div>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+    <!-- Footer se incluye en la parte inferior -->
+    {% include 'home/footer.html' %}
 
+    <script src="{% static 'js/fechasReserva.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 
 </body>
+
 </html>
