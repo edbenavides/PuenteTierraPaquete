@@ -11,8 +11,9 @@
 </head>
 <body>
     <div class="right_col" role="main">
-    <h1>Reservas por Paquete Turístico - {{ mes_actual }}/{{ año_actual }}</h1>
-
+        <br><br>
+ 
+        <h1 style="color: hsl(203, 83%, 38%);text-align: center;"> Reservas por Paquete Turístico {{ mes_actual }}/{{ año_actual }}</h1>
     <!-- Formulario para seleccionar mes y año -->
     <form method="get" action=".">
         <label for="mes">Mes:</label>
@@ -32,9 +33,6 @@
         <button type="submit">Filtrar</button>
     </form>
 
-    <!-- Mostrar el total de reservas de todos los paquetes -->
-    <h2>Total de Reservas: {{ total_reservas }}</h2>
-
     <!-- Contenedor para el gráfico -->
     <div id="reservasGrafico" style="width: 700px; height: 500px;"></div>
 
@@ -42,14 +40,17 @@
         // Obtener los datos del contexto de Django
         var nombresPaquetes = {{ nombres_paquetes|safe }};
         var cantidadReservas = {{ cantidad_reservas|safe }};
-
+    
         // Inicializar el gráfico
         var chart = echarts.init(document.getElementById('reservasGrafico'));
-
+    
+        // Definir una lista de colores
+        var colores = ['#5470C6', '#91CC75', '#FAC858', '#EE6666', '#73C0DE', '#3BA272', '#FC8452', '#9A60B4', '#EA7CCC'];
+    
         // Opciones de configuración para el gráfico de barras
         var options = {
             title: {
-                text: 'Número de Reservas por Paquete Turístico'
+                
             },
             tooltip: {
                 trigger: 'axis',
@@ -66,7 +67,7 @@
                 name: 'Paquetes Turísticos',
                 axisLabel: {
                     rotate: 44, // Rotar para mostrar mejor los nombres largos
-                    fontSize: 12,  // Ajustar tamaño de la fuente para nombres largos
+                    fontSize: 10,  // Ajustar tamaño de la fuente para nombres largos
                     interval: 0,  // Mostrar todos los nombres
                     formatter: function (value) {
                         return value;
@@ -82,7 +83,10 @@
                 type: 'bar',
                 barWidth: '50%',
                 itemStyle: {
-                    color: '#5470C6'
+                    color: function (params) {
+                        // Asignar un color diferente a cada barra
+                        return colores[params.dataIndex % colores.length];
+                    }
                 },
                 label: {
                     show: true,  // Mostrar los números sobre las barras
@@ -91,10 +95,13 @@
                 }
             }]
         };
-
+    
         // Renderizar el gráfico con las opciones configuradas
         chart.setOption(options);
     </script>
+    <!-- Mostrar el total de reservas de todos los paquetes -->
+    <h2>Total de Reservas: {{ total_reservas }}</h2>
+
 </body>
 </html>
 </div>

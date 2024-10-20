@@ -1,17 +1,17 @@
-
 {% extends 'Panel/panelPadre.html' %}
+{% load static %}
 {% block nuevo %}
 
+<link rel="stylesheet" href="{% static 'css/crearPaquete.css' %}">
 <div class="right_col" role="main">
     <div align='center'>
-        <h1 style="color: hsl(203, 83%, 38%)"> INGRESAR DATOS DE PAQUETE </h1>
-        </div>
-    
-    <form class="formulario-colorido" form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit" class="btn btn-primary">agregar datos</button>
+        <h1 style="color: hsl(203, 83%, 38%)"> Ingresar Datos del Paquete </h1>
     </div>
-        {% endblock %}
-        
-        
+    <form class="formulario-colorido" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Guardar Datos</button>
+    </form><br>
+</div>
+
+{% endblock %}

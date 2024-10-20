@@ -1,10 +1,9 @@
 {% extends 'Panel/panelPadre.html' %}
 {% block reportes %}
-
 <!-- page content -->
 <div class="right_col" role="main">
 
-    <br><br><br><br>
+    <br><br>
     <div align='center'>
         <h1 style="color: hsl(203, 83%, 38%)"> Clientes Registrados </h1>
     </div>
@@ -18,7 +17,7 @@
                     <tr>
                         <th scope="col">Nro</th>
                         <th scope="col">Usuario</th>
-                        <th scope="col">Hora Reserva</th>
+                        <th scope="col">Fecha Registro</th>
                         <th scope="col">Tipo Documento</th>
                         <th scope="col">Numero Documento</th>
                         <th scope="col">Nombres</th>
@@ -32,7 +31,7 @@
                         {% for cliente in reportes %}
                         <td>{{ cliente.id}} </td>
                         <td>{{ cliente.user}} </td>
-                        <td>{{ cliente.password}} </td>
+                        <td>{{ cliente.fecha_registro|date:"d F Y" }} </td>
                         <td>{{ cliente.tipo_documento}} </td>
                         <td>{{ cliente.numero_documento}} </td>
                         <td>{{ cliente.nombre}} </td>

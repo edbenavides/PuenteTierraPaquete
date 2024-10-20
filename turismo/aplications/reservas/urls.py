@@ -33,13 +33,16 @@ urlpatterns = [
 
 
     # rutas credas para el home inicial y el formulario de las PQRS
-    path('homePrincipal/', views.HomeView.as_view(),name='homePrincipal'),
+    path('', views.HomeView.as_view(),name='homePrincipal'),
     path('homeRestaurante/', views.RestauranteView.as_view(),name='homeRestaurante'),
     path('pqrs_form/', views.PQRS,name='pqrs_form'),
     path('pqrs_success/', views.pqrs_success_view,name='pqrs_success'),
     path('footer/', views.FooterView.as_view(), name='footer'),
     path('nosotros/', views.NosotrosView.as_view(),name='nosotros'),
-   
+
+
+
+    path('listarMejorado/', views.PaqueteListarUsuarioMejoradoListView.as_view(), name='listarMejorado'),
 
 
 
@@ -54,8 +57,7 @@ urlpatterns = [
     #URLS DE REPORTES 
     path('listarReporte/', views.ReporteListView.as_view(),name='reportelistar'),
     path('reporteClienteRegistrado/', views.CLienteRegistradoListView.as_view(),name='reporteClienteRegistrado'),
-    path('informe-reservas/', views.reservas_informe, name='informeMes'),
-    path('reporteClientePais/', views.clientesPaisPorMes, name='reporteClientePais'),
+    path('reporteReservasFecha/', views.reporteReservaFecha, name='reporteReservasFecha'),
 
     #URLS DEPORTE GRAFICAS
     path('informe-clientes/', graficaClientePaisMes, name='grafica_clientes'),

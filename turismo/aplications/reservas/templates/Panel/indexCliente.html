@@ -3,18 +3,18 @@
 {% block indexCliente %}
 
 <div class="right_col" role="main">
-    <h1>Panel de Reservas</h1>
+   
 
     <!-- Mostrar el nombre del cliente una vez, fuera del bucle -->
-    <h2>Bienvenido, {{ page_obj.object_list.0.cliente.nombre }} {{ page_obj.object_list.0.cliente.apellidos }}</h2>
+    <h2 style="color: hsl(203, 83%, 38%)">Bienvenido, {{ page_obj.object_list.0.cliente.nombre }} {{ page_obj.object_list.0.cliente.apellidos }}</h2>
 
     <ul>
         {% for reserva in page_obj %}
             <!-- Calcular el número de la reserva en función de la página y el índice del bucle -->
             <div class="reserva">
-                <h3>Reserva #{{ forloop.counter|add:page_obj.start_index|add:-1 }}</h3> <!-- Numeración correcta de las reservas -->
+                <!-- <h3>Reserva #{{ forloop.counter|add:page_obj.start_index|add:-1 }}</h3> Numeración correcta de las reservas -->
 
-                <p><strong>Paquete:</strong> {{ reserva.paquete.nombre }}</p>
+                <p><h3><strong>Paquete:</strong> {{ reserva.paquete.nombre }}</h3></p>
                 <p><strong>Descripción:</strong> {{ reserva.paquete.descripcion }}</p>
                 <p><strong>Incluye:</strong> {{ reserva.paquete.incluye }}</p>
                 <p><strong>No Incluye:</strong> {{ reserva.paquete.no_incluye }}</p>
@@ -22,7 +22,7 @@
                 <p><strong>Numero Personas:</strong> {{ reserva.fecha_reserva.personas}}</p>
                 <p><strong>Dias Selecionados:</strong> {{ reserva.fecha_reserva.dias_seleccionados }}</p>
                 <p><strong>Noches Hospedaje:</strong> {{ reserva.fecha_reserva.noches_seleccionadas }}</p>
-                <p><strong>Email del Cliente:</strong> {{ reserva.cliente.email }}</p>
+                <!-- <p><strong>Email del Cliente:</strong> {{ reserva.cliente.email }}</p> -->
                 <p><strong>Teléfono del Cliente:</strong> {{ reserva.cliente.telefono }}</p>
                 <Br></Br>
                 <p class="text-right">

@@ -14,6 +14,7 @@ from.forms import ActivosForm,FechasForm,ReservaForm
 from django.views import View
 from django.contrib.auth.models import User, Group
 
+
 # views.py
 
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -25,14 +26,15 @@ from django.views.generic import TemplateView,CreateView,ListView,UpdateView,Del
 #Reportes por fechas 
 from django.db.models.functions import TruncMonth
 from django.shortcuts import render
-from django.db.models import Count, Sum
+from django.db.models import Count, Sum, F
 from datetime import timedelta,datetime
 from django_countries.fields import Country
+from django.utils.timezone import now
+from openpyxl import Workbook
 
 #Formulario para las PQRS
 from.forms import PQRSForm
 import pandas as pd
-from openpyxl import Workbook
 from calendar import month_name
 
 def user_login(request):
@@ -230,6 +232,11 @@ class PaqueteListarUsuarioListView(ListView):
     template_name = "listarPaquetesUsuarios.html"
     context_object_name ="paquetes"    
 
+class PaqueteListarUsuarioMejoradoListView(ListView):
+    model = PaqueteTuristico
+    template_name = "listar_paquetesMejorado.html"
+    context_object_name ="paquetes"     
+
 
 
 @method_decorator(login_required, name='dispatch')
@@ -264,69 +271,63 @@ class CLienteRegistradoListView(ListView):
     context_object_name ="reportes"
     login_url = '/login/'
 
-# Vista para mostrar el informe de reservas por mes
-def reservas_informe(request):
-    # Agrupar reservas por mes y paquete, y contar el número total de reservas
-    reservas_por_mes = (
-        Reserva.objects
-        .values('fechaReserva__year', 'fechaReserva__month', 'paquete__nombre')  # Agrupar por mes y paquete
-        .annotate(total_reservas=Count('id'))  # Contar las reservas por paquete
-        .order_by('fechaReserva__year', 'fechaReserva__month', '-total_reservas')  # Ordenar por mes y por número de reservas
-    )
+@login_required
+def reporteReservaFecha(request):
+    reservas = Reserva.objects.select_related('cliente', 'paquete', 'fecha_reserva').all()
     
-    # Obtener el total de reservas por mes
-    total_reservas_por_mes = (
-        Reserva.objects
-        .values('fechaReserva__year', 'fechaReserva__month')  # Agrupar solo por mes
-        .annotate(total_reservas=Count('id'))  # Contar las reservas totales por mes
-        .order_by('fechaReserva__year', 'fechaReserva__month')  # Ordenar por mes
-    )
+    # Diccionario para guardar el informe
+    reporte = {}
 
-    # Estructura de datos para facilitar la presentación
-    datos_por_mes = {}
-    for reserva in reservas_por_mes:
-        year_month = f"{reserva['fechaReserva__year']}-{reserva['fechaReserva__month']:02d}"
-        if year_month not in datos_por_mes:
-            datos_por_mes[year_month] = {
-                'paquetes': [],
-                'total_reservas_mes': next(
-                    (item['total_reservas'] for item in total_reservas_por_mes if item['fechaReserva__year'] == reserva['fechaReserva__year'] and item['fechaReserva__month'] == reserva['fechaReserva__month']),
-                    0
-                ),
-            }
-        datos_por_mes[year_month]['paquetes'].append({
-            'paquete': reserva['paquete__nombre'],
-            'total_reservas': reserva['total_reservas'],
-        })
+    for reserva in reservas:
+        fecha_inicio = reserva.fecha_reserva.fechaInicio
+        fecha_final = reserva.fecha_reserva.fechaFinal
+        cliente_nombre = reserva.cliente.nombre
+        cliente_apellidos = reserva.cliente.apellidos
+        paquete_nombre = reserva.paquete.nombre
+        clientes_reserva = reserva.fecha_reserva.personas  # Asegúrate de tener este campo que refleje el número de personas por reserva
+        dias_seleccionados = (fecha_final - fecha_inicio).days + 1  # Días totales seleccionados
+        noches_seleccionadas = dias_seleccionados - 1  # Noches totales
 
-    context = {
-        'datos_por_mes': datos_por_mes,
-    }
-    
-    return render(request, 'reportes/reporteMes.html', context)  
+        # Recorremos las fechas del rango de la reserva
+        for dia in range(dias_seleccionados):
+            fecha = fecha_inicio + timedelta(days=dia)
 
-def clientesPaisPorMes(request):
-    # Agrupamos los clientes por mes y nacionalidad
-     # Agrupamos los clientes por mes y nacionalidad
-    clientes_por_mes_raw = (
-        Cliente.objects
-        .annotate(mes=TruncMonth('fecha_registro'))  # Agrupamos por mes
-        .values('mes', 'nacionalidad')
-        .annotate(total_clientes=Count('id'))
-        .order_by('mes', 'nacionalidad')
-    )
+            if fecha not in reporte:
+                reporte[fecha] = {
+                    'clientes_total': 0,
+                    'clientes_estadias': 0,
+                    'paquetes': {}
+                }
+            
+            # Actualizamos los totales de clientes por día con la cantidad de personas en la reserva
+            reporte[fecha]['clientes_total'] += clientes_reserva  # Aquí sumamos el total de personas de la reserva
 
-    # Convertimos los códigos de país a nombres legibles
-    clientes_por_mes = []
-    for cliente in clientes_por_mes_raw:
-        cliente['nacionalidad'] = Country(cliente['nacionalidad']).name  # Convierte siglas a nombre del país
-        clientes_por_mes.append(cliente)
-    
-    return render(request, 'reportes/reporteClientesPais.html', {'clientes_por_mes': clientes_por_mes})
+            # Si el cliente pasa la noche, se cuenta en el primer día
+            if dia < noches_seleccionadas:
+                reporte[fecha]['clientes_estadias'] += clientes_reserva  # También sumamos el total de personas que se quedan por noche
 
+            # Por paquete turístico
+            if paquete_nombre not in reporte[fecha]['paquetes']:
+                reporte[fecha]['paquetes'][paquete_nombre] = {
+                    'clientes_total': 0,
+                    'clientes_estadias': 0,
+                    'cliente_nombre': cliente_nombre,
+                    'cliente_apellidos': cliente_apellidos  
+                }
+
+            # Actualizamos por paquete turístico
+            reporte[fecha]['paquetes'][paquete_nombre]['clientes_total'] += clientes_reserva
+            if dia < noches_seleccionadas:
+                reporte[fecha]['paquetes'][paquete_nombre]['clientes_estadias'] += clientes_reserva
+
+    # Ordenar las fechas para mejor visualización en el template
+    reporte_ordenado = dict(sorted(reporte.items()))
+
+    return render(request, 'reportes/reporteReservasMes.html', {'reporte': reporte_ordenado})
 
 
 ####-----------FUNCION DESCARGAR EXCEL INFORME PAQUETES RESERVADOS-------#######
+@login_required
 def reporteExcelPaquetes(request):
     # Crear un libro de trabajo y agregar una hoja de trabajo
     workbook = Workbook()
@@ -337,7 +338,7 @@ def reporteExcelPaquetes(request):
     worksheet.append(['Nro', 'Fecha Reserva', 'Hora Reserva', 'Tipo Documento', 
                       'Número Documento', 'Nombres', 'Apellidos', 'Teléfono', 
                       'Fecha Inicio', 'Fecha Final', 'Cantidad Viajeros', 
-                      'Nacionalidad', 'Paquete Seleccionado', 'ID'])
+                      'Nacionalidad', 'Paquete Seleccionado', 'Dias Seleccionados', 'Noches Estadia'])
 
     # Obtener las reservas (ajusta la consulta según tus necesidades)
     reportes = Reserva.objects.select_related('cliente', 'paquete', 'fecha_reserva').all()
@@ -358,7 +359,9 @@ def reporteExcelPaquetes(request):
             reporte.fecha_reserva.personas,
             reporte.cliente.get_nacionalidad_display(),
             reporte.paquete.nombre,
-            reporte.paquete.id,
+            reporte.fecha_reserva.dias_seleccionados,
+            reporte.fecha_reserva.noches_seleccionadas
+     
         ])
 
     # Crear el objeto HttpResponse con el encabezado apropiado para Excel
@@ -369,7 +372,7 @@ def reporteExcelPaquetes(request):
     workbook.save(response)
     return response
 
-
+@login_required
 #----------------------FUNCION DESCARR INFORME CLIENTES POR PAIS----------------######
 def reporteExcel_ClientePais(request):
     # Crear un libro de trabajo y agregar una hoja de trabajo
@@ -451,11 +454,6 @@ def graficaClientePaisMes(request):
         'anios': anios,
     }
     return render(request, 'reportes/graficaClientePais.html', contexto)
-
-
-
-
-from django.utils.timezone import now
 
 @login_required
 def graficaReservasPaquete(request):

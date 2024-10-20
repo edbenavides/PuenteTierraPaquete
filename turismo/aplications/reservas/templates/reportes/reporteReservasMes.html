@@ -1,0 +1,54 @@
+{% extends 'Panel/panelPadre.html' %}
+{% block reportes %}
+
+<!-- page content -->
+<div class="right_col" role="main">
+
+    <br><br>
+    <div align='center'>
+        <h1 style="color: hsl(203, 83%, 38%)"> Infome Paquetes Reservados Por Fecha </h1>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+        </div>
+        <div class="col-sm-12 col-md- col-lg-8 col-xl-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Total Clientes Visitantes</th>
+                        <th scope="col">Total Clientes Estadía</th>
+                        <th scope="col">Nombres</th>
+                        <th scope="col">Apellidos</th>
+                        <th scope="col">Paquete Turístico</th>
+                        <th scope="col">Clientes del Paquete</th>
+                        <th scope="col">Clientes que se Quedan (Noche)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for fecha, data in reporte.items %}
+                    <tr>
+                        <td rowspan="{{ data.paquetes|length }}">{{ fecha }}</td>
+                        <td rowspan="{{ data.paquetes|length }}">{{ data.clientes_total }}</td>
+                        <td rowspan="{{ data.paquetes|length }}">{{ data.clientes_estadias }}</td>
+
+                        {% for paquete, detalles in data.paquetes.items %}
+                        {% if not forloop.first %}
+                    <tr>
+                        {% endif %}
+                        <td>{{ detalles.cliente_nombre }}</td> <!-- Mostrar el nombre del cliente -->
+                        <td>{{ detalles.cliente_apellidos }}
+                        <td>{{ paquete }}</td>
+                        <td>{{ detalles.clientes_total }}</td>
+                        <td>{{ detalles.clientes_estadias }}</td>
+                    </tr>
+                    {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

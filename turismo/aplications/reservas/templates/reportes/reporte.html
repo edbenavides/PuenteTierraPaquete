@@ -13,48 +13,53 @@
             <a href="{% url 'Paquetes_excel' %}" class="btn btn-success" style="margin-bottom: 20px;">Descargar Excel</a>
         </div>
         <div class="col-sm-12 col-md- col-lg-8 col-xl-12">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Nro</th>
-                        <th scope="col">Fecha Reserva</th>
-                        <th scope="col">Hora Reserva</th>
-                        <th scope="col">Tipo Documento</th>
-                        <th scope="col">Numero Documento</th>
-                        <th scope="col">Nombres</th>
-                        <th scope="col">Apellidos</th>
-                        <th scope="col">Telefono </th>
-                        <th scope="col">Fecha Inicio</th>
-                        <th scope="col">Fecha Final</th>
-                        <th scope="col">Cantidad Viajeros </th>
-                        <th scope="col">Nacionalidad</th>
-                        <th scope="col">Paquete Seleccionado</th>
-                        <th scope="col">Id</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        {% for reporte in reportes %}
-                        <td>{{ reporte.id}} </td>
-                        <td>{{ reporte.fechaReserva|date:"d F Y "}} </td>
-                        <td>{{ reporte.horaReserva}} </td>
-                        <td>{{ reporte.cliente.tipo_documento}} </td>
-                        <td>{{ reporte.cliente.numero_documento}} </td>
-                        <td>{{ reporte.cliente.nombre}} </td>
-                        <td>{{ reporte.cliente.apellidos}} </td>
-                        <td>{{ reporte.cliente.telefono}} </td>
-                        <td>{{ reporte.fecha_reserva.fechaInicio}} </td>
-                        <td>{{ reporte.fecha_reserva.fechaFinal}} </td>
-                        <td>{{ reporte.fecha_reserva.personas}} </td>
-                        <td>{{ reporte.cliente.get_nacionalidad_display}} </td>
-                        <td>{{ reporte.paquete.nombre}} </td>
-                        <td>{{ reporte.paquete.id}} </td>
-                        <!-- <td><a href="" class="btn btn-outline-primary">Eliminar</a></td> -->
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+            <!-- Hacer la tabla responsive -->
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nro</th>
+                            <th scope="col">Fecha Reserva</th>
+                            <th scope="col">Hora Reserva</th>
+                            <th scope="col">Tipo Documento</th>
+                            <th scope="col">Numero Documento</th>
+                            <th scope="col">Nombres</th>
+                            <th scope="col">Apellidos</th>
+                            <th scope="col">Telefono</th>
+                            <th scope="col">Fecha Inicio</th>
+                            <th scope="col">Fecha Final</th>
+                            <th scope="col">Cantidad Viajeros</th>
+                            <th scope="col">Nacionalidad</th>
+                            <th scope="col">Paquete Seleccionado</th>
+                            <th scope="col">Dias Seleccionados</th>
+                            <th scope="col">Noches Estadia</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            {% for reporte in reportes %}
+                            <td>{{ reporte.id }} </td>
+                            <td>{{ reporte.fechaReserva|date:"d F Y" }} </td>
+                            <td>{{ reporte.horaReserva }} </td>
+                            <td>{{ reporte.cliente.tipo_documento }} </td>
+                            <td>{{ reporte.cliente.numero_documento }} </td>
+                            <td>{{ reporte.cliente.nombre }} </td>
+                            <td>{{ reporte.cliente.apellidos }} </td>
+                            <td>{{ reporte.cliente.telefono }} </td>
+                            <td>{{ reporte.fecha_reserva.fechaInicio }} </td>
+                            <td>{{ reporte.fecha_reserva.fechaFinal }} </td>
+                            <td>{{ reporte.fecha_reserva.personas }} </td>
+                            <td>{{ reporte.cliente.get_nacionalidad_display }} </td>
+                            <td>{{ reporte.paquete.nombre }} </td>
+                            <td>{{ reporte.fecha_reserva.dias_seleccionados }} </td>
+                            <td>{{ reporte.fecha_reserva.noches_seleccionadas }} </td>
+                            <!-- <td><a href="" class="btn btn-outline-primary">Eliminar</a></td> -->
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div> <!-- Fin de table-responsive -->
         </div>
     </div>
-</div>    
-    {% endblock %}
+</div>
+{% endblock %}

@@ -21,7 +21,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    re_path('account/',include('aplications.reservas.urls'))
+    re_path('',include('aplications.reservas.urls'))
 ]
    
 if settings.DEBUG:

@@ -7,9 +7,6 @@
 
     <!-- <button type="submit" class="btn btn-outline-warning">actualizar</button> -->
     <a href="{% url 'crearPaquete' %}" class="btn btn-outline-primary">Nuevo Paquete</a>
-
-
-    <br><br><br><br>
     <div align='center'>
         <h1 style="color: hsl(203, 83%, 38%)"> Listado de Paquetes Turisticos </h1>
     </div>
@@ -29,7 +26,10 @@
                         <th scope="col">Descripcion</th>
                         <th scope="col">Incluye</th>
                         <th scope="col">No Incluye </th>
-                        <th scope="col">Imagen</th>
+                        <th scope="col">Imagen 1</th>
+                        <th scope="col">Imagen 2</th>
+                        <th scope="col">Imagen 3</th>
+                        <th scope="col">Opciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,7 +40,9 @@
                         <td>{{ dato.descripcion }}</td>
                         <td>{{ dato.incluye }}</td>
                         <td>{{ dato.no_incluye }}</td>
-                        <td>{{ dato.imagen }}</td>
+                        <td><img src="{{ dato.imagenUno.url }}" alt="Imagen Paquete" style="width: 100px; height: auto;"></td>
+                        <td><img src="{{ dato.imagenDos.url }}" alt="Imagen Paquete" style="width: 100px; height: auto;"></td>
+                        <td><img src="{{ dato.imagenTres.url }}" alt="Imagen Paquete" style="width: 100px; height: auto;"></td>
                         <td><a href="{% url 'actualizarPaquete' dato.id %}" class="btn btn-outline-primary">Editar</a>
                         </td>
                         <td><a href="{% url 'eliminarPaquete' dato.id %}" class="btn btn-outline-danger">Eliminar</a>

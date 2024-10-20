@@ -1,0 +1,48 @@
+.formulario-colorido {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #f7f7f7;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.formulario-colorido input[type="text"],
+.formulario-colorido textarea {
+    width: 100%;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.formulario-colorido input[type="text"]:focus,
+.formulario-colorido textarea:focus {
+    border-color: #66afe9;
+    outline: none;
+    box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+.formulario-colorido textarea {
+    resize: vertical;
+    height: 150px;
+}
+
+.formulario-colorido button[type="submit"] {
+    width: 100%;
+    padding: 15px 25px;
+    font-size: 18px;
+    background-color: hsl(203, 83%, 38%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.formulario-colorido button[type="submit"]:hover {
+    background-color: hsl(203, 90%, 30%);
+}
