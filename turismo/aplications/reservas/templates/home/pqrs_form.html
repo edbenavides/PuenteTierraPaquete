@@ -13,7 +13,7 @@
 <style>
     
 
-    .container {
+    .container_pqrs {
         border: 1px solid #918c8c; /* Borde gris claro */
         border-radius: 10px; /* Bordes redondeados */
         padding: 30px; /* Espaciado interno */
@@ -51,7 +51,7 @@
 
 {% include 'navbar.html' %}
 <body>
-<div class="container mt-5">
+<div class="container_pqrs mt-5">
     <h2>Nos interesa tu opinión</h2>
     <form method="POST">
         {% csrf_token %}
@@ -59,7 +59,10 @@
         <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
 </div>
+<br><br><br><br><br>
+{% include 'home/footer.html' %}
 
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
    
 </body>
 
