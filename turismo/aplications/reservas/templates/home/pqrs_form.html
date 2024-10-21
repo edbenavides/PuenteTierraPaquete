@@ -11,14 +11,19 @@
 </head>
 
 <style>
-    
+    body {
+        background-color: #f7f9fc; /* Fondo suave para la página */
+    }
 
     .container_pqrs {
+        width: 90%; /* Ancho del contenedor */
+        max-width: 600px; /* Ancho máximo para mantenerlo menos ancho */
         border: 1px solid #918c8c; /* Borde gris claro */
         border-radius: 10px; /* Bordes redondeados */
         padding: 30px; /* Espaciado interno */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
-        background-color: #3254a9; /* Fondo blanco para el formulario */
+        background-color: #084464; /* Fondo del formulario */
+        margin: auto; /* Centrar el contenedor horizontalmente */
     }
 
     h2 {
@@ -51,19 +56,17 @@
 
 {% include 'navbar.html' %}
 <body>
-<div class="container_pqrs mt-5">
-    <h2>Nos interesa tu opinión</h2>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Enviar</button>
-    </form>
-</div>
-<br><br><br><br><br>
-{% include 'home/footer.html' %}
+    <div class="container_pqrs mt-5">
+        <h2>Nos interesa tu opinión</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+    <br><br><br><br><br>
+    {% include 'home/footer.html' %}
 
-<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-   
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 </body>
-
 </html>
