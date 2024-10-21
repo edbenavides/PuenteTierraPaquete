@@ -1,0 +1,42 @@
+{% extends 'Panel/panelPadre.html' %}
+{% block reportes %}
+
+<!-- page content -->
+<div class="right_col" role="main">
+    <br><br>
+    <div align='center'>
+        <h1 style="color: hsl(203, 83%, 38%)"> Informe Pqrs</h1>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md- col-lg-8 col-xl-12">
+            <!-- Hacer la tabla responsive -->
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombres</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Mensaje</th>
+                            <th scope="col">Fecha </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            {% for reporte in datos %}
+                            <td>{{ reporte.nombre }} </td>
+                            <td>{{ reporte.email }} </td>
+                            <td>{{ reporte.tipo }} </td>
+                            <td>{{ reporte.mensaje }} </td>
+                            <td>{{ reporte.fecha }} </td>
+                            
+                            <!-- <td><a href="" class="btn btn-outline-primary">Eliminar</a></td> -->
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div> <!-- Fin de table-responsive -->
+        </div>
+    </div>
+</div>
+{% endblock %}

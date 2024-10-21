@@ -5,12 +5,12 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.core.paginator import Paginator
 
-from .forms import LoginForm,ClienteRegistroForm, PQRSForm
+from .forms import LoginForm,ClienteRegistroForm,PqrsForm,ActivosForm,FechasForm,ReservaForm
 from django.contrib.auth.hashers import check_password
 
 from django.urls import reverse_lazy, reverse
-from.models import PaqueteTuristico,FechasReserva,Cliente,Reserva
-from.forms import ActivosForm,FechasForm,ReservaForm
+from.models import PaqueteTuristico,FechasReserva,Cliente,Reserva,Pqrs
+
 from django.views import View
 from django.contrib.auth.models import User, Group
 
@@ -33,7 +33,6 @@ from django.utils.timezone import now
 from openpyxl import Workbook
 
 #Formulario para las PQRS
-from.forms import PQRSForm
 import pandas as pd
 from calendar import month_name
 
@@ -168,18 +167,16 @@ def fechas_reserva(request, paquete_id):
     return render(request, 'fechasReserva.html', {'paquete': paquete, 'fecha': fecha,'form': form})
 
 #Se crea la vista para el formulario de PQRS
-def PQRS(request):
+def pqrsCliente(request):
     if request.method == 'POST':
-        form = PQRSForm(request.POST)
+        form = PqrsForm(request.POST)
         if form.is_valid():
             form.save()  # Guarda los datos en la base de datos
             return redirect('pqrs_success')  # Redirige a una página de éxito
     else:
-        form = PQRSForm()
+        form = PqrsForm()
     
     return render(request, 'home/pqrs_form.html', {'form': form})
-
-
 def pqrs_success_view(request):
     return render(request, 'home/pqrs_success.html')
 
@@ -206,7 +203,12 @@ class PanelClienteView(TemplateView):
 class PruebaView(TemplateView):
     template_name = "home.html"
 
-
+@method_decorator(login_required, name='dispatch')
+class PqrsListView(ListView):
+    model = Pqrs
+    template_name = "reportes/reportePqrs.html"
+    context_object_name ="datos"
+    login_url = '/login/'    
 
 @method_decorator(login_required, name='dispatch')
 class paqueteCreateView(CreateView):

@@ -51,7 +51,7 @@ class Cliente(models.Model):
         return f"{self.user.email} - {self.get_nacionalidad_display()}"
    
    
-class PQRS(models.Model):
+class Pqrs(models.Model):
     TIPO_CHOICES = [
         ('peticion', 'Petición'),
         ('queja', 'Queja'),
