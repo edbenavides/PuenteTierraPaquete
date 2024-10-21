@@ -57,7 +57,7 @@ class PQRS(models.Model):
         ('queja', 'Queja'),
         ('reclamo', 'Reclamo'),
         ('sugerencia', 'Sugerencia'),
-        ('felicitaciones', 'Felicitacines'),
+        ('felicitaciones', 'Felicitaciones'),
     ]
 
     nombre = models.CharField(max_length=30)
