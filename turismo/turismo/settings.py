@@ -58,11 +58,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'turismo.urls'
-
+import os
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,19 +122,12 @@ USE_L10N = True
 USE_TZ = True
 
 
-
- #Configuración para enviar correos usando un servidor SMTP (como Gmail)
-# EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
-# EMAIL_FILE_PATH = BASE_DIR / 'emails'
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'turismopuentetierra@gmail.com'
-EMAIL_HOST_PASSWORD = 'turismo2024'
+EMAIL_HOST_PASSWORD = 'b q t y e f f i i o f m h m h j'
 DEFAULT_FROM_EMAIL = 'turismopuentetierra@gmail.com'
 
 
