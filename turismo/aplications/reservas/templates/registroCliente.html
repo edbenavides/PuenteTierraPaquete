@@ -1,25 +1,67 @@
 {% load static %}
 
-<link rel="stylesheet" href="{% static 'css/verificarCliente.css' %}">
-<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <style>
+        body {
+            background-color: #edf2f4; /* Color de fondo suave */
+        }
 
+        .form-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 40px; /* Aumenté el padding para más espacio interno */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
+        .form-header {
+            color: #4a4a4a; /* Color de texto suave */
+        }
 
+        .btn-primary {
+            background-color: #5cb85c; /* Color suave para el botón */
+            border-color: #5cb85c;
+        }
+
+        .btn-primary:hover {
+            background-color: #4cae4c; /* Color al pasar el mouse */
+            border-color: #4cae4c;
+        }
+    </style>
+    <title>Registro de Usuario</title>
+</head>
+
+<body>
     {% include 'navbar.html' %}
-    <br><br><br><br>
-    <form class="formulario-colorido">
-        <h1 style="text-align: center;">Registro de Usuario</h1>
-        <h2 style="text-align: center;">Usted ha seleccionado el Paquete: {{ paquete.nombre }}</h2>
-        <h3 style="text-align: center;">Fecha de Reserva: Desde {{ fecha_reserva.fechaInicio }} hasta {{ fecha_reserva.fechaFinal }}</h3>
     
-        <form id="formulario" method="post" enctype="multipart/form-data" autocomplete="off">
-            {% csrf_token %}
-            {{ form.as_p }} <!-- Renderiza el formulario con campos bien alineados -->
-            <button type="submit" class="btn btn-primary">Completar Reserva</button>
-        
-        </form>
-            
-      </form>
-<br><br><br><br><br><br>
-      {% include 'home/footer.html' %}
+    <div class="container mt-5 mb-5">
+        <div class="row justify-content-center">
+            <!-- Aumenté el tamaño de la columna a col-md-10 y col-lg-8 para hacerla más ancha -->
+            <div class="col-md-12 col-lg-10">
+                <div class="form-container">
+                    <h1 class="text-center form-header">Registro de Usuario</h1>
+                    <h2 class="text-center form-header">Usted ha seleccionado el Paquete: {{ paquete.nombre }}</h2>
+                    <h3 class="text-center form-header mb-4">Fecha de Reserva: Desde {{ fecha_reserva.fechaInicio }} hasta {{ fecha_reserva.fechaFinal }}</h3>
+                    
+                    <form id="formulario" method="post" enctype="multipart/form-data" autocomplete="off">
+                        {% csrf_token %}
+                        {{ form.as_p }} <!-- Renderiza el formulario con campos alineados automáticamente -->
 
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-primary">Completar Reserva</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include 'home/footer.html' %}
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

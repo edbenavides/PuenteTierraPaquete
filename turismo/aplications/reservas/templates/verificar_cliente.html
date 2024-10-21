@@ -13,7 +13,7 @@
             background-color: #f8f9fa; /* Color de fondo claro */
         }
         .form-container {
-            max-width: 400px; /* Limitar el ancho del formulario */
+            max-width: 600px; /* Limitar el ancho del formulario */
             margin: 50px auto; /* Centrar vertical y horizontalmente */
             padding: 20px;
             background-color: white; /* Fondo blanco para el formulario */
@@ -51,7 +51,7 @@
 
         <p class="form-text mt-3">¿No tienes una cuenta? <a href="{% url 'registrar_cliente' paquete.id fecha_reserva.id %}">Registrarse aquí</a></p>
     </div>
-
+    <br><br><br><br><br>
     {% include 'home/footer.html' %}
 
     <script src="{% static 'js/fechasReserva.js' %}"></script>
