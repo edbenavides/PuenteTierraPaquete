@@ -26,7 +26,7 @@ class ClienteRegistroForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['email', 'password1', 'password2','tipo_documento','numero_documento', 'nombre', 'apellidos', 'telefono','nacionalidad']
+        fields = ['tipo_documento','numero_documento', 'nombre', 'apellidos', 'telefono','nacionalidad','email', 'password1', 'password2']
         
     def clean_email(self):
         email = self.cleaned_data.get('email')

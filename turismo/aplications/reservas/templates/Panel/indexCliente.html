@@ -3,7 +3,6 @@
 {% load static %}
 {% block indexCliente %}
 
-{% include 'navbar.html' %}
 
 <div class="right_col" role="main">
    
@@ -17,7 +16,9 @@
             <div class="reserva">
                 <!-- <h3>Reserva #{{ forloop.counter|add:page_obj.start_index|add:-1 }}</h3> Numeración correcta de las reservas -->
 
-                <p><h3><strong>Paquete:</strong> {{ reserva.paquete.nombre }}</h3></p>
+                <p>
+                  <h3 style="color: #1074b1;"><strong>Paquete:</strong> {{ reserva.paquete.nombre }}</h3>
+              </p>
                 <p><strong>Descripción:</strong> {{ reserva.paquete.descripcion }}</p>
                 <p><strong>Incluye:</strong> {{ reserva.paquete.incluye }}</p>
                 <p><strong>No Incluye:</strong> {{ reserva.paquete.no_incluye }}</p>

@@ -83,9 +83,9 @@
     <!-- Contenedor principal del formulario -->
     <div class="container">
         <div class="form-container">
-            <h1 class="form-header">Registro de Usuario</h1>
-            <p class="subtitle">Usted ha seleccionado el Paquete: <strong>{{ paquete.nombre }}</strong></p>
-            <p class="subtitle">Fecha de Reserva: Desde <strong>{{ fecha_reserva.fechaInicio }}</strong> hasta <strong>{{ fecha_reserva.fechaFinal }}</strong></p>
+            <h1 style="color: #1074b1;text-align: center;">Registro de Usuario </h1>
+            <p class="subtitle" style="color: #1074b1;">Usted ha seleccionado el Paquete: <strong>{{ paquete.nombre }}</strong></p>
+            <p class="subtitle" style="color: #1074b1;">Fecha de Reserva: Desde <strong>{{ fecha_reserva.fechaInicio }}</strong> hasta <strong>{{ fecha_reserva.fechaFinal }}</strong></p>
 
             <form id="formulario" method="post" enctype="multipart/form-data" autocomplete="off">
                 {% csrf_token %}
@@ -97,11 +97,11 @@
 
                 <!-- Botón de completar reserva -->
                 <div class="text-center mt-8">
-                    <button type="submit" class="btn btn-primary">Completar Reserva</button>
+                    <button type="submit" class="btn btn-outline-primary mt-2">Completar Reserva</button>
                 </div>
             </form>
         </div>
-    </div>
+    </div><br><br><br><br>
 
     <!-- Pie de página -->
     {% include 'home/footer.html' %}

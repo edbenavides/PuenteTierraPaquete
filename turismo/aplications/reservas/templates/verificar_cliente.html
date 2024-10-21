@@ -39,17 +39,17 @@
     {% include 'navbar.html' %}
 
     <div class="form-container">
-        <h2>Iniciar Sesión</h2>
-        <p class="form-text">Si ya te has registrado anteriormente, por favor ingresa tu correo electrónico y contraseña en el formulario para
+        <h1 style="color: hsl(203, 83%, 38%);text-align: center;">Iniciar Sesión </h1>
+        <p class="form-text" style="color: black;">Si ya te has registrado anteriormente, por favor ingresa tu correo electrónico y contraseña en el formulario para
             terminar la reserva.</p>
-        
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }} <!-- Renderiza el formulario de Django con clases predeterminadas de Bootstrap -->
             <button type="submit" class="btn btn-primary btn-submit">Iniciar Sesión</button>
         </form>
+        
 
-        <p class="form-text mt-3">¿No tienes una cuenta? <a href="{% url 'registrar_cliente' paquete.id fecha_reserva.id %}">Registrarse aquí</a></p>
+        <p class="form-text mt-3"><strong>¿No tienes una cuenta? </strong><a href="{% url 'registrar_cliente' paquete.id fecha_reserva.id %}">Registrarse aquí</a></p>
     </div>
     <br><br><br><br><br>
     {% include 'home/footer.html' %}

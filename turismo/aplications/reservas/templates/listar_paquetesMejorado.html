@@ -19,7 +19,7 @@
         <div class="col-sm-6 col-md-12 wow fadeInRight">
 
           <!-- Title dynamically set for each package -->
-          <h3 class="oh-desktop"><span class="d-inline-block wow slideInDown" style="color: grey;">{{ paquete.nombre }}</span></h3>
+          <h3 class="oh-desktop"><span class="d-inline-block wow slideInDown" style="color: #1074b1;">{{ paquete.nombre }}</span></h3>
 
           <!-- Product Big -->
           <article class="product-big">
@@ -63,16 +63,16 @@
               </div>
               <div class="unit-body">
                 <div class="product-big-body">
-                  <h5 class="product-big-title">{{ paquete.nombre }}</h5>
-                  <p><strong>Descripción:</strong> {{ paquete.descripcion }}</p>
-                  <p><strong>Incluye:</strong> {{ paquete.incluye }}</p>
-                  <p><strong>No Incluye:</strong> {{ paquete.no_incluye }}</p>
-                  <div class="product-big-price-wrap"><span class="product-big-price">$10,000</span></div>
+                  <h5 class="product-big-title" style="text-align: justify;">{{ paquete.nombre }}</h5>
+                  <p style="text-align: justify;"><strong>Descripción:</strong> {{ paquete.descripcion }}</p>
+                  <p style="text-align: justify;"><strong>Incluye:</strong> {{ paquete.incluye }}</p>
+                  <p style="text-align: justify;"><strong>No Incluye:</strong> {{ paquete.no_incluye }}</p>
+                  <div class="product-big-price-wrap"><span class="product-big-price" style="color: #1074b1;"></span></div>
                   <form action="{% url 'fechas_reserva' paquete.id %}" method="get">
                     <button type="submit" class="btn btn-outline-primary mt-2">RESERVAR</button>
                   </form>
                 </div>
-              </div>
+              </div>              
             </div>
           </article>
         </div>
