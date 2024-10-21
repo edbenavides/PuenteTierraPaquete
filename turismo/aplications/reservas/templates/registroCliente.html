@@ -14,12 +14,20 @@
         .form-container {
             background-color: white;
             border-radius: 10px;
-            padding: 40px; /* Aumenté el padding para más espacio interno */
+            padding: 40px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .form-header {
             color: #4a4a4a; /* Color de texto suave */
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-control {
+            border-radius: 5px;
         }
 
         .btn-primary {
@@ -28,7 +36,7 @@
         }
 
         .btn-primary:hover {
-            background-color: #4cae4c; /* Color al pasar el mouse */
+            background-color: #4cae4c;
             border-color: #4cae4c;
         }
     </style>
@@ -40,8 +48,8 @@
     
     <div class="container mt-5 mb-5">
         <div class="row justify-content-center">
-            <!-- Aumenté el tamaño de la columna a col-md-10 y col-lg-8 para hacerla más ancha -->
-            <div class="col-md-12 col-lg-10">
+            <!-- Ajuste de ancho del formulario -->
+            <div class="col-md-12 col-lg-9">
                 <div class="form-container">
                     <h1 class="text-center form-header">Registro de Usuario</h1>
                     <h2 class="text-center form-header">Usted ha seleccionado el Paquete: {{ paquete.nombre }}</h2>
@@ -49,7 +57,27 @@
                     
                     <form id="formulario" method="post" enctype="multipart/form-data" autocomplete="off">
                         {% csrf_token %}
-                        {{ form.as_p }} <!-- Renderiza el formulario con campos alineados automáticamente -->
+
+                        <!-- Alineación del formulario -->
+                        <div class="form-group">
+                            <label for="nombre" class="form-header">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-header">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefono" class="form-header">Teléfono</label>
+                            <input type="tel" class="form-control" id="telefono" name="telefono" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="direccion" class="form-header">Dirección</label>
+                            <input type="text" class="form-control" id="direccion" name="direccion" required>
+                        </div>
 
                         <div class="text-center mt-4">
                             <button type="submit" class="btn btn-primary">Completar Reserva</button>
