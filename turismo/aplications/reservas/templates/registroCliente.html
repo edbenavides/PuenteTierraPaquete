@@ -1,93 +1,109 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+    
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
     <style>
         body {
-            background-color: #edf2f4; /* Color de fondo suave */
+            background-color: #f7f9fc; /* Fondo suave */
+            font-family: 'Arial', sans-serif;
         }
 
         .form-container {
             background-color: white;
-            border-radius: 10px;
+            border-radius: 30px;
             padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            max-width: 900px;
+            margin: auto;
+            margin-top: 25px;
+            margin-bottom: 25px;
         }
 
         .form-header {
-            color: #4a4a4a; /* Color de texto suave */
+            color: #4a4a4a;
+            margin-bottom: 50px;
+            text-align: center;
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 30px;
         }
 
         .form-control {
             border-radius: 5px;
+            height: 45px;
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
         }
 
         .btn-primary {
-            background-color: #5cb85c; /* Color suave para el botón */
+            background-color: #5cb85c;
             border-color: #5cb85c;
+            padding: 10px 20px;
+            font-size: 18px;
         }
 
         .btn-primary:hover {
             background-color: #4cae4c;
             border-color: #4cae4c;
         }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-8 {
+            margin-top: 40px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
     </style>
-    <title>Registro de Usuario</title>
 </head>
 
 <body>
+    <!-- Barra de navegación -->
     {% include 'navbar.html' %}
-    
-    <div class="container mt-5 mb-5">
-        <div class="row justify-content-center">
-            <!-- Ajuste de ancho del formulario -->
-            <div class="col-md-12 col-lg-9">
-                <div class="form-container">
-                    <h1 class="text-center form-header">Registro de Usuario</h1>
-                    <h2 class="text-center form-header">Usted ha seleccionado el Paquete: {{ paquete.nombre }}</h2>
-                    <h3 class="text-center form-header mb-4">Fecha de Reserva: Desde {{ fecha_reserva.fechaInicio }} hasta {{ fecha_reserva.fechaFinal }}</h3>
-                    
-                    <form id="formulario" method="post" enctype="multipart/form-data" autocomplete="off">
-                        {% csrf_token %}
 
-                        <!-- Alineación del formulario -->
-                        <div class="form-group">
-                            <label for="nombre" class="form-header">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email" class="form-header">Correo Electrónico</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
-                        </div>
+    <!-- Contenedor principal del formulario -->
+    <div class="container">
+        <div class="form-container">
+            <h1 class="form-header">Registro de Usuario</h1>
+            <p class="subtitle">Usted ha seleccionado el Paquete: <strong>{{ paquete.nombre }}</strong></p>
+            <p class="subtitle">Fecha de Reserva: Desde <strong>{{ fecha_reserva.fechaInicio }}</strong> hasta <strong>{{ fecha_reserva.fechaFinal }}</strong></p>
 
-                        <div class="form-group">
-                            <label for="telefono" class="form-header">Teléfono</label>
-                            <input type="tel" class="form-control" id="telefono" name="telefono" required>
-                        </div>
+            <form id="formulario" method="post" enctype="multipart/form-data" autocomplete="off">
+                {% csrf_token %}
 
-                        <div class="form-group">
-                            <label for="direccion" class="form-header">Dirección</label>
-                            <input type="text" class="form-control" id="direccion" name="direccion" required>
-                        </div>
-
-                        <div class="text-center mt-4">
-                            <button type="submit" class="btn btn-primary">Completar Reserva</button>
-                        </div>
-                    </form>
+                <!-- Renderiza el formulario en campos alineados -->
+                <div class="form-group">
+                    {{ form.as_p }}
                 </div>
-            </div>
+
+                <!-- Botón de completar reserva -->
+                <div class="text-center mt-8">
+                    <button type="submit" class="btn btn-primary">Completar Reserva</button>
+                </div>
+            </form>
         </div>
     </div>
 
+    <!-- Pie de página -->
     {% include 'home/footer.html' %}
 
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
