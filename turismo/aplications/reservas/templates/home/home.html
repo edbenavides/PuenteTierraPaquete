@@ -13,13 +13,13 @@
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/fonts.css' %}">
+   
  
 </head>
 {% include 'navbar.html' %} 
-   
+
   <body>  
-   
+  
        
     <div class="preloader">
         <div class="preloader-body">
@@ -127,15 +127,15 @@
                   <div class="tab-content">
                     <div class="tab-pane fade show active" id="tabs-7-1">
                       <p>Puente Tierra se compromete a ofrecer a nuestros clientes el mejor pasa dia, a buenos precios y excelente atencion. Atendemos con pasion a todos nuestros visitantes </p>
-                      <div class="group-md group-middle"><a class="button button-secondary button-pipaluk" href="#">Contactanos</a><a class="button button-black-outline button-md" href="#">Más información</a></div>
+                      <div class="group-md group-middle"><a class="button button-secondary button-pipaluk" href="{% url 'homecontactanos' %}">Contactanos</a><a class="button button-black-outline button-md" href="{% url 'homemasinformacion' %}">Más información</a></div>
                     </div>
                     <div class="tab-pane fade" id="tabs-7-2">
                       <p>Estamos orgullosos que nos hayas seleccionado como tu sitio turistico. nos encontramos ubicados en el parque nacional natural purace a solo una hora y media de Popayán por la via al Huila</p>
-                      <div class="group-md group-middle"><a class="button button-secondary button-pipaluk" href="contact-us.html">Contactanos</a><a class="button button-black-outline button-md" href="about.html">Más información</a></div>
+                      <div class="group-md group-middle"><a class="button button-secondary button-pipaluk" href="{% url 'homecontactanos' %}">Contactanos</a><a class="button button-black-outline button-md" href="{% url 'homemasinformacion' %}">Más información</a></div>
                     </div>
                     <div class="tab-pane fade" id="tabs-7-3">
                       <p>Nuestra misión es brindar la mejor experiencia a nuestros visitantes garantizando la satisfaccion de nuetros servicios para convertirnos en su ruta preferida de paseo.  </p>
-                      <div class="group-md group-middle"><a class="button button-secondary button-pipaluk" href="contact-us.html">Contactanos</a><a class="button button-black-outline button-md" href="about.html">Más Información</a></div>
+                      <div class="group-md group-middle"><a class="button button-secondary button-pipaluk" href="{% url 'homecontactanos' %}">Contactanos</a><a class="button button-black-outline button-md" href="{% url 'homemasinformacion' %}">Más Información</a></div>
                     </div>
                   </div>
                 </div>
@@ -310,7 +310,7 @@
       <!--	Instagrram wondertour-->
       <section class="section section-sm section-top-0 section-fluid section-relative bg-gray-4">
         <div class="container-fluid">
-          <h4 class="gallery-title">Galleria</h4>
+          <br>
           <!-- Owl Carousel-->
           <div class="owl-carousel owl-classic owl-dots-secondary" data-items="1" data-sm-items="2" data-md-items="3" data-lg-items="4" data-xl-items="5" data-xxl-items="6" data-stage-padding="15" data-xxl-stage-padding="0" data-margin="30" data-autoplay="true" data-nav="true" data-dots="true">
             <!-- Thumbnail Classic-->
