@@ -7,63 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de Sesión</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <style>
-        /* Estilo para todo el body con fondo color azure */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: azure;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        /* Navbar fijo en la parte superior */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-
-        /* El contenido ocupa todo el espacio entre el navbar y el footer */
-        .content {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding-top: 80px; /* Espacio para el navbar */
-            padding-bottom: 80px; /* Espacio para el footer */
-        }
-
-        /* Estilo del formulario */
-        .login-form {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
-            max-width: 400px;
-            width: 100%;
-            text-align: center;
-        }
-
-        /* Footer fijo en la parte inferior */
-      
-
-        /* Botón del formulario */
-        .login-form button {
-            width: 100%;
-            padding: 10px;
-            background-color: #008CBA;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
 </head>
 
 <body>
@@ -72,10 +16,13 @@
     {% include 'navbar.html' %}
 
     <!-- Contenido centrado entre el navbar y el footer -->
-    <div class="content">
-        <div class="login-form">
+    <div class="containerform">
+        <div class="title-container">
+            <h1 style="color: hsl(203, 83%, 38%);text-align: center;">Iniciar Sesión </h1>
+        </div>
+        <div class="form-group">
             {% if form.errors %}
-            <p>El nombre del usuario y contraseña son incorrectos </p>
+            <!-- <p>El nombre del usuario y contraseña son incorrectos </p> -->
             {% else %}
             <p>Por favor llena el formulario para iniciar sesión</p>
             {% endif %}
@@ -90,9 +37,8 @@
             </form>
         </div>
     </div>
-<br><br><br><br><br><br><br><br><br><br><br><br>
-    <!-- Footer se incluye en la parte inferior -->
-    {% include 'home/footer.html' %}
+
+
 
     <script src="{% static 'js/fechasReserva.js' %}"></script>
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
@@ -100,3 +46,5 @@
 </body>
 
 </html>
+    <!-- Footer se incluye en la parte inferior -->
+    {% include 'home/footer.html' %}

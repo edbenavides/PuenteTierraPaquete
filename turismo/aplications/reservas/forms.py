@@ -72,9 +72,9 @@ class FechasForm(forms.ModelForm):
             'personas': 'Cantidad Personas',     # Etiqueta personalizada
         }
         widgets = {
-            'fechaInicio': DateInput(format='%Y-%m-%d', attrs={'type': 'date'}),
-            'fechaFinal': DateInput(format='%Y-%m-%d', attrs={'type': 'date'}),
-            'personas': forms.NumberInput(attrs={'min': 1, 'value': 1}),  # Establecer el valor mínimo y predeterminado en 1
+            'fechaInicio': DateInput(format='%Y-%m-%d', attrs={'type': 'date', 'class': 'formulario-colorido'}),
+            'fechaFinal': DateInput(format='%Y-%m-%d', attrs={'type': 'date', 'class': 'formulario-colorido'}),
+            'personas': forms.NumberInput(attrs={'min': 1, 'value': 1, 'class': 'formulario-colorido'}),
             'dias_seleccionados': forms.HiddenInput(),
             'noches_seleccionadas': forms.HiddenInput(),
         

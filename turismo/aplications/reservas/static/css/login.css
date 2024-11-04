@@ -26,14 +26,18 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(8, 198, 58, 0.1);
-    width: 380px;
-    margin-bottom: 20px; /* Añadir margen inferior */
+    width: 380px; /* Fixed width for the form */
+    margin: 20px auto; /* Center the form horizontally */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center; /* Center align items in form-group */
     width: 100%;
     margin-bottom: 15px;
 }
@@ -53,15 +57,17 @@ input {
 
 button {
     padding: 10px;
-    background-color: #4CAF50;
+    background-color: #1074b1; /* Blue color */
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    text-align: center;
+    width: 100%; /* Make the button full width to help with centering */
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #0056b3; /* Darker blue on hover */
 }
 
 .form-text {
@@ -69,3 +75,4 @@ button:hover {
     color: #333;
     font-size: larger;
 }
+

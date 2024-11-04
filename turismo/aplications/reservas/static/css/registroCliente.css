@@ -1,24 +1,35 @@
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    margin: 0; /* Elimina el margen del body */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .principal {
     font-family: Arial, sans-serif;
     background-color: #f7f7f7;
-    margin: 0;
-    padding: 20px; /* Añade padding para espacio */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex: 1; /* Ocupa el espacio restante */
+    min-height: 100vh;
+    padding: 20px;
 }
 
 .title-container {
     margin-bottom: 20px;
+    text-align: center;
+}
+
+.main-title {
+    color: #1074b1;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: black;
+    margin: 5px 0;
 }
 
 .containerform {
@@ -26,16 +37,13 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(8, 198, 58, 0.1);
-    width: 380px;
-    margin-bottom: 20px; /* Añadir margen inferior */
+    width: 100%;
+    max-width: 450px;
 }
 
-.form-group {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+form label, form input {
+    text-align: left;
     width: 100%;
-    margin-bottom: 15px;
 }
 
 label {
@@ -45,8 +53,8 @@ label {
 }
 
 input {
-    padding: 7px; /* tamaño cajas de texto de ancho */
-    width: 100%;
+    padding: 7px;
+    width: 103%;
     border: 1px solid rgb(147, 147, 168);
     border-radius: 7px;
 }
@@ -58,14 +66,20 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
     background-color: #45a049;
 }
 
-.form-text {
-    text-align: center;
-    color: #333;
-    font-size: larger;
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .containerform, .principal {
+        padding: 15px;
+    }
+    
+    .main-title {
+        font-size: 1.5em;
+    }
 }
