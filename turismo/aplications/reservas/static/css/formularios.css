@@ -1,20 +1,19 @@
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    margin: 0; /* Elimina el margen del body */
+    min-height: 100vh; /* Altura mínima del body */
+    margin: 0; /* Elimina margen del body */
 }
 
 .principal {
     font-family: Arial, sans-serif;
     background-color: #f7f7f7;
-    margin: 0;
-    padding: 20px; /* Añade padding para espacio */
+    padding: 20px; /* Espacio alrededor */
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 1; /* Ocupa el espacio restante */
+    flex-direction: column; /* Alinear elementos en una sola columna */
+    justify-content: center; /* Alinear al principio */
+    align-items: center; /* Centrar horizontalmente */
+    flex-grow: 1; /* Permitir que ocupe el espacio restante */
 }
 
 .title-container {
@@ -26,8 +25,8 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(8, 198, 58, 0.1);
-    width: 380px;
-    margin-bottom: 20px; /* Añadir margen inferior */
+    width: 100%; /* Cambiado a 100% para ser responsivo */
+    max-width: 380px; /* Ancho máximo */
 }
 
 .form-group {
@@ -45,7 +44,7 @@ label {
 }
 
 input {
-    padding: 7px; /* tamaño cajas de texto de ancho */
+    padding: 7px; /* Tamaño de las cajas de texto */
     width: 100%;
     border: 1px solid rgb(147, 147, 168);
     border-radius: 7px;
@@ -62,10 +61,4 @@ button {
 
 button:hover {
     background-color: #45a049;
-}
-
-.form-text {
-    text-align: center;
-    color: #333;
-    font-size: larger;
 }
