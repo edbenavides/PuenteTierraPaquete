@@ -50,15 +50,13 @@ input {
     border-radius: 7px;
 }
 
-button {
-    padding: 10px;
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.custom-btn {
+    background-color: #1074b1; /* Change this to your desired color */
+    color: white; /* Text color */
+    border-color: #28a745; /* Border color */
 }
 
-button:hover {
-    background-color: #45a049;
+.custom-btn:hover {
+    background-color: #0056b3; /* Darker color for hover effect */
+    border-color: #0056b3;
 }

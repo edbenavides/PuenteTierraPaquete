@@ -27,7 +27,9 @@
             <form method="post">
                 {% csrf_token %}
                 {{form.as_p}}
+                <div class="text-center">
                 <button type="submit" class="btn btn-primary btn-submit">Iniciar Sesión</button>
+            </div>
         </div>
         </form>
         <p class="form-text mt-3"><strong>¿No tienes una cuenta? </strong><a

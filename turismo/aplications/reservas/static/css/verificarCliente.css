@@ -69,3 +69,15 @@ button:hover {
     color: #333;
     font-size: larger;
 }
+
+.btn-submit {
+    background-color: #1074b1; /* Original button color */
+    color: white; /* Text color */
+    border: none;
+    transition: background-color 0.3s ease; /* Smooth transition for hover */
+}
+
+/* Hover effect */
+.btn-submit:hover {
+    background-color: #0056b3; /* Color on hover */
+}
