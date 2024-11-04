@@ -1,0 +1,69 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+
+    <title>Document</title>
+</head>
+
+
+<style>
+    td {
+        padding: 10px;
+    }
+    tr {
+        border-bottom: 10px solid #ddd;
+    }
+    table {
+        border-spacing: 10px;
+        border-collapse:collapse;
+    }
+</style>
+
+<body>
+    {% include 'navbar.html' %} 
+    <div class="container mt-5">
+        <h3 style="text-align: center;">Comunicate con nosotros</h3>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Correo Electrónico</th>
+                    <th>Número de Celular</th>
+                    <th>Número de WhatsApp</th>
+                    <th>Facebook</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Coordinacion Turismo Purace</td>
+                    <td>turismopurace@gmail.com</td>
+                    <td>+57 318 8215460 </td>
+                    <td>+57 318 8215460</td>
+                    <td><a href="https://turismopurace.com/">turismopurace</a></td>
+                    <td><a href="#"></a></td>
+                </tr>
+                <tr>
+                    <td>Coordinacion Puente Tierra</td>
+                    <td>puenteTierra@gmail.com</td>
+                    <td>+57 310 6420196</td>
+                    <td>+57 310 6420196</td>
+                    <td><a href="https://facebook.com/puenteTierraPilimba">facebook.com/Puente Tierra Pilimba</a></td>
+                    
+                </tr>
+               
+             </tbody>
+        </table>
+    </div>
+
+<br><br><br><br> <br><br><br><br><br><br>
+
+    {% include 'home/footer.html' %}
+</body>
+</html>

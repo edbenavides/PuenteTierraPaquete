@@ -39,6 +39,7 @@ urlpatterns = [
     path('pqrs_success/', views.pqrs_success_view,name='pqrs_success'),
     path('footer/', views.FooterView.as_view(), name='footer'),
     path('nosotros/', views.NosotrosView.as_view(),name='nosotros'),
+    path('contactanos', views.ContactoView.as_view(),name='homecontactanos'),
 
 
 

@@ -194,6 +194,10 @@ class FooterView(TemplateView):
 class NosotrosView(TemplateView):
     template_name = "home/nosotros.html"    
 
+class  ContactoView(TemplateView):
+    template_name = "home/contactanos.html"
+
+
 class PanelView(TemplateView):
     template_name = "index.html"
 

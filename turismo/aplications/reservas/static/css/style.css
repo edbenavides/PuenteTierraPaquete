@@ -3,6 +3,13 @@
 * Trunk version 2.0.0
 */
 /** @group Base */
+/** regla para eliminar la letra mayuscula del texto*/
+/**
+.text-uppercase {
+    text-transform: none !important;
+}
+*/
+
 a:focus,
 button:focus {
 	outline: none !important;
@@ -19,6 +26,9 @@ button::-moz-focus-inner {
 *:focus {
 	outline: none;
 }
+
+
+
 
 blockquote {
 	padding: 0;
@@ -341,7 +351,7 @@ a[href*='tel'], a[href*='mailto'] {
 	font-size: 18px;
 	line-height: 1.334;
 	letter-spacing: normal;
-	text-transform: uppercase;
+	
 	font-family: "Montserrat", sans-serif, Arial, sans-serif;
 }
 
@@ -437,7 +447,6 @@ a[href*='tel'], a[href*='mailto'] {
 
 .gallery-title a {
 	color: #01b3a7;
-	text-transform: uppercase;
 	display: inline-block;
 	margin-left: 6px;
 	font-weight: 500;
@@ -963,7 +972,6 @@ a[href*='tel'], a[href*='mailto'] {
 	font-weight: 400;
 	letter-spacing: .05em;
 	font-family: "Montserrat", sans-serif, Arial, sans-serif;
-	text-transform: uppercase;
 	color: #50ba87;
 	transition: inherit;
 	z-index: 1;
@@ -1067,7 +1075,6 @@ a[href*='tel'], a[href*='mailto'] {
 	font-size: 16px;
 	font-weight: 500;
 	letter-spacing: .1em;
-	text-transform: uppercase;
 	font-family: "Montserrat", sans-serif, Arial, sans-serif;
 }
 
@@ -1090,7 +1097,6 @@ a[href*='tel'], a[href*='mailto'] {
 	line-height: 1;
 	font-weight: 500;
 	letter-spacing: .1em;
-	text-transform: uppercase;
 	font-family: "Montserrat", sans-serif, Arial, sans-serif;
 	color: #9b9b9b;
 }
@@ -1259,7 +1265,6 @@ a[href*='tel'], a[href*='mailto'] {
 	line-height: 1;
 	font-weight: 500;
 	letter-spacing: normal;
-	text-transform: uppercase;
 	font-family: "Montserrat", sans-serif, Arial, sans-serif;
 	color: rgba(255, 255, 255, 0.05);
 	transform: translate3d(-50%, -50%, 0);
@@ -1285,7 +1290,6 @@ a[href*='tel'], a[href*='mailto'] {
 	line-height: 1;
 	font-weight: 500;
 	letter-spacing: .2em;
-	text-transform: uppercase;
 	font-family: "Montserrat", sans-serif, Arial, sans-serif;
 }
 
@@ -1341,7 +1345,6 @@ a[href*='tel'], a[href*='mailto'] {
 	line-height: 1;
 	font-weight: 600;
 	letter-spacing: .075em;
-	text-transform: uppercase;
 	font-family: "Montserrat", sans-serif, Arial, sans-serif;
 	color: #ffffff;
 	background: #50ba87;
@@ -1469,7 +1472,6 @@ a[href*='tel'], a[href*='mailto'] {
 	font-weight: 400;
 	letter-spacing: .025em;
 	font-family: "Montserrat", sans-serif, Arial, sans-serif;
-	text-transform: uppercase;
 	color: #ffffff;
 	z-index: 1;
 }
@@ -2246,7 +2248,6 @@ html .list-inline-md > * {
 	line-height: 1;
 	font-weight: 500;
 	letter-spacing: .05em;
-	text-transform: uppercase;
 	color: #9fa3a7;
 	font-family: "Montserrat", sans-serif, Arial, sans-serif;
 }
@@ -2555,7 +2556,7 @@ img {
 	font-weight: 400;
 	font-style: normal;
 	speak: none;
-	text-transform: none;
+	
 }
 
 .icon-circle {
@@ -2572,7 +2573,6 @@ img {
 	max-width: 100%;
 	font-size: 18px;
 	line-height: 1;
-	text-transform: uppercase;
 	font-family: "Montserrat", sans-serif, Arial, sans-serif;
 	background: #ffffff;
 	border-collapse: collapse;
@@ -2589,7 +2589,6 @@ img {
 	padding: 29px 15px 27px;
 	font-weight: 500;
 	letter-spacing: .1em;
-	text-transform: uppercase;
 	color: #9b9b9b;
 	border-bottom: 1px solid #e1e1e1;
 }
@@ -2890,7 +2889,7 @@ hr {
 	letter-spacing: .1em;
 	color: #9b9b9b;
 	font-family: "Montserrat", sans-serif, Arial, sans-serif;
-	text-transform: uppercase;
+	
 }
 
 .text-decoration-lines-content::before, .text-decoration-lines-content::after {
@@ -4185,7 +4184,6 @@ hr {
 	font-family: "Montserrat", sans-serif, Arial, sans-serif;
 	font-weight: 500;
 	letter-spacing: .05em;
-	text-transform: uppercase;
 	transition: .33s;
 }
 
@@ -4731,7 +4729,6 @@ textarea.textarea-lg {
 	line-height: 1;
 	padding-left: 32px;
 	letter-spacing: .1em;
-	text-transform: uppercase;
 	font-family: "Montserrat", sans-serif, Arial, sans-serif;
 	cursor: pointer;
 }
@@ -5262,7 +5259,6 @@ textarea.textarea-lg {
 	font-size: 16px;
 	line-height: .5;
 	letter-spacing: .025em;
-	text-transform: uppercase;
 	font-family: "Montserrat", sans-serif, Arial, sans-serif;
 	background: #ffffff;
 }
@@ -5349,7 +5345,6 @@ textarea.textarea-lg {
 	font-size: 12px;
 	font-weight: 500;
 	letter-spacing: normal;
-	text-transform: uppercase;
 	font-family: "Montserrat", sans-serif, Arial, sans-serif;
 }
 
@@ -5491,7 +5486,6 @@ textarea.textarea-lg {
 	font-size: 20px;
 	font-weight: 500;
 	letter-spacing: normal;
-	text-transform: uppercase;
 	font-family: "Montserrat", sans-serif, Arial, sans-serif;
 	color: #01b3a7;
 }
@@ -6012,7 +6006,6 @@ textarea.textarea-lg {
 	font-size: 16px;
 	font-weight: 500;
 	letter-spacing: .075em;
-	text-transform: uppercase;
 	font-family: "Montserrat", sans-serif, Arial, sans-serif;
 	color: #9b9b9b;
 }
@@ -6991,7 +6984,6 @@ textarea.textarea-lg {
 	font-weight: 500;
 	letter-spacing: .075em;
 	font-family: "Montserrat", sans-serif, Arial, sans-serif;
-	text-transform: uppercase;
 	color: #01b3a7;
 	transition-delay: .5s;
 }
@@ -7798,7 +7790,7 @@ textarea.textarea-lg {
 	line-height: 1.33;
 	font-weight: 500;
 	letter-spacing: .1em;
-	text-transform: uppercase;
+	text-transform: none;
 	font-family: "Montserrat", sans-serif, Arial, sans-serif;
 }
 
@@ -8048,7 +8040,7 @@ textarea.textarea-lg {
 .snackbars-right {
 	display: inline-block;
 	float: right;
-	text-transform: uppercase;
+	text-transform: none;
 }
 
 .snackbars-right:hover {
@@ -8846,7 +8838,7 @@ textarea.textarea-lg {
 	font-size: 18px;
 	line-height: 1.34;
 	font-weight: 500;
-	text-transform: uppercase;
+	text-transform: none;
 	font-family: "Montserrat", sans-serif, Arial, sans-serif;
 }
 
@@ -9042,7 +9034,7 @@ textarea.textarea-lg {
 	letter-spacing: .1em;
 	font-family: "Montserrat", sans-serif, Arial, sans-serif;
 	color: #9b9b9b;
-	text-transform: uppercase;
+	text-transform: none;
 	transition: all 300ms ease;
 }
 
@@ -9559,7 +9551,7 @@ h5 + .list-popular-product {
 	line-height: 1;
 	font-weight: 500;
 	letter-spacing: .1em;
-	text-transform: uppercase;
+	text-transform: none;
 	font-family: "Montserrat", sans-serif, Arial, sans-serif;
 }
 
@@ -9969,7 +9961,7 @@ h5 + .list-popular-product {
 	line-height: 1;
 	font-weight: 500;
 	letter-spacing: .025em;
-	text-transform: uppercase;
+	text-transform: none;
 	font-family: "Montserrat", sans-serif, Arial, sans-serif;
 	color: rgba(255, 255, 255, 0.4);
 	background: transparent;
@@ -10270,7 +10262,7 @@ h5 + .list-popular-product {
 
 .subtitle-404 {
 	line-height: .90;
-	text-transform: uppercase;
+	text-transform: none;
 	letter-spacing: 0.05em;
 	font-size: 2.5em;
 	display: block;
@@ -10296,7 +10288,7 @@ h5 + .list-popular-product {
 
 .subtitle-503 {
 	line-height: 1.2;
-	text-transform: uppercase;
+	text-transform: none;
 	letter-spacing: 0.05em;
 	font-size: 2.5em;
 	display: block;
@@ -12314,7 +12306,7 @@ html [class*='section-'].section-top-0 {
 	font-size: 30px;
 	font-weight: 200;
 	letter-spacing: 0.050em;
-	text-transform: uppercase;
+	text-transform: none;
 }
 
 @media (min-width: 768px) {
@@ -16056,7 +16048,7 @@ html.rd-navbar-fixed-linked .page {
 	padding: 30px 16px 25px;
 	font-size: 18px;
 	letter-spacing: .05em;
-	text-transform: uppercase;
+	text-transform: none;
 	font-family: "Montserrat", sans-serif, Arial, sans-serif;
 	z-index: 1;
 }
@@ -17244,7 +17236,7 @@ html.rd-navbar-fixed-linked .page {
 	font-size: 0;
 	line-height: 0;
 	font-family: "Montserrat", sans-serif, Arial, sans-serif;
-	text-transform: uppercase;
+	text-transform: none;
 	max-width: 100%;
 	color: #151515;
 	flex: 0 0 auto;
@@ -18639,7 +18631,7 @@ html.rd-navbar-fixed-linked .page {
 	font-size: 20px;
 	font-weight: 700;
 	line-height: 30px;
-	text-transform: uppercase;
+	text-transform: none;
 	color: #151515;
 }
 
@@ -18691,7 +18683,7 @@ html.rd-navbar-fixed-linked .page {
 	font-size: 16px;
 	font-weight: 500;
 	letter-spacing: 0.075em;
-	text-transform: uppercase;
+	text-transform: none;
 	text-align: center;
 	color: #ffffff;
 	background: #01b3a7;
@@ -18791,7 +18783,7 @@ html.rd-navbar-fixed-linked .page {
 	font-size: 12px;
 	line-height: 1.7;
 	letter-spacing: .1em;
-	text-transform: uppercase;
+	text-transform: none;
 	color: #000000;
 }
 
@@ -19588,7 +19580,7 @@ h1 + .tabs-line {
 
 .tabs-line .nav-link {
 	padding: 10px 10px 6px;
-	text-transform: uppercase;
+	text-transform: none;
 	font-size: 20px;
 	font-weight: 400;
 	line-height: 1;
@@ -19674,7 +19666,7 @@ h1 + .tabs-line {
 
 .tabs-corporate .nav-link {
 	padding: 12px 0 8px;
-	text-transform: uppercase;
+	text-transform: none;
 	font-size: 18px;
 	font-weight: 500;
 	line-height: 1;
@@ -20136,7 +20128,7 @@ h1 + .tabs-line {
 	font-size: 60px;
 	line-height: 0.6;
 	letter-spacing: .025em;
-	text-transform: uppercase;
+	text-transform: none;
 	font-family: "Montserrat", sans-serif, Arial, sans-serif;
 }
 
@@ -20223,7 +20215,7 @@ h1 + .tabs-line {
 	line-height: 0.8;
 	font-weight: 300;
 	letter-spacing: .025em;
-	text-transform: uppercase;
+	text-transform: none;
 	font-family: "Montserrat", sans-serif, Arial, sans-serif;
 	margin-bottom: 7px;
 }
@@ -20247,7 +20239,7 @@ h1 + .tabs-line {
 	font-weight: 400;
 	letter-spacing: .05em;
 	font-size: 16px;
-	text-transform: uppercase;
+	text-transform: none;
 }
 
 @media (min-width: 992px) {
@@ -20278,7 +20270,7 @@ h1 + .tabs-line {
 	line-height: .8;
 	font-weight: 300;
 	font-family: "Montserrat", sans-serif, Arial, sans-serif;
-	text-transform: uppercase;
+	text-transform: none;
 	letter-spacing: .025em;
 }
 
@@ -20372,7 +20364,7 @@ h1 + .tabs-line {
 	line-height: 0.8;
 	font-weight: 300;
 	letter-spacing: .1em;
-	text-transform: uppercase;
+	text-transform: none;
 	font-family: "Montserrat", sans-serif, Arial, sans-serif;
 }
 
@@ -20696,7 +20688,7 @@ h1 + .tabs-line {
 .progress-bar-circle-title {
 	font-size: 14px;
 	letter-spacing: normal;
-	text-transform: uppercase;
+	text-transform: none;
 	font-family: "Montserrat", sans-serif, Arial, sans-serif;
 	color: #151515;
 }
@@ -20746,7 +20738,7 @@ h1 + .tabs-line {
 	font-size: 16px !important;
 	line-height: 1.2 !important;
 	color: rgba(255, 255, 255, 0.3);
-	text-transform: uppercase;
+	text-transform: none;
 }
 
 .time_circles > div > h4 + * {
@@ -23318,7 +23310,7 @@ disabled look for disabled choices in the results dropdown
 	font-size: 18px;
 	line-height: 1;
 	letter-spacing: .1em;
-	text-transform: uppercase;
+	text-transform: none;
 	font-family: "Montserrat", sans-serif, Arial, sans-serif;
 }
 
