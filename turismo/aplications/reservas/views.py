@@ -197,6 +197,9 @@ class NosotrosView(TemplateView):
 class  ContactoView(TemplateView):
     template_name = "home/contactanos.html"
 
+class InformacionView(TemplateView):
+    template_name  = "home/informacion.html"
+
 
 class PanelView(TemplateView):
     template_name = "index.html"

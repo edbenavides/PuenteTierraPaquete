@@ -1,0 +1,147 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <title>Parque Nacional Natural Puracé</title>
+</head>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f8ff; /* Color de fondo suave */
+        color: #333; /* Color de texto */
+        margin: 0;
+        
+    }
+    .containerInformacion {
+        background-color: #ffffff; /* Fondo blanco para el contenido */
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 800px;
+        margin:auto;
+    }
+
+    h3 {
+        color: #2c3e50;
+        font-size: 24px;
+    }
+  
+    p {
+        font-size: 18px;
+        line-height: 1.6;
+        text-align: justify;
+    }
+
+</style>
+
+<body>
+    {% include 'navbar.html' %} 
+    <br><br><br>
+    <div class="containerInformacion">
+        <h3>Parque Nacional Natural Puracé</h3>
+
+    <section>
+        <p>
+            El Parque Nacional Natural Puracé, ubicado en el suroccidente de Colombia, es un área protegida en el departamento del Cauca, 
+            especialmente famosa por su imponente volcán Puracé, las aguas termales, y la riqueza cultural y ambiental que ofrece a sus visitantes.
+            Este parque, que forma parte del Sistema de Parques Nacionales Naturales de Colombia, cubre más de 83,000 hectáreas y es hogar de una 
+            gran variedad de ecosistemas de alta montaña, páramo, y selva andina.
+        </p>
+    </section>
+
+    <section>
+        <h3>Administración y Propiedad</h3>
+        <p>
+            El parque es administrado por Parques Nacionales Naturales de Colombia, una entidad del Ministerio de Ambiente y 
+            Desarrollo Sostenible, mientras que Puente Tierra es administrado por la comunidad indígena del Cabildo Indígena del Resguardo de Puracé,
+            quienes juegan un papel fundamental en su gestión y protección. Este modelo de coadministración asegura que se respete 
+            y conserve tanto el medio ambiente como las tradiciones culturales indígenas. Las comunidades locales participan 
+            activamente en la toma de decisiones sobre el uso del territorio, la conservación de los ecosistemas y el turismo 
+            responsable.
+        </p>
+    </section>
+
+    <section>
+        <h3>Conservación y Cuidado Ambiental</h3>
+        <p>
+            El parque es una reserva natural vital por su biodiversidad y recursos hídricos. Alberga una gran variedad de fauna
+            y flora, incluyendo especies en peligro de extinción como el oso de anteojos, el cóndor de los Andes, y una rica 
+            variedad de orquídeas. Los esfuerzos de conservación se centran en la protección de estos hábitats naturales y la 
+            regulación de actividades turísticas para evitar el impacto negativo en el ecosistema. Además, el parque es una
+            fuente importante de agua, ya que alberga varios ríos y fuentes de agua termal que abastecen a las comunidades 
+            circundantes.
+        </p>
+    </section>
+
+    <section>
+        <h3>Cultura y Patrimonio</h3>
+        <p>
+            El Parque Nacional Natural Puracé es considerado un territorio sagrado por las comunidades indígenas, 
+            que lo ven como un espacio esencial para la preservación de la naturaleza y la práctica de sus rituales
+            ancestrales. En especial, el sector de Puente Tierra ocupa un lugar importante en su cultura y estilo de vida.
+            Los visitantes tienen la oportunidad de sumergirse en las tradiciones y cosmovisión de estas comunidades,
+            lo que enriquece su experiencia cultural y les permite comprender el profundo respeto que ellas sienten por 
+            este lugar.
+        </p>
+    </section>
+
+    <section>
+        <h3>Turismo Responsable y Sostenible</h3>
+        <p>
+            El sector de Puente Tierra en el parque ofrece actividades de ecoturismo como caminatas hacia el volcán Puracé,
+            observación de aves, baños termales, hospedaje, restaurante asi como visitas a lagunas y cascadas, siempre bajo la guía de expertos locales. 
+            Los guías de la comunidad indígena ayudan a interpretar el valor ecológico y cultural del territorio, y 
+            aseguran que los visitantes respeten las normas de conservación. Este enfoque de turismo sostenible está diseñado
+            para minimizar el impacto ambiental y maximizar el respeto por la cultura local.
+        </p>
+    </section>
+
+    <section>
+        <h3>Atracciones Importantes para los Visitantes</h3>
+        <ul>
+            <li><strong>Volcán Puracé:</strong> Uno de los volcanes activos de Colombia, con una altura de 4,650 metros. 
+                Su ascenso es una de las actividades más populares, ofreciendo vistas impresionantes y la oportunidad de
+                 observar la fauna única del páramo. esta atraccion estara proximamente dispoble  para los visitantes</li>
+
+            <li><strong>Piscinas de Puente Tierra:</strong> Con propiedades curativas y rodeadas de paisajes andinos, 
+                son un atractivo imperdible para los turistas.</li>
+            <li><strong>Cascadas y lagunas:</strong> Como la cascada del Bedon, cascada de San Antonio el bebedero de las dantas y la Laguna de San Rafael, ideales
+                 para la observación de aves, especialmente el cóndor andino, símbolo nacional de Colombia.</li>
+            <li><strong>Rutas de senderismo:</strong> Diversas rutas permiten explorar la belleza del páramo y la selva 
+                andina, con guías que enseñan sobre las especies endémicas y la importancia de la conservación.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Información Adicional para los Visitantes</h3>
+        <p>
+            Para ingresar al parque, se recomienda a los turistas informarse sobre las condiciones climáticas y prepararse
+            para las alturas. También es esencial respetar las normas de preservación ambiental, como no dejar basura, 
+            no salirse de las rutas establecidas, y no extraer plantas o animales. Los visitantes pueden coordinar sus
+            visitas con anticipación a través de las oficinas de turismo y del Cabildo Indígena de Purace o tambien atravez de esta pagina.
+        </p>
+    </section>
+
+    <section>
+        <h3>Resumen</h3>
+        <p>
+            En resumen, el Parque Nacional Natural Puracé no solo es un espacio de biodiversidad impresionante sino un 
+            lugar donde convergen el respeto por la naturaleza y las tradiciones ancestrales. La colaboración entre Parques
+            Nacionales y las comunidades indígenas lo convierte en un modelo de conservación que protege tanto el patrimonio
+            ambiental como el cultural, ofreciendo a los turistas una experiencia única y respetuosa con el entorno natural
+            y la herencia cultural.
+        </p>
+    </section>
+
+    </div>
+<br><br><br><br>
+    
+    {% include 'home/footer.html' %} 
+</body>
+</html>
