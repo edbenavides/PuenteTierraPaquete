@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
+
 <body>
   {% include 'navbar.html' %}
   <!-- Hot tours -->
@@ -19,7 +21,8 @@
         <div class="col-sm-6 col-md-12 wow fadeInRight">
 
           <!-- Title dynamically set for each package -->
-          <h3 class="oh-desktop"><span class="d-inline-block wow slideInDown" style="color: #1074b1;">{{ paquete.nombre }}</span></h3>
+          <h3 class="oh-desktop"><span class="d-inline-block wow slideInDown" style="color: #1074b1;">{{ paquete.nombre
+              }}</span></h3>
 
           <!-- Product Big -->
           <article class="product-big">
@@ -67,12 +70,15 @@
                   <p style="text-align: justify;"><strong>Descripción:</strong> {{ paquete.descripcion }}</p>
                   <p style="text-align: justify;"><strong>Incluye:</strong> {{ paquete.incluye }}</p>
                   <p style="text-align: justify;"><strong>No Incluye:</strong> {{ paquete.no_incluye }}</p>
-                  <div class="product-big-price-wrap"><span class="product-big-price" style="color: #1074b1;"></span></div>
+                  <div class="product-big-price-wrap"><span class="product-big-price" style="color: #1074b1;"></span>
+                  </div>
                   <form action="{% url 'fechas_reserva' paquete.id %}" method="get">
-                    <button type="submit" class="btn btn-outline-primary mt-2">RESERVAR</button>
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-outline-primary mt-2">Reservar</button>
+                    </div>
                   </form>
                 </div>
-              </div>              
+              </div>
             </div>
           </article>
         </div>

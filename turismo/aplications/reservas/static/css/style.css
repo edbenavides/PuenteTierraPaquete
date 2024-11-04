@@ -24716,4 +24716,9 @@ img.mfp-img {
 		display: none;
 	}
 }
+.btn-outline-primary:hover {
+    background-color: #1074b1; /* Set background color on hover */
+    color: white; /* Optional: set text color on hover */
+    border-color: #1074b1; /* Change border color on hover */
+}
 
