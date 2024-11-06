@@ -110,31 +110,32 @@
                     <h4>Puente Tierra</h4>
                     <ul>
                         <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
-                        <li><a href="#">Nuestros servicios</a></li>
+                        <li><a href="{% url 'homeservicios' %}">Nuestros servicios</a></li>
                         <li><a href="{% url 'homecontactanos' %}">Contactos</a></li>
-                        <li><a href="#">Visitanos</a></li>
+                        <li><a href="{% url 'homevisitanos' %}">Visitanos</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-links">
                     <h4>Algunos recorridos</h4>
                     <ul>
-                        <li><a href="#">Mensajero del sol</a></li>
-                        <li><a href="">Lagunillas</a></li>
-                        <li><a href="#">sender de orquideas</a></li>
+                        <li><a href="{% url 'homemensajero' %}">Mensajero del sol</a></li>
+                        <li><a href="{% url 'homelagunillas' %}">Lagunillas</a></li>
+                        <li><a href="{% url 'homeorquideas' %}">sender de orquideas</a></li>
                 
                     </ul>
                 </div>
-
+                
                 <div class="footer-links">
                     <h4>Servicios</h4>
                     <ul>
-                        <li><a href="#">Piscinas</a></li>
+                        <li><a href="{% url 'homepiscinas' %}">Piscinas</a></li>
                         <li><a href="{% url 'homeRestaurante' %}">Restaurante</a></li>
-                        <li><a href="#">Cabañas</a></li>
-                        <li><a href="#">Camping</a></li>
+                        <li><a href="{% url 'homecabañas' %}">Cabañas</a></li>
+                        <li><a href="{% url 'homecamping' %}">Camping</a></li>
                     </ul>
                 </div>
+              
                 <div class="footer-links">
                     <h4>Contacto</h4>
                     <ul>

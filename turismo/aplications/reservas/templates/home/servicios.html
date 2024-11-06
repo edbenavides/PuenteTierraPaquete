@@ -1,0 +1,93 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f8ff; /* Color de fondo suave */
+        color: #333; /* Color de texto */
+        margin: 0;
+        
+    }
+
+    .containerserv {
+        background-color: #ffffff; /* Fondo blanco para el contenido */
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 800px;
+        margin:auto;
+    }
+
+    h3 {
+        color: #2c3e50;
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 18px;
+        line-height: 1.6;
+        text-align: justify;
+    }
+
+    .description {
+        background-color: #eaf7ff; /* Fondo para resaltar */
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 5px;
+    }
+
+</style>
+
+<body>
+    {% include 'navbar.html' %} 
+
+    <div class="containerserv">
+        <div class="descriptionser">
+            <h3>Recorridos por el parque Nacional Natural  Purace</h3>
+            <p>
+                "Te ofrecemos la opurtunidad de hacer diferentes recorridos dentro del parque, donde puedes disfrutar de una gran
+                diversidad de flora  y de fauna, disfrutar de rios, cascadas, lagunas, montañas, valles cubiertos de frailejones,
+                y muchas cosas mas"
+            </p>
+
+        </div>
+       <br><br>
+        <h3>Servicio de piscinas de agua termal</h3>
+        <p>
+            "Te ofrecemos la oportunidad de disfrutar de piscinas de agua termal, donde  puedes relajarte y disfrutar de un 
+            ambiente natural y tranquilo, donde gozaras de un baño de agua termal, que tiene propiedades curativas  para tu
+            cuerpo y mente"
+        </p>
+        <br><br>
+        <h3>Servicio de Hospedaje</h3>
+        <p>
+            "Te ofrecemos la oportunidad de hospedarte en un lugar tranquilo y natural,  donde puedes disfrutar de un ambiente
+            tranquilo, donde puedes descansar desconectado del bullicio de la ciudad."
+        </p>
+         <br><br>
+        <h3>Servicio de Restaurante</h3>
+        <p>
+        
+            ¡Calienta tu corazón con nuestros sabores de montaña!
+            ¿Sientes el frío? ¡Nosotros tenemos la receta perfecta para combatirlo! Ven a disfrutar de nuestros
+            platos tradicionales que capturan lo mejor del clima frío. Desde sopas reconfortantes hasta guisos
+            y carnes ahumadas, cada plato te llevará de vuelta a esos días de invierno junto al fuego.
+        </p>
+    </div>
+    
+    
+
+<br><br><br><br>
+
+{% include 'home/footer.html' %} 
+</body>
+</html>

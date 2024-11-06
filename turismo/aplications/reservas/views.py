@@ -200,6 +200,29 @@ class  ContactoView(TemplateView):
 class InformacionView(TemplateView):
     template_name  = "home/informacion.html"
 
+class VisitaView(TemplateView):
+    template_name ="home/visitanos.html"
+
+class serviciosView(TemplateView):
+    template_name = "home/servicios.html"
+
+class mensajeroView(TemplateView):
+    template_name =  "home/mensajero.html"
+
+class OrquideasView(TemplateView):
+    template_name = "home/orquideas.html"
+
+class LagunillasView(TemplateView):
+    template_name = "home/lagunillas.html"
+
+class PiscinasView(TemplateView):
+    template_name = "home/piscinas.html"
+
+class CabañasView(TemplateView):
+    template_name = "home/cabañas.html"
+
+class CampingView(TemplateView):
+    template_name = "home/camping.html"
 
 class PanelView(TemplateView):
     template_name = "index.html"
