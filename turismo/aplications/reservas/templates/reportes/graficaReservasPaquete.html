@@ -1,4 +1,5 @@
 {% extends 'Panel/panelPadre.html' %}
+{% load static %}
 {% block graficaReservaPaquete %}
 
 <!DOCTYPE html>
@@ -13,7 +14,7 @@
     <div class="right_col" role="main">
         <br><br>
  
-        <h1 style="color: hsl(203, 83%, 38%);text-align: center;"> Reservas por Paquete Turístico {{ mes_actual }}/{{ año_actual }}</h1>
+        <h1 style="color: hsl(203, 83%, 38%);text-align: center;"> Reservas por paquete turístico</h1>
     <!-- Formulario para seleccionar mes y año -->
     <form method="get" action=".">
         <label for="mes">Mes:</label>
@@ -34,7 +35,9 @@
     </form>
 
     <!-- Contenedor para el gráfico -->
-    <div id="reservasGrafico" style="width: 700px; height: 500px;"></div>
+    <div style="display: flex; justify-content: center; margin-top: 1px;">
+        <div id="reservasGrafico" style="width: 1000px; height: 480px;"></div>
+    </div>
 
     <script type="text/javascript">
         // Obtener los datos del contexto de Django
@@ -67,7 +70,7 @@
                 name: 'Paquetes Turísticos',
                 axisLabel: {
                     rotate: 44, // Rotar para mostrar mejor los nombres largos
-                    fontSize: 10,  // Ajustar tamaño de la fuente para nombres largos
+                    fontSize: 12,  // Ajustar tamaño de la fuente para nombres largos
                     interval: 0,  // Mostrar todos los nombres
                     formatter: function (value) {
                         return value;
@@ -106,3 +109,4 @@
 </html>
 </div>
 {% endblock %}
+
