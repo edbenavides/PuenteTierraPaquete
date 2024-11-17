@@ -12,27 +12,141 @@
 
 <body>
     {% include 'navbar.html' %}
-    
+
     <div class="principal">
-        
         <!-- Contenedor de Título -->
         <div class="title-container">
             <h1 class="main-title">Registro de usuario</h1>
-            <p class="subtitle">Usted ha seleccionado el paquete: <strong>{{ paquete.nombre }}</strong></p>
-            <p class="subtitle">Fecha de reserva: desde <strong>{{ fecha_reserva.fechaInicio }}</strong> hasta <strong>{{ fecha_reserva.fechaFinal }}</strong></p>
+            <p>Usted ha seleccionado el paquete: <strong>{{ paquete.nombre }}</strong></p>
+            <p>Fecha de reserva: desde <strong>{{ fecha_reserva.fechaInicio }}</strong> hasta
+                <strong>{{ fecha_reserva.fechaFinal }}</strong></p>
         </div>
+
         <!-- Contenedor del Formulario -->
         <div class="containerform">
+            <!-- Form Template Code -->
             <form id="formulario" method="post" enctype="multipart/form-data" autocomplete="off">
                 {% csrf_token %}
-                {{ form.as_p }}
-                <div class="text-center mt-8">
-                    <button type="submit" class="btn btn-outline-primary mt-2">Completar Reserva</button>
+
+                <!-- Display form-wide non-field errors -->
+                {% if form.non_field_errors %}
+                <div class="alert alert-danger">
+                    {% for error in form.non_field_errors %}
+                    <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                <!-- Row 1: Tipo de Documento, Número de Documento, Nombre -->
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label for="id_tipo_documento">Tipo de Documento</label>
+                        {{ form.tipo_documento }}
+                        {% if form.tipo_documento.errors %}
+                        <div class="text-danger">
+                            {{ form.tipo_documento.errors }}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-4">
+                        <label for="id_numero_documento">Número de Documento</label>
+                        {{ form.numero_documento }}
+                        {% if form.numero_documento.errors %}
+                        <div class="text-danger">
+                            {{ form.numero_documento.errors }}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-4">
+                        <label for="id_nombre">Nombre</label>
+                        {{ form.nombre }}
+                        {% if form.nombre.errors %}
+                        <div class="text-danger">
+                            {{ form.nombre.errors }}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- Row 2: Apellidos, Teléfono, Nacionalidad -->
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label for="id_apellidos">Apellidos</label>
+                        {{ form.apellidos }}
+                        {% if form.apellidos.errors %}
+                        <div class="text-danger">
+                            {{ form.apellidos.errors }}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-4">
+                        <label for="id_telefono">Teléfono</label>
+                        {{ form.telefono }}
+                        {% if form.telefono.errors %}
+                        <div class="text-danger">
+                            {{ form.telefono.errors }}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-3">
+                        <label for="id_nacionalidad">Nacionalidad</label>
+                        {{ form.nacionalidad }}
+                        {% if form.nacionalidad.errors %}
+                        <div class="text-danger">
+                            {{ form.nacionalidad.errors }}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- Row 3: Email -->
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label for="id_email">Correo Electrónico</label>
+                        {{ form.email }}
+                        {% if form.email.errors %}
+                        <div class="text-danger">
+                            {{ form.email.errors }}
+                        </div>
+                        {% endif %}
+                    </div>
+                
+
+                <!-- Row 4: Contraseña, Confirmar Contraseña -->
+                
+                    <div class="col-md-4">
+                        <label for="id_password1">Contraseña</label>
+                        {{ form.password1 }}
+                        {% if form.password1.errors %}
+                        <div class="text-danger">
+                            {{ form.password1.errors }}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-4">
+                        <label for="id_password2">Confirmar Contraseña</label>
+                        {{ form.password2 }}
+                        {% if form.password2.errors %}
+                        <div class="text-danger">
+                            {{ form.password2.errors }}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-outline-primary">Completar Reserva</button>
                 </div>
             </form>
+
+
         </div>
-    </div>
+    </div><br><br><br>
+
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 </body>
+
 </html>
 {% include 'home/footer.html' %}

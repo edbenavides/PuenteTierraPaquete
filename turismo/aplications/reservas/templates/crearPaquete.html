@@ -5,12 +5,12 @@
 <link rel="stylesheet" href="{% static 'css/crearPaquete.css' %}">
 <div class="right_col" role="main">
     <div tex='center'>
-        <h1 style="color: hsl(203, 83%, 38%)"> Ingresar Datos del Paquete </h1>
+        <h1 style="color: hsl(203, 83%, 38%); text-align: center;"> Ingresar datos del paquete </h1>
     </div>
     <form class="formulario-colorido" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Guardar Datos</button>
+        <button type="submit" class="btn btn-primary">Guardar datos</button>
     </form><br>
 </div>
 
