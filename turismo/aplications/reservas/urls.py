@@ -17,7 +17,8 @@ urlpatterns = [
     path('panelIndexCliente/', views.PanelClienteView.as_view(),name='panelIndexCliente'),
     path('home/', views.PruebaView.as_view()),
     path('crea/', views.paqueteCreateView.as_view(),name='crearPaquete'),
-    path('listar/', views.PaqueteListView.as_view(),name='paquetelistar'), 
+    path('listar/', views.PaqueteListView.as_view(),name='paquetelistar'),
+     
 
 
 
@@ -32,7 +33,7 @@ urlpatterns = [
 
 
 
-    # rutas credas para el home inicial y el formulario de las PQRS
+    # rutas credas para el home inicial y otros formularios y vistas
     path('', views.HomeView.as_view(),name='homePrincipal'),
     path('homeRestaurante/', views.RestauranteView.as_view(),name='homeRestaurante'),
     path('pqrs_form/', views.pqrsCliente,name='pqrs_form'),
@@ -41,7 +42,14 @@ urlpatterns = [
     path('nosotros/', views.NosotrosView.as_view(),name='nosotros'),
     path('contactanos', views.ContactoView.as_view(),name='homecontactanos'),
     path('informacion/', views.InformacionView.as_view(),name='homemasinformacion'),
-
+    path('visitanos/', views.VisitaView.as_view(), name ='homevisitanos'),
+    path('servicios/', views.serviciosView.as_view(), name ='homeservicios'),
+    path('mensajero/', views.mensajeroView.as_view(), name ='homemensajero'),
+    path('lagunillas/', views.LagunillasView.as_view(), name ='homelagunillas'),
+    path('orquideas/', views.OrquideasView.as_view(), name ='homeorquideas'),
+    path('piscinas/', views.PiscinasView.as_view(), name ='homepiscinas'),
+    path('cabañas/', views.CabañasView.as_view(), name ='homecabañas'),
+    path('camping/', views.CampingView.as_view(), name ='homecamping'),
 
 
     path('listarMejorado/', views.PaqueteListarUsuarioMejoradoListView.as_view(), name='listarMejorado'),
