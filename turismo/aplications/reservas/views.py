@@ -94,6 +94,7 @@ def verificar_cliente(request, paquete_id, fecha_id):
                 return redirect('panelCliente')  # Redirect to the client panel
             else:
                 form.add_error(None, 'El nombre de usuario o la contraseña son incorrectos')
+                form.add_error(None, 'Usuario No se encuentra registrado')
     else:
         form = LoginForm()
 

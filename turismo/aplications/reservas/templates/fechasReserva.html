@@ -12,7 +12,6 @@
 
 <body>
     {% include 'navbar.html' %}
-
     <div class="principal">
         <!-- Title and Subtitle -->
         <div class="title-container">
@@ -23,7 +22,7 @@
         <div class="containerform">
             <form method="post" onsubmit="return validateForm();">
                 {% csrf_token %}
-                
+
                 <div class="form-group">
                     <label for="id_fechaInicio">Fecha inicio</label>
                     <input type="date" name="fechaInicio" id="id_fechaInicio" required>
